@@ -2,7 +2,7 @@
 This is a custom setup generated iteratively for the RSG workshops.
 {% endcomment %}
 
-{% for item in site.data.lessons.lessons %}
+{% for item in site.lessons %}
 {% assign setup = 'rsg/' | append: item.gh-name | append: '-lesson/setup.md' %}
 {% include {{ setup }} %}
 {% endfor %}
