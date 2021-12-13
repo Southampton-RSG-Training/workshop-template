@@ -17,11 +17,11 @@ html_template = "<div class=\"row\">"  # Start of the HTML template
 # Read the yaml file containing the lesson configuration
 
 with open("_config.yml", "r") as f:
-    website_config = yaml.load(f, yaml.Loader)
+    lesson_config = yaml.load(f, yaml.Loader)
 
 # Go through each lesson to get and update the schedule, depending on start time
 
-for lesson in website_config["lessons"]:
+for lesson in lesson_config["lessons"]:
 
     lesson_title = lesson.get("title", None)
     lesson_name = lesson.get("gh-name", None)
@@ -41,19 +41,17 @@ for lesson in website_config["lessons"]:
 
     # Change things to a list, if they are not already so we can loop over them
 
-    if not isinstance(lesson_date, list):
+    if type(lesson_date) is not list:
         lesson_date = [lesson_date]
-    if not isinstance(lesson_start_time, list):
+    if type(lesson_start_time) is not list:
         lesson_start_time = [lesson_start_time]
-
-    assert len(lesson_date) == len(schedule_tables), f"{lesson_name} lesson config has {len(schedule_tables)} schedules but {len(lesson_date)} lesson date(s)"
-    assert len(lesson_start_time) == len(schedule_tables), f"{lesson_name} lesson config has {len(schedule_tables)} schedules but {len(lesson_start_time)} start time(s)"
 
     # Loop over each schedule table, if the event is multi-day
 
     for i, schedule_table in enumerate(schedule_tables):
         schedule_table.columns = ["time", "session"]
         lesson_permalink = html_soup.find_all("a", href=True)[i]["href"]  # assume each table has a link to the lesson
+
         this_lesson_start_time = lesson_start_time[i]
         this_lesson_date = lesson_date[i]
 
@@ -61,12 +59,12 @@ for lesson in website_config["lessons"]:
         # object, depending on how it is written. Examples of the different
         # formats are inline with how we deal with them below.
 
-        if isinstance(this_lesson_start_time, str):
+        if type(this_lesson_start_time) is str:
             try:
                 start_time = datetime.datetime.strptime(this_lesson_start_time, "%I:%M %p")  # start-time: 9:30 am
             except ValueError:
                 start_time = datetime.datetime.strptime(this_lesson_start_time, "%H:%M")     # start-time: "9:30"
-        elif isinstance(this_lesson_start_time, int):
+        elif type(this_lesson_start_time) is int:
             hours, minutes = divmod(this_lesson_start_time, 60)
             start_time = datetime.datetime.strptime(f"{hours}:{minutes}", "%H:%M")      # start-time: 9:30
         else:
@@ -83,15 +81,10 @@ for lesson in website_config["lessons"]:
         # Construct the schedule table for this lesson, adding delta_minutes to
         # each original entry, and add the schedule table to the html template
 
-        if len(schedule_tables) > 1:
-            this_lesson_title = f"Day {i + 1} - {lesson_title}"
-        else:
-            this_lesson_title = lesson_title
-
         table = f"""
         <div class="row">
             <div class="col-md-6">
-                <a href="{lesson_permalink}"><h3>{this_lesson_title}</h3></a>
+                <a href="{lesson_permalink}"><h3>{lesson_title}</h3></a>
                 <h4>{this_lesson_date}</h4>
                 <table class="table table-striped">
         """
