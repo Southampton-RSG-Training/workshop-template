@@ -4,7 +4,7 @@ Reads the lessons.yml configuration file to determine the lessons, then parses
 the schedules from each lesson and adds a delta time to the start time of each
 schedule depending on the start time of the lesson. The scheduled for each
 lesson are then put into a single schedule (split by tables) and written to
-the main schedule.html file. There are a maximum of two tables per row.
+the main schedule.html file.
 """
 
 import datetime
@@ -12,127 +12,99 @@ import yaml
 import pandas
 from bs4 import BeautifulSoup as bs
 
+html_template = "<div class=\"row\">"  # Start of the HTML template
 
-def get_yaml_config(yaml_file):
-    """Read a yaml file and return a dictionary of its contents.
+# Read the yaml file containing the lesson configuration
 
-    Args:
-        lessons_file: The path to the lessons.yml file.
-
-    Returns:
-        A dictionary of lessons.
-    """
-    with open(yaml_file, "r") as fp:
-        config = yaml.load(fp, yaml.Loader)
-
-    return config
-
-
-def get_start_time_object(lesson_start_time):
-    """Return a datetime object from a string.
-
-    Args:
-        lesson_start_time: The string to convert to a datetime object.
-
-    Returns:
-        A datetime object.
-    """
-    if isinstance(lesson_start_time, str):
-        try:
-            time = datetime.datetime.strptime(lesson_start_time, "%I:%M %p")  # start-time: 9:30 am
-        except ValueError:
-            time = datetime.datetime.strptime(lesson_start_time, "%H:%M")     # start-time: "9:30"
-    elif isinstance(lesson_start_time, int):
-        hours, minutes = divmod(lesson_start_time, 60)
-        time = datetime.datetime.strptime(f"{hours}:{minutes}", "%H:%M")      # start-time: 9:30
-    else:
-        raise ValueError(f"Invalid time string format for start-time: {lesson_start_time}")
-
-    return time
-
-
-workshop_config = get_yaml_config("_config.yml")
-html_schedule = "<div class=\"row\">"
+with open("_config.yml", "r") as f:
+    lesson_config = yaml.load(f, yaml.Loader)
 
 # Go through each lesson to get and update the schedule, depending on start time
 
-for i, lesson in enumerate(workshop_config["lessons"]):
+for lesson in lesson_config["lessons"]:
 
     lesson_title = lesson.get("title", None)
     lesson_name = lesson.get("gh-name", None)
-    lesson_date = lesson.get("date", None)
-    lesson_start = lesson.get("start-time", None)
+    lesson_date = lesson.get("date", None)              # can be a list
+    lesson_start_time = lesson.get("start-time", None)  # can be a list
 
-    if [thing for thing in (lesson_name, lesson_date, lesson_title, lesson_start) if thing is None]:
+    if [thing for thing in (lesson_name, lesson_date, lesson_title, lesson_start_time) if thing is None]:
         raise ValueError(f"gh-name, date, title, and start-time are required for each lesson")
 
-    # Want these as a list, to loop over later
-
-    if not isinstance(lesson_date, list):
-        lesson_date = [lesson_date]
-    if not isinstance(lesson_start, list):
-        lesson_start = [lesson_start]
-
-    # Get the schedules and html for each lesson
+    # Get the schedule for the lesson into a panadas dataframe, and then figure
+    # stuff out
 
     with open(f"_includes/rsg/{lesson_name}-lesson/schedule.html", "r") as fp:
         schedule_html = fp.read()
+    schedule_tables = pandas.read_html(schedule_html, flavor="bs4")  # reads in multiple tables, for multi-day lessons
+    html_soup = bs(schedule_html, "html.parser")  # maybe this could be more efficient? :)
 
-    schedule_soup = bs(schedule_html, "html.parser")
-    schedule_tables = pandas.read_html(schedule_html, flavor="bs4")
+    # Change things to a list, if they are not already so we can loop over them
 
-    assert len(lesson_date) == len(schedule_tables), f"{lesson_name} config has {len(schedule_tables)} schedules but {len(lesson_date)} lesson dates"
-    assert len(lesson_start) == len(schedule_tables), f"{lesson_name} config has {len(schedule_tables)} schedules but {len(lesson_start)} start times"
+    if type(lesson_date) is not list:
+        lesson_date = [lesson_date]
+    if type(lesson_start_time) is not list:
+        lesson_start_time = [lesson_start_time]
 
     # Loop over each schedule table, if the event is multi-day
 
-    n_tables_in_row = 0
+    for i, schedule_table in enumerate(schedule_tables):
+        schedule_table.columns = ["time", "session"]
+        lesson_permalink = html_soup.find_all("a", href=True)[i]["href"]  # assume each table has a link to the lesson
 
-    for j, schedule in enumerate(schedule_tables):
+        this_lesson_start_time = lesson_start_time[i]
+        this_lesson_date = lesson_date[i]
 
-        schedule.columns = ["time", "session"]
-        permalink = schedule_soup.find_all("a", href=True)[j]["href"]  # assumes each table has a link to a episode
-        lesson_start = get_start_time_object(lesson_start[j])
-        date = lesson_date[j]
+        # There is some sorcery required to mangle start-time into a datetime
+        # object, depending on how it is written. Examples of the different
+        # formats are inline with how we deal with them below.
+
+        if type(this_lesson_start_time) is str:
+            try:
+                start_time = datetime.datetime.strptime(this_lesson_start_time, "%I:%M %p")  # start-time: 9:30 am
+            except ValueError:
+                start_time = datetime.datetime.strptime(this_lesson_start_time, "%H:%M")     # start-time: "9:30"
+        elif type(this_lesson_start_time) is int:
+            hours, minutes = divmod(this_lesson_start_time, 60)
+            start_time = datetime.datetime.strptime(f"{hours}:{minutes}", "%H:%M")      # start-time: 9:30
+        else:
+            raise ValueError(f"start-time {this_lesson_start_time} for lesson \"{lesson['title']}\" is invalid format")
 
         # Calculate the time difference between the start time, and the start
         # time in the original schedule. This delta time (in minutes) is added
         # to each time in the original schedule
 
-        original_start_time = get_start_time_object(schedule["time"][0])
-        delta_start = divmod((lesson_start - original_start_time).total_seconds(), 60)[0]
+        original_start_time = datetime.datetime.strptime(schedule_table["time"][0], "%H:%M")
+        delta_start = start_time - original_start_time
+        delta_minutes = divmod(delta_start.total_seconds(), 60)[0]
 
         # Construct the schedule table for this lesson, adding delta_minutes to
         # each original entry, and add the schedule table to the html template
 
-        if len(schedule_tables) > 1:
-            table_title = f"Day {j + 1} - {lesson_title}"
-        else:
-            table_title = lesson_title
-
-        table_html = f"""
-        <div class="table-responsive col-md-6">
-            <a href="{permalink}"><h3>{table_title}</h3></a>
-            <h4>{date}</h4>
-            <table class="table table-striped">
+        table = f"""
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{lesson_permalink}"><h3>{lesson_title}</h3></a>
+                <h4>{this_lesson_date}</h4>
+                <table class="table table-striped">
         """
 
-        for time, session in zip(schedule["time"], schedule["session"]):
-            actual_time = datetime.datetime.strptime(time, "%H:%M") + datetime.timedelta(minutes=delta_start)
-            table_html += f"<tr> <td> {actual_time.hour:02d}:{actual_time.minute:02d} </td> <td> {session} </td> </tr>\n"
+        for time, session in zip(schedule_table["time"], schedule_table["session"]):
+            actual_time = datetime.datetime.strptime(time, "%H:%M") + datetime.timedelta(minutes=delta_minutes)
+            table += f"<tr> <td> {actual_time.hour:02d}:{actual_time.minute:02d} </td>    <td> {session} </td> </tr>\n"
 
-        table_html += "    </table></div>"
-        n_tables_in_row += 1
+        table += """
+                </table>
+            </div>
+        </div>
+        """
 
-        if n_tables_in_row % 2 == 0:
-            table_html += "</div>"
-
-    html_schedule += table_html
+        html_template += table
 
 # Finish off the template and use BeautifulSoup to write a pretty version of
 # the html file (which is not that pretty, actually)
 
-html_schedule += "</div>"
-
+html_template += "</div>"
+pretty_table = bs(html_template, "html.parser").prettify()
 with open("_includes/rsg/schedule.html", "w") as fp:
-    fp.write(bs(html_schedule, "html.parser").prettify())
+    fp.write(pretty_table)
