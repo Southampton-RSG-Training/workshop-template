@@ -3,3 +3,14 @@
 	path = submodules/shell-novice
 	url = https://github.com/Southampton-RSG-Training/shell-novice.git
 	branch = gh-pages
+[submodule "submodules/git-novice"]
+	path = submodules/git-novice
+	url = https://github.com/Southampton-RSG-Training/git-novice.git
+	branch = gh-pages
+[submodule "submodules/project-novice"]
+	path = submodules/project-novice
+	url = https://github.com/Southampton-RSG-Training/project-novice.git
+	branch = gh-pages
+[submodule "submodules/reveal.js"]
+	path = submodules/reveal.js
+	url = https://github.com/hakimel/reveal.js.git
