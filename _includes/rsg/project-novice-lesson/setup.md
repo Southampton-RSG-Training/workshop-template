@@ -1,6 +1,3 @@
----
-title: Setup
----
 
 {% if site.carpentry == "rsg" %}
   {% assign slidelink = "slides/project-novice-lesson/index.html" %}

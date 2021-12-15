@@ -1,4 +1,4 @@
-## Git Setup ##
+#### Git Setup 
 
 {% if site.carpentry == "rsg" %}
   {% assign slidelink = "slides/git-novice-lesson/index.html" %}
