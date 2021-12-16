@@ -9,8 +9,11 @@ start times to what is in the schedule. The schedules are written then in an
 import datetime
 import yaml
 import pandas
+import glob
 import textwrap
 from bs4 import BeautifulSoup as bs
+from pathlib import Path
+import string
 
 
 def get_yaml_config():
@@ -74,7 +77,8 @@ def write_detailed_lesson_schedule(lesson_name):
     """Create a detailed lesson schedule landing page for each lesson.
 
     The schedule is based on a modifed version of syllabus.html to work better
-    work the workshop format.
+    with the workshop format. This function also renames the ordering of
+    lessons, so the schedule will always be lesson 00.
 
     Parameters
     ----------
@@ -82,19 +86,23 @@ def write_detailed_lesson_schedule(lesson_name):
         The name of the lesson.
     """
     schedule_markdown = textwrap.dedent(f"""---
-    title: ""
+    title: Lesson Schedule
     slug: {lesson_name}-schedule
-    layout: page
+    layout: schedule
     ---
-    {{% include episode_navbar.html episode_navbar_title=true %}}
-    <div align="center"><h1>Lesson Schedule</h1><br></div>
     {{% include syllabus.html  gh-name="{lesson_name}" %}}
-    {{% include episode_navbar.html episode_navbar_tile=true %}}
     """)
 
     schedule = "\n".join([line.lstrip() for line in schedule_markdown.splitlines()])
 
-    with open(f"collections/_episodes/{lesson_name}-lesson/00-schedule.md", "w") as fp:
+    location = f"collections/_episodes/{lesson_name}-lesson"
+
+    for i, file in enumerate(sorted(glob.glob(f"{location}/[0-9]*.md"))):
+        filepath = Path(file)
+        new_file_name = f"{i + 1:02d}{filepath.stem.lstrip(string.digits)}.md"
+        filepath.rename(f"{location}/{new_file_name}")
+
+    with open(f"{location}/00-schedule.md", "w") as fp:
         fp.write(schedule)
 
 
