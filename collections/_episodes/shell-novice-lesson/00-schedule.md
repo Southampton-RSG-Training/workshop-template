@@ -1,5 +1,5 @@
 ---
-title: Lesson schedule
+title: Lesson Schedule
 slug: shell-novice-schedule
 layout: page
 ---

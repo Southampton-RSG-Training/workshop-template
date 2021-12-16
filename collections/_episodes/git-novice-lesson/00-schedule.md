@@ -1,5 +1,5 @@
 ---
-title: Lesson schedule
+title: Lesson Schedule
 slug: git-novice-schedule
 layout: page
 ---
