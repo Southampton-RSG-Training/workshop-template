@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup as bs
 from pathlib import Path
 import string
 from enum import Enum
+import dateutil
 
 
 class LessonType(Enum):
@@ -36,6 +37,37 @@ def get_yaml_config():
         config = yaml.load(fp, yaml.Loader)
 
     return config
+
+
+def get_date_object(datestr):
+    """Convert a date string into a datetime object.
+
+    On failure to convert a string, None is returned.
+
+    Parameters
+    ----------
+    datestr: str
+        The string of the date, in format YYYY-MM-DD.
+
+    Returns
+    -------
+    date: datetime.date
+        The date object. If unable to parse, then None is returned instead.
+    """
+    if datestr is None:
+        return None
+
+    if isinstance(datestr, datetime.date):
+        return datestr
+    elif not isinstance(datestr, str):
+        raise ValueError(f"datestr is not a string but {type(datestr)}")
+
+    try:
+        date =  dateutil.parser.parse(datestr).date()
+    except dateutil.parser.ParserError:
+        date =  None
+
+    return date
 
 
 def get_time_object(time_string):
@@ -113,27 +145,39 @@ def write_detailed_lesson_schedule(lesson_name, start_time):
         fp.write("\n".join([line.lstrip() for line in schedule_markdown.splitlines()]))
 
 
-website_config = get_yaml_config()
 html_schedules = ""  # HTML string containing the tables for each schedule
+website_config = get_yaml_config()
+
+# Try to parse the start and end date for the workshop, to check that lessons
+# are in the correct time frame. If the date is not a valid date, i.e. if it
+# still says FIXME, then we do not check the start and end date.
+
+workshop_start_date = get_date_object(website_config.get("startdate", None))
+workshop_end_date = get_date_object(website_config.get("enddate", None))
+
+# Iterate over each lesson, to add their schedule to the html_schedules string
 
 for lesson in website_config["lessons"]:
 
     lesson_title = lesson.get("title", None)
     lesson_name = lesson.get("gh-name", None)
-    lesson_type = LessonType(lesson.get("type", None))
-    lesson_date = lesson.get("date", None)         # can be a list
-    lesson_start = lesson.get("start-time", None)  # can be a list
+    lesson_date = lesson.get("date", None)              # can be a list
+    lesson_start = lesson.get("start-time", None)       # can be a list
+    lesson_type = LessonType(lesson.get("type", None))  # have to differentiate between markdown and r-markdown lessons
 
     if [thing for thing in (lesson_name, lesson_date, lesson_title, lesson_start) if thing is None]:
         raise ValueError(f"gh-name, date, title, and start-time are required for each lesson")
 
     # Since we allow multiple dates and start times per lesson, we need to be
-    # able to iterate over even single values so turn into list
+    # able to iterate over even single values so turn into list. When done,
+    # convert the dates from str to datetime.date objects.
 
     if type(lesson_date) is not list:
         lesson_date = [lesson_date]
     if type(lesson_start) is not list:
         lesson_start = [lesson_start]
+
+    lesson_date = [get_date_object(date) for date in lesson_date]
 
     # Get the schedule(s) for the lesson into a dataframe and also the html
     # so we can search for the permalinks
@@ -152,7 +196,12 @@ for lesson in website_config["lessons"]:
         permalink = soup.find_all("a", href=True)[i]["href"]  # assume each table has a permalink to a lesson
         start_time = get_time_object(lesson_start[i])
         original_start = get_time_object(schedule["time"][0])
-        date = lesson_date[i]
+        datestr = lesson_date[i].strftime("%d %B %Y")
+
+        if workshop_start_date and lesson_date[i] < workshop_start_date:
+            raise ValueError(f"The date for {lesson_name} day {i + 1} is before the workshop start date")
+        if workshop_end_date and lesson_date[i] > workshop_end_date:
+            raise ValueError(f"The date for {lesson_name} day {i + 1} is after the workshop end date")
 
         # Calculate the time difference between the start time and the start
         # time in the original schedule. This delta time (in minutes) is added
@@ -171,7 +220,7 @@ for lesson in website_config["lessons"]:
         table = f"""
         <div class="col-md-6">
             <a href="{lesson_name}-schedule"><h3>{title}</h3></a>
-            <h4>{date}</h4>
+            <h4>{datestr}</h4>
             <table class="table table-striped">
         """
 
