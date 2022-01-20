@@ -145,7 +145,9 @@ In this case,
 > * B and C
 >
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > if 4 > 5:
 >     print('A')
@@ -156,7 +158,9 @@ In this case,
 > ~~~
 >
 >
-> {: .solution}
+> 
+{: .solution}
+
 > > ## Solution
 > > C gets printed because the first two conditions, `4 > 5` and `4 == 5`, are not true,
 > > but `4 < 5` is true.
@@ -172,7 +176,9 @@ In this case,
 > explain what the rule is for which values are considered true and which are considered false.
 >
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > if '':
 >     print('empty string is true')

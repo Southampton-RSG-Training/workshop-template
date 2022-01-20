@@ -206,7 +206,9 @@ Although we commonly refer to `variables` even in Python (because it is the comm
 > Draw diagrams showing what variables refer to what values after each statement
 > in the following program:
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > weight = 70.5
 > age = 35
@@ -223,18 +225,24 @@ Although we commonly refer to `variables` even in Python (because it is the comm
 >
 > What does the following program print out?
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > first, second = 'Grace', 'Hopper'
 > ~~~
 >
-> {: .output}
+> 
+{: .output}
+
 > ~~~
 > first = Grace
 > second = Hopper
 > ~~~
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > third, fourth = second, first
 > print(third, fourth)

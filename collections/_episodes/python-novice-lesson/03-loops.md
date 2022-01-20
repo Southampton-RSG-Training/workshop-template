@@ -366,7 +366,9 @@ so we should always use it when we can.
 > write a loop to print the first 3 natural numbers:
 >
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > 1
 > 2
@@ -386,7 +388,9 @@ so we should always use it when we can.
 > Use a for-loop to convert the string "hello" into a list of letters:
 >
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > ["h", "e", "l", "l", "o"]
 > ~~~
@@ -394,13 +398,17 @@ so we should always use it when we can.
 > Hint: You can create an empty list like this:
 >
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > my_list = []
 > ~~~
 >
 >
-> {: .solution}
+> 
+{: .solution}
+
 > > ## Solution
 > > ~~~
 > > my_list = []
@@ -415,7 +423,9 @@ so we should always use it when we can.
 > Exponentiation is built into Python:
 >
 >
-> {: .python}
+> 
+{: .python}
+
 > ~~~
 > print(5 ** 3)
 >125
