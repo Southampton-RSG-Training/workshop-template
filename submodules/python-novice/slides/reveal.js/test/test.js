@@ -518,8 +518,8 @@ Reveal.addEventListener( 'ready', function() {
 
 	QUnit.module( 'Lazy-Loading' );
 
-	QUnit.test( 'img with data-src', function( assert ) {
-		assert.strictEqual( document.querySelectorAll( '.reveal section img[src]' ).length, 1, 'Image source has been set' );
+	QUnit.test( 'fig with data-src', function( assert ) {
+		assert.strictEqual( document.querySelectorAll( '.reveal section fig[src]' ).length, 1, 'Image source has been set' );
 	});
 
 	QUnit.test( 'video with data-src', function( assert ) {

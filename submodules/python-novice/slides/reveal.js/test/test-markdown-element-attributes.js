@@ -28,7 +28,7 @@ Reveal.addEventListener( 'ready', function() {
 	});
 
 	QUnit.test( 'Attributes on element image in horizontal slides', function( assert ) {
-		assert.strictEqual( document.querySelectorAll( '.reveal .slides section img.reveal.stretch' ).length, 1, 'found a horizontal slide with stretched image, class img.reveal.stretch' );
+		assert.strictEqual( document.querySelectorAll( '.reveal .slides section fig.reveal.stretch' ).length, 1, 'found a horizontal slide with stretched image, class fig.reveal.stretch' );
 	});
 
 	QUnit.test( 'Attributes on elements in vertical slides with default element attribute separator', function( assert ) {
