@@ -2,6 +2,7 @@
 ---
 title: Setup
 ---
+
 ## Setup
 
 ### Text Editor
