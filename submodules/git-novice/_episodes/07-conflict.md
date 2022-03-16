@@ -33,8 +33,7 @@ These situations are called **conflicts**
 Version control helps us manage these [conflicts](reference.html#conflicts)
 by giving us tools to [resolve](reference.html#resolve) overlapping changes.
 
-To see how we can resolve conflicts,
-we must first create one.
+To see how we can resolve conflicts, we must first create one.
 The file `rainfall_conversion.py` currently looks like this
 on the **dev** branch of our `climate-analysis` repository:
 
@@ -58,6 +57,8 @@ def inches_to_mm(inches):
 {: .output}
 
 ![First branch changes](fig/slides/07-conflict/3_changes.png){:width="20%"}
+
+We're going to create a situation just like this.
 
 ### Feature branch 1
 
@@ -374,7 +375,7 @@ We can see the new commit we added that fixes the problem, and now the commits c
 
 If you want, you can always merge branches directly into `dev`, without going through a pull request, but this isn't a great habit to get into. If the conflict is large, complicated, or otherwise takes a long time to resolve, you won't be able to merge in any other branches until you've finished. This can mean essential bug fixes end up waiting for you to finish adding new bells and whistles!
 
-![Remote Workflows](z/fig/slides/07-conflict/7_remote.png){:width="20%"}
+![Remote Workflows](fig/slides/07-conflict/7_remote.png){:width="20%"}
 
 Version control's ability to merge conflicting changes
 is another reason users tend to divide their programs and papers into multiple files

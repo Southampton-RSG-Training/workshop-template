@@ -1,4 +1,6 @@
-## Data Analysis and Visualization in R
+# Setup for R and RStudio Lesson
+## Install R and RStudio ##
+
 R is a programming language and software environment for statistical computing and graphics. The RStudio Integrated Development Environment (IDE) is a set of tools designed to help you be more productive with R.
 
 We need to install R and RStudio: 
