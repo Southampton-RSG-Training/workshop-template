@@ -24,9 +24,9 @@ with open('_config.yml') as config:
 set_up_docs = []
 for n, lesson_info in enumerate(website_config['lessons']):
     with open(f'submodules/{lesson_info.get("gh-name")}/_config.yml') as config:
-        website_config = load(config, Loader=Loader)
+        episode_config = load(config, Loader=Loader)
         #select element of the dictionary called setup_docs
-        set_up_docs = union(website_config['setup_docs'], set_up_docs)
+        set_up_docs = set_up_docs + [x for x in episode_config['setup_docs'] if x not in set_up_docs]
 
 #for each element in the list
 #paste into a string 'submodules/setup-documents/markdown'+setup docs element
