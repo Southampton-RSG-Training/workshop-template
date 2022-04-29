@@ -25,7 +25,7 @@ numerical processing, education, HPC, at Google, ...
 ## Python is up and coming!
 
 - Based on Southampton PhD students software usage survey conducted by SSI's Policy researchers:
-     ![](../fig/wordle3.png)
+     ![](fig/wordle3.png)
 
 ## We'll be teaching Python 3
 
@@ -55,7 +55,7 @@ numerical processing, education, HPC, at Google, ...
 - Mac/Linux: Open a terminal window and type **python3**
 - Windows: Open **Git Bash**  and type **python**
 - At the prompt type 'hello world!'
-  ![](../fig/hello.png)
+  ![](fig/hello.png)
 
 ## Why indentation?
 
@@ -67,25 +67,25 @@ numerical processing, education, HPC, at Google, ...
 
 ## Indexing a List Example I
 
-![](../fig/index_list_odd.png)
+![](fig/index_list_odd.png)
 
 ## Indexing a List Example II
 
-![](../fig/index_list_odd2.png)
+![](fig/index_list_odd2.png)
 
 ## Slicing a List Example I
 
-![](../fig/slice_list_odd.png)
+![](fig/slice_list_odd.png)
 
 ## Slicing a List Example II
 
-![](../fig/slice_list_string.png)
+![](fig/slice_list_string.png)
 
 ## NumPy Arrays
 
 -  NumPy arrays and operations on arrays of data
 
-   ![](../fig/numpy_array_dims.png)
+   ![](fig/numpy_array_dims.png)
 
 ## Indexing in a NumPy 2D array
 
@@ -96,7 +96,7 @@ numerical processing, education, HPC, at Google, ...
 
 ## Cont..
 
-   ![](../fig/indexing2darray.png)
+   ![](fig/indexing2darray.png)
 
 ## Wrap-up Challenge: Connecting the dots
 

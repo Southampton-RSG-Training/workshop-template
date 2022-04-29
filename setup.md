@@ -1,19 +1,5 @@
-
-## Setup
-
-### Text Editor
-
-A text editor is the piece of software you use to view and write code. If you
-have a preferred text editor, please use it. Suggestions for text editors are,
-Notepad++ (Windows), TextEdit (macOS), Gedit (GNU/Linux), GNU Nano, Vim.
-Alternatively, there are IDE's (integrated developer environments) that have
-more features specifically for coding such as VS Code; there are also IDEs
-specific to languages will be listed in the appropriate section(s) below.
-
-### Best Practices in Data Organisation Using Spreadsheets
-
-### Setup for Spreadsheets Lesson
-#### Introduction to the Data for this Lesson 
+# Setup for all episodes.
+## Introduction to the Data for this Lesson ##
 The data used in this lesson comes from a project observing a small mammal community in southern
 Arizona, US. This is part of a project studying the effects of rodents and ants on the plant
 community that has been running for almost 40 years. The rodents are sampled on a series of 24 plots,
@@ -31,7 +17,7 @@ This is a real dataset that has been used in over 100 publications. It is publis
 > **CITATION:** Ernest, Morgan; Brown, James; Valone, Thomas; White, Ethan P. (2017): Portal Project Teaching Database. Figshare. [https://doi.org/10.6084/m9.figshare.1314459.v6](https://doi.org/10.6084/m9.figshare.1314459.v6)
 {: .testimonial}
 
-#### Download Data for Spreadsheets Lesson 
+## Download Data for Spreadsheets Lesson ##
 
 For the purposes of training, this data has been simplified a bit (you can still download the full dataset and work with it using exactly the same tools we will learn here). This simplified version of data is available from the [Portal Project Teaching Dataset](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459). In this lesson, you will need to download the following five files from the [Portal Project Teaching Dataset](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459):
 -  [messy_survey_data.xls](/data/messy_survey_data.xls) - this is the main file we will work with. It includes messy survey data
@@ -47,7 +33,7 @@ data organisation.
 files combined into one clean file (a good example of what a clean data file should look like)
 Fields: `record_id`, `month`, `day`, `year`, `plot_id`, `species_id`, `sex`, `hindfoot_length`, `weight`, `genus`,
 `species`, `taxa`, `plot_type`
-#### Install LibreOffice 
+## Install LibreOffice ##
 
 To interact with spreadsheets, you can use various software - for example Microsoft Excel,
 LibreOffice, Gnumeric, OpenOffice.org, Google Spreadsheets. Commands may differ a bit between programs,
@@ -58,48 +44,26 @@ For this lesson, if you do not have a spreadsheet program already, you can use a
 as it can open Excel spreadsheets, which is the format of the data we will work with during the lesson
 (also all examples used refer to Excel).
 
-##### Windows
+### Windows
 
 - Download the Installer
   - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Windows should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
 - Install LibreOffice
 - Once the installer is downloaded, double click on it and LibreOffice should install.
 
-##### Mac OS X
+### Mac OS X
 
 - Download the Installer
   - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Mac should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
 - Install LibreOffice
 - Once the installer is downloaded, double click on it and LibreOffice should install.
 
-##### Linux
+### Linux
 
 - Download the Installer
   - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Linux should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
 - Install LibreOffice
 - Once the installer is downloaded, double click on it and LibreOffice should install.
-
-### Data Cleaning with OpenRefine
-
-### Setup for OpenRefine Data Cleaning Lesson
-#### Introduction to the Data for this Lesson 
-The data used in this lesson comes from a project observing a small mammal community in southern
-Arizona, US. This is part of a project studying the effects of rodents and ants on the plant
-community that has been running for almost 40 years. The rodents are sampled on a series of 24 plots,
-with different experimental manipulations controlling which rodents are allowed to access which plots.
-This is a real dataset that has been used in over 100 publications. It is published at [Ecological Archives](http://esapubs.org/archive/ecol/E090/118/) and can be found on [Portal Project Database](https://github.com/weecology/PortalData). This data is open and free to use for research purposes.
-
-> ## For Interest Only: Portal Project Teaching Dataset
-> [The Portal Project Teaching Database](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459) is a simplified version of the
-> [Portal Project Database](https://github.com/weecology/PortalData) designed for teaching. It provides a real world example of life-history, population, and ecological data, with sufficient complexity to teach many aspects of data analysis and management, but with many complexities removed to allow students to focus on the core ideas and skills being taught. The database is currently available in csv, json, and sqlite formats.
->
-> The Portal Project Teaching Database's GitHub repository can be found at: [https://github.com/weecology/portal-teachingdb](https://github.com/weecology/portal-teachingdb),
-> where suggested changes or additions to this dataset can be requested or contributed.
-> This database is not designed for research as it intentionally removes some of the real-world complexities. The Python code used for converting the original database to this teaching version can be found in [create_portal_teach_dataset.py](https://github.com/weecology/portal-teachingdb/blob/master/create_portal_teaching_dataset.py).
->
-> **CITATION:** Ernest, Morgan; Brown, James; Valone, Thomas; White, Ethan P. (2017): Portal Project Teaching Database. Figshare. [https://doi.org/10.6084/m9.figshare.1314459.v6](https://doi.org/10.6084/m9.figshare.1314459.v6)
-{: .testimonial}
-
 The Portal Project Teaching Dataset is a real dataset that has been used in over 100 publications. We have simplified it
 for the purposes of this lesson, but you can download the full dataset (see below for details) and work with it
 using exactly the same tools we will learn here.
@@ -108,7 +72,7 @@ For this lesson, you will need to download the following file (remember where yo
 *  [portal_project_rodents.csv](data/portal_project_rodents.csv)
 
 Data in some of the columns of the above file (e.g. `geolocation`, `locality`, `county`, `country`, `JSON`) are contrived for the purpose of the lessons and are in no way related to the original dataset.
-#### Install OpenRefine 
+## Install OpenRefine ##
 
 For this lesson you will need [OpenRefine](http://openrefine.org/) (formerly GoogleRefine) and a web browser.
 Download the most recent version of [OpenRefine](http://openrefine.org/download.html) for your operating system,
@@ -119,56 +83,26 @@ OpenRefine for Windows and Mac come with embedded Java, in which case you do not
 
 Once it is running on your machine, you access it via your browser at the address [http://localhost:3333](http://localhost:3333). No Internet connection is needed for this as the programme is running locally.
 
-##### Windows
+### Windows
 - If you have Internet Explorer (or Edge) set as your default web browser, check that you have Firefox or Chrome installed and set either of them as your default browser. OpenRefine runs in your default browser, but may not run correctly in Internet Explorer. You can check how to set your browser as default for [Google Chrome](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en-GB) or [Firefox](https://support.mozilla.org/en-US/kb/make-firefox-your-default-browser).
 - Unzip the downloaded file into a directory by right-clicking and selecting `Extract...`. Name that directory something like OpenRefine.
 - Locate `openrefine.exe` in the extracted folder and launch OpenRefine by double-clicking on it. This will launch a command prompt window first.
 - Wait for OpenRefine to launch in your default Web browser, which is where you will interact with the program. If this does not happen, head to [http://localhost:3333](http://localhost:3333) in your Web browser of choice.
 
-##### Mac
+### Mac
 
 - Check that you have Firefox or Chrome browser installed and set as your default browser. You can check how to set your browser as default for [Google Chrome](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en-GB) or [Firefox](https://support.mozilla.org/en-US/kb/make-firefox-your-default-browser).
 - Locate the downloaded `.dmg` file and Ctrl-click it. You may get the warning "macOS cannot verify the developer of “OpenRefine.app”. Are you sure you want to open it?" Click 'Yes'/'Open' to this.
 - Drag `OpenRefine.app` into your Applications folder, and Ctrl-click to open it. You may get the warning "macOS cannot verify the developer of “OpenRefine.app”. Are you sure you want to open it?" Click 'Yes'/'Open' to this.
 - Wait for OpenRefine to launch in your default Web browser, which is where you will interact with the program. If this does not happen, head to [http://localhost:3333](http://localhost:3333) in your Web browser of choice.
 
-##### Linux
+### Linux
 
 - This requires Java to be installed on your computer. If you do not already have it, download [OpenJDK Java](https://openjdk.java.net/).
 - Check that you have Firefox or Chrome browser installed and set as your default browser. You can check how to set your browser as default for [Google Chrome](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en-GB) or [Firefox](https://support.mozilla.org/en-US/kb/make-firefox-your-default-browser).
 - Unzip the downloaded file into a directory. Go to this directory from terminal and type ./refine to start.
 - Wait for OpenRefine to launch in your default Web browser, which is where you will interact with the program. If this does not happen, head to [http://localhost:3333](http://localhost:3333) in your Web browser of choice.
-
-### Managing Academic Software Development
-
-#### Project Management Setup
-
-Before we get started, there are a few requirements to meet. You will need:
-
-* [A GitHub account](https://github.com), with ssh key access.
-* A GitHub repository titled `climate-analysis` (created in our **Version Control with Git** training).
-* A code editor (we recommend [Visual Studio Code](https://code.visualstudio.com/))
-
-##### Getting the Demo Repository
-
-If you haven't done our **Version Control with Git** training and don't have a `climate-analysis` repository, you can import a copy of it that's up-to-date.
-
-[Go to GitHub](https://github.com) and from the **+** icon on the top bar select **Import Repository** (or [go directly to it here](https://github.com/new/import)):
-
-![Import repository option location](fig/setup/import-repository.png)
-
-Then, provide the demo repository [https://github.com/Southampton-RSG-Training/project-novice](https://github.com/Southampton-RSG-Training/project-novice) into the **Old Repository's Clone URL** field, and give it a name - e.g. `climate-analysis` or `project-novice-climate-analysis`, and click **Begin Import**:
-
-![Import repository screen](fig/setup/import-repository-next.png)
-
-Once you've begun the import process, it'll complete in anywhere from a few seconds to a few minutes; then you can click the link to go straight to your new copy:
-
-![Repository successfully imported](fig/setup/import-repository-final.png)
-
-### Automating Tasks with the Unix Shell
-
-### Setup for Shell Lesson
-#### Text Editor 
+## Text Editor ##
 
 A text editor is the piece of software you use to view and write code. If you
 have a preferred text editor, please use it. Suggestions for text editors are,
@@ -176,14 +110,14 @@ Notepad++ (Windows), TextEdit (macOS), Gedit (GNU/Linux), GNU Nano, Vim.
 Alternatively, there are IDE's (integrated developer environments) that have
 more features specifically for coding such as VS Code; there are also IDEs
 specific to languages will be listed in the appropriate section(s) below.
-#### Open a Terminal 
+## Open a Terminal ##
 
 For this lesson, first you need to open a terminal:
 
 - **On Windows:** run "Git Bash", to install git bash go here [https://gitforwindows.org/](https://gitforwindows.org/) click download and select 'Git-X.XX.X-64-bit.exe' from the assets list.
 - **On Mac OS X:** accessed by opening the “Terminal” application, which can be found in the “Utilities” folder which is in your “Applications” folder.
 - **On Linux:** this will depend on the Linux distribution you are running, but you should be able to find a "Terminal" application in your desktop's application menu.
-#### Download Data for Shell Lesson 
+## Download Data for Shell Lesson ##
 
 Type the following into the prompt that appears (pressing enter/return after each line):
 
@@ -205,12 +139,9 @@ This should download all the content for the lesson to a new directory.
 Please let the instructors know if you run into any problems.
 
 {% include links.md %}
+## Git Setup ##
 
-### Version Control with git
-
-#### Git Setup 
-
-##### Windows
+### Windows
 We'll be using Git Bash for both git and a shell to run it in. If you've already installed Git Bash for a previous lesson, skip ahead to the [GitHub section](github). Otherwise, go to [git for windows](https://gitforwindows.org/) and click **Download**, then install it. 
 Most of the options can be left on default, but be sure you check these:
 
@@ -219,7 +150,7 @@ Most of the options can be left on default, but be sure you check these:
 - **Choosing HTTPS transport backend:** Make sure **Use the native Windows Secure Channel Library** is selected.
 - **Configuring the terminal emulator to use with Git Bash:** Make sure **Use Windows' default console window** is selected.
 
-##### Mac OS
+#### Mac OS
 To use Git you must install the Apple Command Line Tools.  You can obtain these [from Apple](https://developer.apple.com/download/more/?name=command%20line%20tools%20for%20xcode%2012) (requires your Apple ID)
 
 - Select **Command Line Tools for Xcode 12** and click the link to download the dmg archive.
@@ -227,12 +158,7 @@ To use Git you must install the Apple Command Line Tools.  You can obtain these 
 - Open the downloaded dmg archive from the Downloads folder
 - Double-click the Command Line Tools.pkg icon to install
 
-{% if site.carpentry != "rsg" %}
-{% assign slidelink = "../slides/index.html" %}
-[The slides to accompany this material can be found here.]({{ slidelink }})
-{% endif %}
-
-##### GitHub
+## GitHub ##
 Later on in the session, we'll be demonstrating how to share work with collaborators using [GitHub](https://github.com/). You'll need to [create an account there](https://github.com/signup). As your GitHub username will appear in the URLs of your projects there, it's best to use a short, clear version of your name if you can.
 
 In addition, we'll need to set up SSH access to GitHub from your computer. This is how GitHub checks your identity when you try to access it - and is more secure than a password. To set up SSH access, we generate a pair of keys - one public, one private. We want to add the public key to GitHub, whilst the private one stays on our computer.
@@ -258,24 +184,19 @@ Copy the last line of output that starts with `ssh-ed25519` and ends with your e
 ![SSH-Output](fig/SSH-Output.png){:width="50%"}
 
 Finally, go to [your Settings -> SSH keys page and add a new SSH key](https://github.com/settings/ssh/new) (you'll need to be logged into GitHub with the account you have created). Give the key a memorable name (e.g. the name of the computer you are working on) and paste the key from your clipboard into the box labelled key. Then, click **Add SSH key** and you're done!
-
-![SSH-Add](fig/SSH-Add.png){:width="50%"}
+## Download Data for Git Lesson ##
 
 Now we are ready to download the code that we need for this lesson, using Git on the command line. Open a terminal on your machine, and enter:
 ~~~
 $ cd
-$ git clone https://github.com/Southampton-RSG-Training/git-novice
+$ git clone https://github.com/Southampton-RSG/swc-git-novice
 ~~~
 {: .language-bash}
 
 `cd` will move to your home directory, and `git clone` will download a copy of the materials.
 
 {% include links.md %}
-
-### Building Programs with Python
-
-### Setup for Python Lesson
-#### Python Setup 
+## Python Setup ##
 
 IDEs: PyCharm, Spyder, VS Code
 
@@ -283,13 +204,13 @@ We use Python 3*. The “Anaconda3” package provides everything Python-related
 
 Some old research projects may be in Python 2 but Python 2 has been retired and new projects should be in Python 3.
 
-##### Windows
+### Windows
 Download the latest Anaconda Windows installer. Double-click the installer and follow the instructions. When asked “Add Anaconda to my PATH environment variable”, answer “yes”. After it’s finished, close and reopen any open terminals to reload the updated PATH and allow the installed Python to be found.
 
-##### Mac OS X
+### Mac OS X
 Download the latest Anaconda Mac OS X installer. Double-click the .pkg file and follow the instructions.
 
-##### Linux
+### Linux
 Download the latest Anaconda Linux Installer. Install via the terminal like this,
 
 ~~~
@@ -298,50 +219,46 @@ $ bash Anaconda3-2021.11-Linux-x86_64.sh
 {: .language-bash}
 
 Answer ‘yes’ to allow the installer to initialize Anaconda3 in your .bashrc.
-
-### Data Analysis and Visualization in R
-
-### Setup for R and RStudio Lesson
-#### Install R and RStudio 
+## Install R and RStudio ##
 
 R is a programming language and software environment for statistical computing and graphics. The RStudio Integrated Development Environment (IDE) is a set of tools designed to help you be more productive with R.
 
 We need to install R and RStudio: 
 The latest links can be found on the [RStudio downloads page](https://www.rstudio.com/products/rstudio/download/#download)
 
-##### R
+### R
 
 R can be found at [https://cran.rstudio.com/](https://cran.rstudio.com/), from here pick your OS and download the latest release, see below for direct links to your OS.
 
-##### Windows
+#### Windows
 - [https://cran.rstudio.com/bin/windows/base/](https://cran.rstudio.com/bin/windows/base/)
 
-##### Mac OS
+#### Mac OS
 - If prompted, choose to allow downloads from cran.rstudio.com.
 
 - [https://cran.rstudio.com/bin/macosx/](https://cran.rstudio.com/bin/macosx/)
   - For intel based macs choose R-4.*.*.pkg
   - For ARM based macs (M1 etc.) choose R-4.*.*-arm64.pkg
 
-##### Linux
+#### Linux
 - R is included on many linux distros check to see if it is already present. Else use your package manager (snap, apt, yum), or look [here](https://cran.rstudio.com/bin/linux/)
 
 
-##### RStudio
+### RStudio
 
 Your OS should be detected and a link provided under step 2 on this page [RStudio downloads page](https://www.rstudio.com/products/rstudio/download/#download).
 Else select your OS from the list under All Installers.
 
-##### Windows
+#### Windows
 
 Download and run the .exe file and follow instructions given by your OS.
 
-##### Mac OS
+#### Mac OS
 
 Download the .dmg file.
 - If prompted, choose to allow downloads from rstudio.com.
 - Open the downloaded dmg archive from the Downloads folder.
 - Drag the RStudio icon to the Applications folder to install.
 
-##### Linux
+#### Linux
 Download the appropriate install file (.rpm or .deb) for your distro.

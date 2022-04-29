@@ -33,7 +33,7 @@ Releases fit into the **feature-branch workflow** we discussed earlier. In this 
 
 If you go back to your `climate-analysis` repository homepage, you can use the **Create a new release** link. We just need to give the release a name, description, and a **tag**.
 
-![Create a release](fig/04-features/releases-button.png)
+![Create a release](../fig/04-features/releases-button.png)
 
 Make sure you select to create a release on the **master branch**. You can do releases of your development branch for internal use, but you should always make sure your code is stable enough to go on your **master branch** before you cite it.
 
@@ -67,21 +67,21 @@ Zenodo offers a 'sandbox', where you can test the process for creating a new DOI
 We'll use the sandbox at [sandbox.zenodo.org](http://sandbox.zenodo.org)to create a DOI for our `climate-analysis` repository by registering it via Zenodo's GitHub link and creating a new release on GitHub. 
 
 First, making sure we're on [sandbox.zenodo.org](http://sandbox.zenodo.org), we need to sign up using our GitHub account - using **Log in** or **Sign up**, and and selecting **GitHub**.
-![Log-in button](fig/04-features/zenodo/log-in.png)
-![Log-in via GitHub](fig/04-features/zenodo/log-in-github.png)
+![Log-in button](../fig/04-features/zenodo/log-in.png)
+![Log-in via GitHub](../fig/04-features/zenodo/log-in-github.png)
 
 Once you've logged in, selecting **GitHub** from the drop-down menu
 opens a list of your repositories, and we can toggle them to 'on' to begin tracking releases on them.
-![Select GitHub](fig/04-features/zenodo/linked.png)
-![Enable your repository](fig/04-features/zenodo/enabled.png)
+![Select GitHub](../fig/04-features/zenodo/linked.png)
+![Enable your repository](../fig/04-features/zenodo/enabled.png)
 
 Zenodo won't retroactively generate DOIs for releases, so we need to  **head back to GitHub**, and create a new release, then go back to **Zenodo** and click on our repository to see the status of our upload.
-![Create a release](fig/04-features/zenodo/github.png)
-![Release processing](fig/04-features/zenodo/release-working.png)
+![Create a release](../fig/04-features/zenodo/github.png)
+![Release processing](../fig/04-features/zenodo/release-working.png)
 
 Depending on how busy Zenodo is, this can take anything from minutes to hours to process. Once it's done, though, you get a DOI, which we can then edit into the message for our release.
-![Release processed](fig/04-features/zenodo/release-finished.png)
-![Editing a release](fig/04-features/zenodo/github-edited.png)
+![Release processed](../fig/04-features/zenodo/release-finished.png)
+![Editing a release](../fig/04-features/zenodo/github-edited.png)
 
 > ## Chickens and Eggs
 >
@@ -147,7 +147,7 @@ how to cite it, and providing a pre-made BibTex citation.
 > >   d596ad4..88ed80d  master -> master
 > >```
 > >Now, when we check on GitHub, there's a button that provides a BibTex (or APA) format citation for your code. 
-> >![Citation instructions](fig/04-features/zenodo/github-cite.png)
+> >![Citation instructions](../fig/04-features/zenodo/github-cite.png)
 >{: .solution}
 {: .challenge}
 

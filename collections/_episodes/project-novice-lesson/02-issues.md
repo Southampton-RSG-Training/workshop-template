@@ -23,17 +23,17 @@ GitHub provides a framework (as does GitLab!) for managing bug reports, feature 
 
 Go back to the home page for your `climate-analysis` repository, and click on the Issues tab. You should see a page listing the open issues on your repository, currently none.
 
-![Issue screen](fig/02-issues/issues-none.png)
+![Issue screen](../fig/02-issues/issues-none.png)
 
 We're going to create a new issue, raising the problem that the functions to convert between inches and milimeters don't work in our code.
 
-![Creating a new issue](fig/02-issues/issues-new.png)
+![Creating a new issue](../fig/02-issues/issues-new.png)
 
 When you create an issue, you can provide a range of details added to them. They can be **assigned to a specific developer**- this can be a helpful way to know who, if anyone, is currently working to fix an issue (or a way to assign responsibility to someone to deal with it!).
 
 We're going to assign this issue the label **Bug**, by clicking on the cogwheel by the Labels section on the right hand column, then submit the issue.
 
-![Issue details](fig/02-issues/issues-details.png)
+![Issue details](../fig/02-issues/issues-details.png)
 
 The labels available for issues can be customised, and given a colour, allowing you to see at a glance from the Issues page the state of your code. The default labels include:
 
@@ -66,7 +66,7 @@ Having open, publicly-visible lists of the the limitations and problems with you
 One interesting label is **Wontfix**, which indicates that an issue simply won't be worked on for whatever reason- maybe the bug it reports is outside of the use case of the software, or the feature it requests simply isn't a priority. 
 
 The **Lock issue** and **Pin issue** buttons allow you to block future comments on an issue, and pin it to the top of the issues page. This can make it clear you've thought about an issue and dismissed it!
-![Lock & pin issue](fig/02-issues/issue-locked.png)
+![Lock & pin issue](../fig/02-issues/issue-locked.png)
 
 
 > ## Issue Templates

@@ -17,4 +17,9 @@ Developing academic software is a complex process. This workshop teaches the bas
 > A text editor of your choice. We recommend [Visual Studio Code](https://code.visualstudio.com/). Please follow the workshop instructions to install this software.
 {: .prereq}
 
+
+[curriculum-handbook]: https://carpentries.github.io/curriculum-development/
+[tech-intro]: https://carpentries.github.io/curriculum-development/technological-introductions.html
+
 {% include links.md %}
+
