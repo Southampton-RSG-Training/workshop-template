@@ -219,7 +219,7 @@ def main():
             
 
         # Since we allow multiple dates and start times per lesson, we need to be
-        # able to iterate over even single values so turn into list. When dzone,
+        # able to iterate over even single values so turn into list. When done,
         # convert the dates from str to datetime.date objects.
 
         if website_kind == 'workshop':
