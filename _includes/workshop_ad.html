@@ -15,7 +15,9 @@
       {% endif %}
       <div class="row">
         <div class="col-md-6">
-          {% if site.venue == "online" %}
+          {% if site.kind == "course" %}
+          <h2>Self-learning course</h2>
+          {% elseif site.venue == "online" %}
           <p><a href="{{site.address}}">{{site.platform-name}}</a></p>
           {% else" %}
           <p>{{site.address}}</p>
