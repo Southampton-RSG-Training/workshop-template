@@ -6,13 +6,13 @@ need to re-assign it here
 {% include base_path.html %}
 
 {% comment %}
-  Navigation bar for an episode.
+Navigation bar for an episode.
 {% endcomment %}
 
 {% include manual_episode_order.html %}
 {% comment %}
-    'previous_episode' and 'next_episodes' are defined in 'manual_episode_order.html'.
-    These replace 'page.previous' and 'page.next' objects, correspondingly.
+'previous_episode' and 'next_episodes' are defined in 'manual_episode_order.html'.
+These replace 'page.previous' and 'page.next' objects, correspondingly.
 {% endcomment %}
 
 <div class="row">
@@ -27,7 +27,7 @@ need to re-assign it here
   </div>
   <div class="col-xs-10">
     {% if include.episode_navbar_title %}
-    <h3 class="maintitle"><a href="{{ relative_root_path }}/">{{ site.title }}</a></h3>
+    <h3 class="maintitle"><a href="{{ relative_root_path }}/{{page.lesson_schedule_slug}}">{{ page.lesson_title }}</a></h3>
     {% endif %}
   </div>
   <div class="col-xs-1">
