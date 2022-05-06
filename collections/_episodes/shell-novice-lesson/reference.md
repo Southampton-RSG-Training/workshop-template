@@ -1,11 +1,13 @@
 ---
+lesson_title: Automating Tasks with the Unix Shell
+lesson_schedule_slug: shell-novice-schedule
 title: "Reference"
 layout: reference
 ---
 
 ## Other Resources and Further Learning
 
-*   [Bash command reference](https://southampton-rsg.github.io/swc-shell-novice/reference/index.html)
+*   [Bash command reference](https://southampton-rsg.github.io/shell-novice/reference/index.html)
 *   [Writing readable source code - a guide](https://software.ac.uk/resources/guides/writing-readable-source-code)
 *   [Bash tutorial with online exercises](https://learnshell.org/)
 *   [Intermediate guide to Bash](https://www.linode.com/docs/guides/an-intermediate-guide-to-bash-scripting/)

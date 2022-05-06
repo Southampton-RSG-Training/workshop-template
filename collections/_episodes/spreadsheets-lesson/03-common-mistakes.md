@@ -1,4 +1,6 @@
 ---
+lesson_title: Best Practices in Data Organisation Using Spreadsheets
+lesson_schedule_slug: spreadsheets-schedule
 title: "Common spreadsheet errors"
 slug: spreadsheets-common-spreadsheet-errors
 teaching: 10

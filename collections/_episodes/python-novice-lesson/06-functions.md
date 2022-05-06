@@ -1,4 +1,6 @@
 ---
+lesson_title: Building Programs with Python
+lesson_schedule_slug: python-novice-schedule
 # layout: page
 title: Modularising your code using functions
 slug: python-novice-modularising-your-code-using-functions
@@ -135,7 +137,7 @@ for line in climate_data:
 The definition opens with the word `def`,
 which is followed by the name of the function
 and a parenthesized list of parameter names.
-The [body](../../reference.html#function-body) of the function --- the
+The [body](reference.html#function-body) of the function --- the
 statements that are executed when it runs --- is indented below the definition line,
 typically by four spaces.
 
@@ -143,7 +145,7 @@ When we call the function,
 the values we pass to it are assigned to those variables
 so that we can use them inside the function.
 Inside the function,
-we use a [return statement](../../reference.html#return-statement) to send a result back to whoever asked for it.
+we use a [return statement](reference.html#return-statement) to send a result back to whoever asked for it.
 
 {: .challenge}
 > ## Combining Strings
@@ -359,7 +361,7 @@ Words are useful,
 but what's more useful are the sentences and stories we build with them.
 Similarly,
 while a lot of powerful tools are built into languages like Python,
-even more live in the [libraries](../../reference.html#software-library) they are used to build.
+even more live in the [libraries](reference.html#software-library) they are used to build.
 
 A library is a collection of code (precompiled routines, functions) that a program can use. They are particularly
 useful for storing frequently used routines because you don't need to explicitly link them to every program
@@ -409,7 +411,7 @@ def fahr_to_kelvin(fahr):
     return kelvin
 ~~~
 
-A string like this is called a [docstring](../../reference.html#docstring).
+A string like this is called a [docstring](reference.html#docstring).
 We don't need to use triple quotes when we write one,
 but if we do, we can break the string across multiple lines. This also
 applies to modules
@@ -463,7 +465,7 @@ FUNCTIONS
         fahr -- the temperature in Fahrenheit
 
 FILE
-    /Users/user/Projects/RSG/Training/2021-10-25-swc-python-novice/novice/python/code/temp_conversion.py
+    /Users/user/.../python-novice/code/temp_conversion.py (note your path will vary)
 ~~~
 
 Here, note we've used the term `library` in the code documentation. This

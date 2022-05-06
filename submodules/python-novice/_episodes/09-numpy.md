@@ -20,7 +20,7 @@ This lesson presents an end-to-end scientific Python example, from analysing dat
 
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyse the first dozen data sets of their daily inflammation.
-The data sets are stored in [comma-separated values](../../reference.html#comma-separated-values) (CSV) format:
+The data sets are stored in [comma-separated values](reference.html#comma-separated-values) (CSV) format:
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file look like this:
@@ -41,11 +41,11 @@ We want to:
 *   plot the result.
 
 In order to load our inflammation data,
-we need to [import](../../reference.html#import) a library called NumPy.
+we need to [import](reference.html#import) a library called NumPy.
 In general you should use this library if you want to do fancy things with numbers,
 especially if you have matrices.
 
-Let's start by ensuring we are in the `swc-python-novice-websci/' directory, e.g.:
+Let's start by ensuring we are in the `python-novice/' directory, e.g.:
 
 
 {: .bash}
@@ -57,7 +57,7 @@ And we should see:
 
 {: .output}
 ~~~
-/Users/nelle/swc-python-novice-websci
+/Users/nelle/python-novice
 ~~~
 
 First, let's go into the `code` subdirectory, and run the Python interpreter.
@@ -93,15 +93,15 @@ data = numpy.loadtxt(fname='../data/inflammation-01.csv', delimiter=',')
 
 This statement doesn't produce any output because assignment doesn't display anything.
 
-The expression `numpy.loadtxt(...)` is a [function call](../../reference.html#function-call)
+The expression `numpy.loadtxt(...)` is a [function call](reference.html#function-call)
 that asks Python to run the function `loadtxt` that belongs to the `numpy` library.
-This [dotted notation](../../reference.html#dotted-notation) is used everywhere in Python
+This [dotted notation](reference.html#dotted-notation) is used everywhere in Python
 to refer to the parts of things as `thing.component`.
 
-`numpy.loadtxt` has two [parameters](../../reference.html#parameter):
+`numpy.loadtxt` has two [parameters](reference.html#parameter):
 the name of the file we want to read,
-and the [delimiter](../../reference.html#delimiter) that separates values on a line.
-These both need to be character strings (or [strings](../../reference.html#string) for short),
+and the [delimiter](reference.html#delimiter) that separates values on a line.
+These both need to be character strings (or [strings](reference.html#string) for short),
 so we put them in quotes.
 
 By default,
@@ -132,7 +132,7 @@ array([[ 0.,  0.,  1., ...,  3.,  0.,  0.],
        [ 0.,  0.,  1., ...,  1.,  1.,  0.]])
 ~~~
 
-Let's ask what [type](../../reference.html#type) of thing `data` refers to:
+Let's ask what [type](reference.html#type) of thing `data` refers to:
 
 
 {: .python}
@@ -146,7 +146,7 @@ print(type(data))
 ~~~
 
 The output tells us that `data` currently refers to an N-dimensional array created by the NumPy library.
-We can see what its [shape](../../reference.html#shape) is like this:
+We can see what its [shape](reference.html#shape) is like this:
 
 
 {: .python}
@@ -160,7 +160,7 @@ print(data.shape)
 ~~~
 
 This tells us that `data` has 60 rows and 40 columns, representing 60 patients over 40 days.
-`data.shape` is a [member](../../reference.html#member) of `data`,
+`data.shape` is a [member](reference.html#member) of `data`,
 i.e.,
 a value that is stored as part of a larger value.
 We use the same dotted notation for the members of values
@@ -168,7 +168,7 @@ that we use for the functions in libraries
 because they have the same part-and-whole relationship.
 
 If we want to get a single value from the matrix,
-we must provide an [index](../../reference.html#index) in square brackets,
+we must provide an [index](reference.html#index) in square brackets,
 just as we do in math:
 
 
@@ -240,7 +240,7 @@ print(data[0:4, 0:10])
  [ 0.  0.  2.  0.  4.  2.  2.  1.  6.  7.]]
 ~~~
 
-The [slice](../../reference.html#slice) `0:4` means, numpy selects items between boundries [0,4] and [0,10].
+The [slice](reference.html#slice) `0:4` means, numpy selects items between boundries [0,4] and [0,10].
 
 
 *See slide [Slicing a List Example I](https://southampton-rsg.github.io/swc-python-novice-websci/motivation/index.html#slicing-a-list-example-i)*.
@@ -374,7 +374,7 @@ print(data.mean())
 6.14875
 ~~~
 
-`mean` is a [method](../../reference.html#method) of the array,
+`mean` is a [method](reference.html#method) of the array,
 i.e.,
 a function that belongs to it
 in the same way that the member `shape` does.
@@ -508,7 +508,7 @@ which is the average inflammation for each patient across all days.
 {: .challenge}
 > ## Thin slices
 >
-> From our previous topic, the expression `element[3:3]` produces an [empty string](../../reference.html#empty-string),
+> From our previous topic, the expression `element[3:3]` produces an [empty string](reference.html#empty-string),
 > i.e., a string that contains no characters.
 > If `data` holds our array of patient data,
 > what does `data[3:3, 4:4]` produce?

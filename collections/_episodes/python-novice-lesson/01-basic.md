@@ -1,4 +1,6 @@
 ---
+lesson_title: Building Programs with Python
+lesson_schedule_slug: python-novice-schedule
 # layout: episode
 title: Python Basics
 slug: python-novice-python-basics

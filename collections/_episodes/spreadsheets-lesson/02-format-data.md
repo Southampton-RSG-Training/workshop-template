@@ -1,4 +1,6 @@
 ---
+lesson_title: Best Practices in Data Organisation Using Spreadsheets
+lesson_schedule_slug: spreadsheets-schedule
 title: "Organising data in spreadsheets"
 slug: spreadsheets-organising-data-in-spreadsheets
 teaching: 10

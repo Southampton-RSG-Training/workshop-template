@@ -1,4 +1,6 @@
 ---
+lesson_title: Automating Tasks with the Unix Shell
+lesson_schedule_slug: shell-novice-schedule
 title: "Finding Things"
 slug: shell-novice-finding-things
 teaching: 15
@@ -36,7 +38,7 @@ we're going to be working in the `writing` subdirectory:
 
 {: .bash}
 ~~~
-$ cd ~/swc-shell-novice/shell/test_directory/writing
+$ cd ~/shell-novice/shell/test_directory/writing
 $ ls
 ~~~
 

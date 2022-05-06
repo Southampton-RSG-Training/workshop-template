@@ -1,4 +1,6 @@
 ---
+lesson_title: Version Control with git
+lesson_schedule_slug: git-novice-schedule
 title: "Exploring History"
 slug: git-novice-exploring-history
 teaching: 10

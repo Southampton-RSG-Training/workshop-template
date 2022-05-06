@@ -2,6 +2,10 @@
 layout: page
 ---
 
+<p>This lesson will cover:</p>
+{% include blurb.html %}
+
+
 The best way to learn how to program is to do something useful, so this introduction to Python is built around a common scientific task: data analysis.
 
 Our real goal isn’t just to teach you Python, but to teach you the basic concepts that all programming depends on. We use Python in our lessons because:
@@ -25,7 +29,7 @@ Once you've done this, a window should appear. Type the following into the promp
 
 ~~~
 $ cd
-$ git clone https://github.com/Southampton-RSG/swc-python-novice-websci.git
+$ git clone https://github.com/Southampton-RSG-Training/python-novice.git
 ~~~
 {: .language-bash}
 
@@ -34,7 +38,7 @@ covered in the Git SWC course if you want to know more!) you can use the followi
 
 ~~~
 $ cd
-$ git clone git@github.com:Southampton-RSG/swc-python-novice-websci.git
+$ git clone git@github.com:Southampton-RSG-Training/python-novice.git
 ~~~
 {: .language-bash}
 

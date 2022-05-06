@@ -1,4 +1,6 @@
 ---
+lesson_title: Version Control with git
+lesson_schedule_slug: git-novice-schedule
 title: "Conflicts"
 slug: git-novice-conflicts
 teaching: 20

@@ -158,7 +158,7 @@ is the entire list.
 
 ### Slicing strings
 
-A section of an array is called a [slice](../../reference.html#slice).
+A section of an array is called a [slice](reference.html#slice).
 We can take slices of character strings as well:
 
 
@@ -214,7 +214,7 @@ it simply replaces it even if it is a different size.
 
 ### Thin slices
 
-The expression `element[3:3]` produces an [empty string](../../reference.html#empty-string),
+The expression `element[3:3]` produces an [empty string](reference.html#empty-string),
  i.e., a string that contains no characters.
 
 ### Lists and Strings

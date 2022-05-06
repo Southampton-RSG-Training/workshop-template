@@ -1,4 +1,6 @@
 ---
+lesson_title: Managing Academic Software Development
+lesson_schedule_slug: project-novice-schedule
 title: "Project Management"
 slug: project-novice-project-management
 teaching: 25

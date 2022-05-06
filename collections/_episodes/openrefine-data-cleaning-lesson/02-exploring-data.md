@@ -1,4 +1,6 @@
 ---
+lesson_title: Data Cleaning with OpenRefine
+lesson_schedule_slug: openrefine-data-cleaning-schedule
 title: "Opening and Exploring Data"
 slug: openrefine-data-cleaning-opening-and-exploring-data
 teaching: 20

@@ -1,4 +1,6 @@
 ---
+lesson_title: Automating Tasks with the Unix Shell
+lesson_schedule_slug: shell-novice-schedule
 title: Introducing the Shell
 slug: shell-novice-introducing-the-shell
 teaching: 5

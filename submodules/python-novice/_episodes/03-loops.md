@@ -225,7 +225,7 @@ e
 n
 ~~~
 
-The improved version of code for printing characters uses a [for loop](../../reference.html#for-loop)
+The improved version of code for printing characters uses a [for loop](reference.html#for-loop)
 to repeat an operation---in this case, printing---once for each thing in a collection.
 The general form of a loop is:
 
@@ -236,7 +236,7 @@ for variable in collection:
     do things with variable
 ~~~
 
-We can call the [loop variable](../../reference.html#loop-variable) anything we
+We can call the [loop variable](reference.html#loop-variable) anything we
 like, but there must be a colon at the end of the line starting the loop,
 and we must indent the body of the loop. Unlike many other languages, there is
 no command to end a loop (e.g. end for); what is indented after the for

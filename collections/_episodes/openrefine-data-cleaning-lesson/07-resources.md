@@ -1,4 +1,6 @@
 ---
+lesson_title: Data Cleaning with OpenRefine
+lesson_schedule_slug: openrefine-data-cleaning-schedule
 title: "Further Resources on OpenRefine"
 slug: openrefine-data-cleaning-further-resources-on-openrefine
 teaching: 5

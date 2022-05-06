@@ -443,7 +443,7 @@ slug: python-novice-challenges
 {: .challenge}
 > #### Thin slices
 >
-> From our previous topic challenges, the expression `element[3:3]` produces an [empty string](../../reference.html#empty-string),
+> From our previous topic challenges, the expression `element[3:3]` produces an [empty string](reference.html#empty-string),
 > i.e., a string that contains no characters.
 > If `data` holds our array of patient data,
 > what does `data[3:3, 4:4]` produce?

@@ -1,4 +1,6 @@
 ---
+lesson_title: Building Programs with Python
+lesson_schedule_slug: python-novice-schedule
 # layout: page
 title: Processing data files
 slug: python-novice-processing-data-files

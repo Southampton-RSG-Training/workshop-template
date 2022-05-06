@@ -1,4 +1,6 @@
 ---
+lesson_title: Data Cleaning with OpenRefine
+lesson_schedule_slug: openrefine-data-cleaning-schedule
 title: "Exporting and Saving Data"
 slug: openrefine-data-cleaning-exporting-and-saving-data
 teaching: 10

@@ -1,4 +1,6 @@
 ---
+lesson_title: Data Cleaning with OpenRefine
+lesson_schedule_slug: openrefine-data-cleaning-schedule
 title: "Transforming Data"
 slug: openrefine-data-cleaning-transforming-data
 teaching: 30

@@ -1,4 +1,6 @@
 ---
+lesson_title: Best Practices in Data Organisation Using Spreadsheets
+lesson_schedule_slug: spreadsheets-schedule
 title: "Quality assurance and control"
 slug: spreadsheets-quality-assurance-and-control
 teaching: 10

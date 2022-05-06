@@ -117,6 +117,18 @@ for n, lesson_info in enumerate(website_config['lessons']):
             except:
                 log.error(f"Cannot find or move submodules/{lesson_name}/{file}, but carrying on anyway")
 
+        for file in os.listdir(dest):
+            if file.endswith(".md"):
+                with open(f"{dest}/{file}", "r") as f:
+                    contents = f.readlines()
+
+                contents.insert(1, f"lesson_title: {lesson_info.get('title', '')}\n"
+                                   f"lesson_schedule_slug: {lesson_name}-schedule\n")
+
+                with open(f"{dest}/{file}", "w") as f:
+                    contents = "".join(contents)
+                    f.write(contents)
+
         # Move figures
         copy_tree(f"submodules/{lesson_name}/fig", "fig/")
         # Move data
