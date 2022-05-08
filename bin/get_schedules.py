@@ -164,17 +164,18 @@ def create_index_schedules(schedules):
     left = ordered_schedules[:n_rows]
     right = ordered_schedules[n_rows:]
     for i in range(n_rows):
-        left[i]["schedule"] = left[i]["schedule"].replace("col-md-6", f"col order-sm-first")
+        left[i]["schedule"] = left[i]["schedule"].replace("col-md-6", f"col-md-6 order-sm-first")
         if i < len(right):
-            right[i]["schedule"] = right[i]["schedule"].replace("col-md-6", f"col order-sm-last")
+            right[i]["schedule"] = right[i]["schedule"].replace("col-md-6", f"col-md-6 order-sm-last")
 
     html = ""
-    html += "<div class=\"row row-cols-sm-1 row-cols-md-2\">"
+    html += "<div class=\"container\">"
+    html += "<div class=\"row\">"
     for i in range(n_rows):
-
         html += left[i]["schedule"]
         if i < len(right):
             html += right[i]["schedule"]
+    html += "</div>"
     html += "</div>"
 
     with open("_includes/rsg/schedule.html", "w") as fp:
