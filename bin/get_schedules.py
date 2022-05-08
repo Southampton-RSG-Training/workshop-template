@@ -180,7 +180,7 @@ def create_index_schedules(schedules):
 
     for i in range(len(right)):
         #dostuff
-        right[i]["schedule"].replace("<div class=\"col-md-6 d-none d-md-block>\"" "<div class=\"col-md-6\" d-md-none>")
+        right[i]["schedule"].replace("<div class=\"col-md-6 d-none d-md-block>\"", "<div class=\"col-md-6\" d-md-none>")
 
     for i in range(n_rows):
         html += "<div class=\"row\">"
