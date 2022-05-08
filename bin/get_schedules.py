@@ -164,9 +164,9 @@ def create_index_schedules(schedules):
     left = ordered_schedules[:n_rows]
     right = ordered_schedules[n_rows:]
     for i in range(n_rows):
-        left[i]["schedule"] = left[i]["schedule"].replace("col-md-6", f"col sm-order-first")
+        left[i]["schedule"] = left[i]["schedule"].replace("col-md-6", f"col order-sm-first")
         if i < len(right):
-            right[i]["schedule"] = right[i]["schedule"].replace("col-md-6", f"col sm-order-last")
+            right[i]["schedule"] = right[i]["schedule"].replace("col-md-6", f"col order-sm-last")
 
     html = ""
     html += "<div class=\"row row-cols-sm-1 row-cols-md-2\">"
