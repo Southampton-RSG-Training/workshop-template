@@ -163,11 +163,27 @@ def create_index_schedules(schedules):
 
     left = ordered_schedules[:n_rows]
     right = ordered_schedules[n_rows:]
+    for i in range(len(left)):
+        #dostuff
+        left[i]["schedule"].replace("<div class=\"col-md-6\">", "<div class=\"col-md-6 d-block>\"")
+    for i in range(len(right)):
+        #dostuff
+        right[i]["schedule"].replace("<div class=\"col-md-6\">", "<div class=\"col-md-6 d-none d-md-block>\"")
 
     html = ""
     for i in range(n_rows):
         html += "<div class=\"row\">"
         html += left[i]["schedule"]
+        if i < len(right):
+            html += right[i]["schedule"]
+        html += "</div>"
+
+    for i in range(len(right)):
+        #dostuff
+        right[i]["schedule"].replace("<div class=\"col-md-6 d-none d-md-block>\"" "<div class=\"col-md-6\" d-md-none>")
+
+    for i in range(n_rows):
+        html += "<div class=\"row\">"
         if i < len(right):
             html += right[i]["schedule"]
         html += "</div>"
