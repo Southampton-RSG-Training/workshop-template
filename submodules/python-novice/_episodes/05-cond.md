@@ -158,8 +158,10 @@ In this case,
 >
 > {: .solution}
 > > ## Solution
-> > C gets printed because the first two conditions, `4 > 5` and `4 == 5`, are not true,
-> > but `4 < 5` is true.
+> > B gets printed. The first condition, `4 > 5` is not true so it moves 
+> > to the next elif, but `4 <= 5` is true so that statement executes 
+> > printing B. The third condition is therefore not checked and C is 
+> > not printed.
 
 {: .challenge}
 > ## What Is Truth?

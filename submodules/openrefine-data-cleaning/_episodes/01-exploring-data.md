@@ -22,7 +22,7 @@ Start OpenRefine, which will open in your browser (at the address `http://127.0.
 browser, the left margin has options to `Create Project`, `Open Project`, or `Import Project`. Here we will create a new
 project and import our portal rodents data. 
 
-![OpenRefine Create Project](../fig/openrefine-create-project.png)
+![OpenRefine Create Project](fig/openrefine-create-project.png)
 
 1. Click `Create Project` from the left margin and select then `This Computer` (because you're uploading data from your
    computer).  
@@ -34,7 +34,7 @@ project and import our portal rodents data.
    could correct it by choosing the correct separator and clicking the `Update Preview` button on the right. If you
    selected the wrong file, click `<<Start Over` at the top left.
 
-    ![OpenRefine Import Data](../fig/openrefine-data-import.png)
+    ![OpenRefine Import Data](fig/openrefine-data-import.png)
 
 4. In the middle of the page, will be a set of options (`Character encoding`, etc.). Make sure the tick box next to
    `Trim leading & trailing whitespace from strings` is not ticked. (We're going to need the leading whitespace in one
@@ -77,7 +77,7 @@ faceting to look for potential errors in the `scientificName` column.
 3. In the left panel, you'll now see a box containing every unique value in the `scientificName` column 
 along with a number representing how many times that value occurs in the column.
 
-    ![OpenRefine Text Facet](../fig/openrefine-text-facet.png)
+    ![OpenRefine Text Facet](fig/openrefine-text-facet.png)
 
 4. You can click in this panel to sort the facet by `name` and `count`. Do you notice any problems with the data? What
    are they?
@@ -167,18 +167,18 @@ more space.
    will appear. Click on it and you will be able to modify the cell's value. If you receive an error `Not a valid
    number`, try again and this time change the `Data Type` in the edit box to `Text`.
 
-   ![OpenRefine Clustering](../fig/openrefine-numeric-data.png)
+   ![OpenRefine Clustering](fig/openrefine-numeric-data.png)
 
 2. Now use the drop down menu next to the column name, select `Facet > Numeric facet` to apply a numeric facet to the 
 column you edited. The graph representing the numeric facet will appear in the left panel.
 
-   ![OpenRefine Clustering](../fig/openrefine-numeric-facet.png)
+   ![OpenRefine Clustering](fig/openrefine-numeric-facet.png)
 
 3. Notice that there are several checkboxes in this facet: `Numeric`, `Non-numeric`, `Blank`, and `Error`. Below these
    are counts showing the number of matching cells in each category. You should see checks for `Non-numeric` and `Blank`
    if you changed some values.
 
-   ![OpenRefine Clustering](../fig/openrefine-numeric-facet-options.png)
+   ![OpenRefine Clustering](fig/openrefine-numeric-facet-options.png)
 
 4. Experiment with checking or unchecking these boxes, and notice how this affects your data table.
 
@@ -196,7 +196,7 @@ window called `Scatterplot Matrix` will appear. It contains grids for each pair 
 plotted against each other (the number will vary
 dependent on how many columns you have transformed to numbers).
 
-![OpenRefine Scatterplot Facet](../fig/openrefine-scatterplot-facet.png)
+![OpenRefine Scatterplot Facet](fig/openrefine-scatterplot-facet.png)
 
 1. Examine the scatterplots overall. Do the patterns make sense?
 2. Why does the scatterplot for `recordID` vs `period` have the pattern it does?
@@ -205,7 +205,7 @@ We can examine one pair of columns by clicking on its square in the `Scatterplot
 of columns will appear in the left margin as an interactive graph. Click in the scatterplot facet in the left margin and
 drag to highlight a rectangle. This is a very powerful way of subsetting data of interest.
 
-![OpenRefine Scatterplot Facet](../fig/openrefine-scatterplot-highlighted.png)
+![OpenRefine Scatterplot Facet](fig/openrefine-scatterplot-highlighted.png)
 
 The scatterplot `recordID` vs `period` has a slightly unexpected shape - you would probably expect a
 linear graph. Instead, there are some negative values on the `period` axis. These are potentially errors in the data.

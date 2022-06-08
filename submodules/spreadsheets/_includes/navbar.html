@@ -16,26 +16,11 @@
       </button>
 
       {% comment %} Select what logo to display. {% endcomment %}
-<!--      {% if site.carpentry == "swc" %}-->
-<!--      <a href="{{ site.swc_site }}" class="pull-left">-->
-<!--        <fig class="navbar-logo" src="{{ relative_root_path }}{% link /assets/fig/swc-icon-blue.svg %}" alt="Software Carpentry logo" />-->
-<!--      </a>-->
-<!--      {% elsif site.carpentry == "dc" %}-->
-<!--      <a href="{{ site.dc_site }}" class="pull-left">-->
-<!--        <fig class="navbar-logo" src="{{ relative_root_path }}{% link /assets/fig/dc-icon-black.svg %}" alt="Data Carpentry logo" />-->
-<!--      </a>-->
-<!--      {% elsif site.carpentry == "lc" %}-->
-<!--      <a href="{{ site.lc_site }}" class="pull-left">-->
-<!--        <fig class="navbar-logo" src="{{ relative_root_path }}{% link /assets/fig/lc-icon-black.svg %}" alt="Library Carpentry logo" />-->
-<!--      </a>-->
-<!--      {% elsif site.carpentry == "cp" %}-->
-<!--      <a href="{{ site.carpentries_site }}" class="pull-left">-->
-<!--        <fig class="navbar-logo" src="{{ relative_root_path }}{% link /assets/fig/cp-logo-blue.svg %}" alt="The Carpentries logo" />-->
-<!--      </a>-->
-<!--      {% endif %}-->
-      <a href="{{ site.website_url}}" class="pull-left">
-        <img class="navbar-logo" src="{{ relative_root_path }}{% link /assets/img/rsg-soton.jpeg %}" alt="Southampton RSG" />
-      </a>
+      {% if site.carpentry == "rsg" %}
+      <a href="{{ site.rsg_site }}" class="pull-left">
+        <img class="navbar-logo" src="{{ relative_root_path }}{% link /assets/img/home-logo.png %}" alt="RSG logo" />
+      {% endif %}
+
       {% comment %} Always show link to home page. {% endcomment %}
       <a class="navbar-brand" href="{{ relative_root_path }}{% link index.md %}">Home</a>
 
@@ -51,6 +36,7 @@
         <li><a href="{{ relative_root_path }}{% link setup.md %}">Setup</a></li>
 
         {% comment %} Show lesson episodes for lessons. {% endcomment %}
+        {% if lesson_episodes.size > 0 %}
         <li class="dropdown">
           <a href="{{ relative_root_path }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -66,6 +52,7 @@
             <li><a href="{{ relative_root_path }}{% link aio.md %}">All in one page (Beta)</a></li>
           </ul>
         </li>
+        {% endif %}
 	{% endif %}
 
 	{% comment %} Show extras for lessons or if this is the main workshop-template repo (where they contain documentation). {% endcomment %}
@@ -80,7 +67,9 @@
             {% else %}
               {% assign extra = lesson_extra %}
             {% endif %}
-            <li><a href="{{ relative_root_path }}{{ extra.url }}">{{ extra.title }}</a></li>
+            {% unless extra.exclude %}
+              <li><a href="{{ relative_root_path }}{{ extra.url }}">{{ extra.title }}</a></li>
+            {% endunless %}
             {% endfor %}
           </ul>
         </li>

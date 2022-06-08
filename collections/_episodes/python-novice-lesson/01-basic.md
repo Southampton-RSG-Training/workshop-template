@@ -45,6 +45,21 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ~~~
 
+{: .callout}
+~~~
+In some cases GitBash will hang on this command and not launch the Python interpreter. 
+In this case close and reopen git bash and issue the following commands:
+~~~
+
+{: .bash}
+~~~
+cd ~
+echo 'alias python="winpty python.exe"' >> .bashrc
+source .bashrc
+python
+~~~
+
+
 And lo and behold! You are presented with yet another prompt.
 So, we're actually running a Python interpreter from the shell - it's only yet another program we can run from the shell after all.
 But shell commands won't work again until we exit the interpreter.

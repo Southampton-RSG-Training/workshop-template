@@ -40,7 +40,7 @@ In the `scientificName` text facet box - click the `Cluster` button.
    see what different mergers of values are suggested.
 3. If you select the `key collision` method and the `metaphone3` keying function. It should identify three clusters.
 
-   ![OpenRefine Clustering](../fig/openrefine-clustering.png)
+   ![OpenRefine Clustering](fig/openrefine-clustering.png)
 
 4. Tick the `Merge?` checkbox beside each group, then click `Merge Selected and Recluster` to apply the corrections to
    the dataset. Note that the `New Cell Value` column displays the new name that will replace the value in all the cells in the
@@ -87,7 +87,7 @@ you wish to conduct. OpenRefine provides `Undo` and `Redo` operations to make it
    on the different stages in the process, the step identified in blue will change and, far more importantly, the data
    will revert to that stage in the processing.
 
-   ![OpenRefine Undo/Redo](../fig/openrefine-undo-redo.png)
+   ![OpenRefine Undo/Redo](fig/openrefine-undo-redo.png)
 
 2. We want to undo the splitting of the column `scientificName`. Select the stage just
    before the split occurred and the new `scientificName` columns will disappear.
@@ -179,7 +179,7 @@ the original `geolocation` intact. To do so, on the `geolocation` column click t
 2. You will be presented with a window to enter a GREL expression telling OpenRefine how to transform the current data
 when creating a new column based off it.
 
-   <img src="../fig/grel-duplicate-column.png" alt="Duplicate column functionality" width="600px" />
+   <img src="fig/grel-duplicate-column.png" alt="Duplicate column functionality" width="600px" />
 
    GREL `Expression` field contains the expression "value" to begin with. This indicates to use 
    the current "value" of the cell as is when transforming data. In the Preview panel below you can also 
@@ -198,7 +198,7 @@ when creating a new column based off it.
    unwanted characters. Try typing one function at a time to see what effect it has on the data - you can 
    see the result of applying each expression in the Preview panel.
 
-   <img src="../fig/grel-transform-data.png" alt="Transform data using GREL expression" width="800px" />
+   <img src="fig/grel-transform-data.png" alt="Transform data using GREL expression" width="800px" />
 
    When finished, click `OK` to apply the data transformation.
 4. We are now ready to split the `geolocation_new` column using the `Edit Column` > `Split into several columns...`, 
@@ -207,7 +207,7 @@ when creating a new column based off it.
    OpenRefine will correctly identify that the values in new columns are numeric and 
    transform the data type for us as well.
 
-   <img src="../fig/split-column.png" alt="Splitting column using a separator" width="600px" />
+   <img src="fig/split-column.png" alt="Splitting column using a separator" width="600px" />
 
 5. You should now have 2 new columns with numeric data named `geolocation_new 1` and `geolocation_new 2` 
    representing the extracted longitude and latitude values respectively.

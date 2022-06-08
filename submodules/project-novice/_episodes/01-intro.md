@@ -48,6 +48,6 @@ So as a result a lot of project management features that are designed to work as
 
 ## Project Management Tools
 
-Fortunately, a lot of tools exist to help manage the development of your academic software. You should already be familiar with Git and GitHub, already a great way to keep track of how your code evolves and share it with others. GitHub and other repository hosting sites (for example, GitLab) have a whole range of project management tools that we can use- and we're going to start with them.
+Fortunately, a lot of tools exist to help manage the development of your academic software. You should already be familiar with Git and [GitHub](https://github.com), already a great way to keep track of how your code evolves and share it with others. GitHub and other repository hosting sites (for example, [GitLab](https://gitlab.com)) have a whole range of project management tools that we can use- and we're going to start with them.
 
 {% include links.md %}

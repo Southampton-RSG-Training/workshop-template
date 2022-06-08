@@ -8,6 +8,9 @@ root: .
 > sciences](https://datacarpentry.org/lessons/#social-science-curriculum) curricula.
 {: .testimonial} 
 
+<p>This lesson will cover:</p>
+{% include blurb.html %}
+
 Most, if not all, real world data is messy. It includes errors, corruptions, inaccuracies and inconsistencies. Before
 data analysis can take place, *data cleaning* is needed to identify and correct errors, 
 and make the data structure and formatting consistent. This process has the potential to radically change the data,

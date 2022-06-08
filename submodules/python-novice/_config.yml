@@ -10,9 +10,6 @@ carpentry: "rsg"
 title: "Building Programs with Python"
 
 # Life cycle stage of the lesson
-# possible values: "pre-alpha", "alpha", "beta", "stable"
-
-# Life cycle stage of the lesson
 # See this page for more details: https://cdh.carpentries.org/the-lesson-life-cycle.html
 # Possible values: "pre-alpha", "alpha", "beta", "stable"
 life_cycle: "stable"
@@ -70,10 +67,10 @@ setup_docs:
 collections:
   episodes:
     output: true
-    permalink: /:path/index.html
+    permalink: /:slug
   extras:
     output: true
-    permalink: /:path/index.html
+    permalink: /:slug
 
 # Set the default layout for things in the episodes collection.
 defaults:
@@ -101,6 +98,7 @@ exclude:
   - .vendor/
   - vendor/
   - .docker-vendor/
+  - submodules/
 
 
 # Turn on built-in syntax highlighting.

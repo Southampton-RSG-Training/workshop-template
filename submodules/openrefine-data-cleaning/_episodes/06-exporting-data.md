@@ -26,7 +26,7 @@ share the project with collaborators, archive it with your research, etc.
 1. Click the `Export` button in the top right and select `OpenRefine project archive to file`. You might be moved to a
    new blank tab in your browser might whilst this function is executing.
 
-    ![OpenRefine Export Data](../fig/openrefine-export.png)
+    ![OpenRefine Export Data](fig/openrefine-export.png)
 
 2. A `.tar.gz` file will download to your default `Download` directory. The `tar.gz` extension tells you that this is a
    compressed file, which means that it contains multiple files (the most common version of this file type is `.zip` which
@@ -39,7 +39,7 @@ If you wish to investigate the files, you can double-click on the `tar.gz` file 
 (this process can be more complicated in Windows - see below for details). A folder icon will now appear. Investigate
 the files in this folder. What files appear? What information do you think they contain?
 
-![OpenRefine Compressed Project](../fig/openrefine-compressed-project.png)
+![OpenRefine Compressed Project](fig/openrefine-compressed-project.png)
 
 Opening a `.tar.gz` file on Windows:
 * You may require additional software such as [7-zip](http://www.7-zip.org/) or
@@ -69,7 +69,7 @@ When you open OpenRefine (or navigate to `http://localhost:3333/` from an alread
 you will see a list of projects already saved on your machine that you have created or imported earlier. 
 You can click on any one of them to open them and continue working on them in OpenRefine.
 
-![OpenRefine Open Project](../fig/openrefine-open-project.png)
+![OpenRefine Open Project](fig/openrefine-open-project.png)
 
 ## Exporting Cleaned Data
 You can also export just your cleaned

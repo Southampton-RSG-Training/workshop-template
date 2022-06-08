@@ -27,7 +27,7 @@ However, when software *is* cited, it's often done poorly, creating a barrier to
 
 Fortunately, **git commits** provide you with a snapshot of the state of your software at a single point in time. We can avoid these problems by specifying which commit we used for a paper. Actual commit IDs, though, are a bit clunky to work with and commit messages are normally more focused on specific code changes than the *scientific* state of the code. Fortunately, GitHub and GitLab make it easy to create **releases**. A release is just a label for a specific version of the code.
 
-If we create a new release when we arrive on the final version of the code we're using in a paper, we can cite that specific version of the code- and anyone who wants to reproduce our work can easily get access to the version we used. We should make releases whenever we have a version of the code that's stable and reliable enough we would be happy to share it with others.
+If we create a new release when we arrive on the final version of the code we're using in a paper, we can cite that specific version of the code - and anyone who wants to reproduce our work can easily get access to the version we used. We should make releases whenever we have a version of the code that's stable and reliable enough we would be happy to share it with others.
 
 Releases fit into the **feature-branch workflow** we discussed earlier. In this you have two key branches, **master** and **development**. You create branches off your development branch to work on new features, then when they're relatively stable, you merge them **back into the development branch**. Then, after you're happy the development branch is stable and reliable, you merge it **back to the master branch**. It's those commits to the master branch that can become your releases.
 
@@ -35,7 +35,7 @@ Releases fit into the **feature-branch workflow** we discussed earlier. In this 
 
 If you go back to your `climate-analysis` repository homepage, you can use the **Create a new release** link. We just need to give the release a name, description, and a **tag**.
 
-![Create a release](../fig/04-features/releases-button.png)
+![Create a release](fig/04-features/releases-button.png)
 
 Make sure you select to create a release on the **master branch**. You can do releases of your development branch for internal use, but you should always make sure your code is stable enough to go on your **master branch** before you cite it.
 
@@ -47,6 +47,7 @@ Whilst the name is often descriptive or a project-specific codename, the tag is 
 
 This lets your collaborators know when they can safely update without breaking their ongoing work!
 
+{: .callout}
 > ## Limitations of releases
 > 
 > If our code has dependencies like Python modules, we need to make sure that we include information on the specific versions of the dependencies too when creating a release. Python is well set-up to deal with this, as it can use `pip freeze` to produce a `requirements.txt` file with the current version of all the modules you're using.
@@ -56,7 +57,7 @@ This lets your collaborators know when they can safely update without breaking t
 > For low-level codes, you'll also need to list **the compiler versions and architectures used**. High-performance codes can be *very* dependent on compiler and library versions, so simply listing "GCC and OpenMPI" can cause **a lot of pain**. Instead, use the output of calling the compilers with the `-v` or `--version` flag to make sure you're getting the correct information, e.g. `gcc version 9.3.0`.
 >
 > Bear in mind, though, that you will need to keep this information up to date if your dependencies change. 'Stale' documentation can be almost as bad as no documentation.
-{: .callout}
+
 
 ### Issuing DOIs
 
@@ -69,29 +70,30 @@ Zenodo offers a 'sandbox', where you can test the process for creating a new DOI
 We'll use the sandbox at [sandbox.zenodo.org](http://sandbox.zenodo.org)to create a DOI for our `climate-analysis` repository by registering it via Zenodo's GitHub link and creating a new release on GitHub. 
 
 First, making sure we're on [sandbox.zenodo.org](http://sandbox.zenodo.org), we need to sign up using our GitHub account - using **Log in** or **Sign up**, and and selecting **GitHub**.
-![Log-in button](../fig/04-features/zenodo/log-in.png)
-![Log-in via GitHub](../fig/04-features/zenodo/log-in-github.png)
+![Log-in button](fig/04-features/zenodo/log-in.png)
+![Log-in via GitHub](fig/04-features/zenodo/log-in-github.png)
 
 Once you've logged in, selecting **GitHub** from the drop-down menu
 opens a list of your repositories, and we can toggle them to 'on' to begin tracking releases on them.
-![Select GitHub](../fig/04-features/zenodo/linked.png)
-![Enable your repository](../fig/04-features/zenodo/enabled.png)
+![Select GitHub](fig/04-features/zenodo/linked.png)
+![Enable your repository](fig/04-features/zenodo/enabled.png)
 
 Zenodo won't retroactively generate DOIs for releases, so we need to  **head back to GitHub**, and create a new release, then go back to **Zenodo** and click on our repository to see the status of our upload.
-![Create a release](../fig/04-features/zenodo/github.png)
-![Release processing](../fig/04-features/zenodo/release-working.png)
+![Create a release](fig/04-features/zenodo/github.png)
+![Release processing](fig/04-features/zenodo/release-working.png)
 
 Depending on how busy Zenodo is, this can take anything from minutes to hours to process. Once it's done, though, you get a DOI, which we can then edit into the message for our release.
-![Release processed](../fig/04-features/zenodo/release-finished.png)
-![Editing a release](../fig/04-features/zenodo/github-edited.png)
+![Release processed](fig/04-features/zenodo/release-finished.png)
+![Editing a release](fig/04-features/zenodo/github-edited.png)
 
+{: .callout}
 > ## Chickens and Eggs
 >
 > There's one slightly annoying quirk with using Zenodo to generate DOIs;
 > you only get the DOI *after* creating the Release for a commit.
 >
 > This means you can't put the DOI for a commit in the `README.md` or a `CITATION.cff` file *for that commit*. Unfortunately, there's not really a good way around this! A work-in-progress project called [Zenodraft](https://github.com/zenodraft/zenodraft) is aiming to provide a solution by pre-reserving DOIs, and Zenodo say they are looking into the issue further.
-{: .callout}
+
 
 ### Citation Files
 
@@ -149,7 +151,7 @@ how to cite it, and providing a pre-made BibTex citation.
 > >   d596ad4..88ed80d  master -> master
 > >```
 > >Now, when we check on GitHub, there's a button that provides a BibTex (or APA) format citation for your code. 
-> >![Citation instructions](../fig/04-features/zenodo/github-cite.png)
+> >![Citation instructions](fig/04-features/zenodo/github-cite.png)
 >{: .solution}
 {: .challenge}
 

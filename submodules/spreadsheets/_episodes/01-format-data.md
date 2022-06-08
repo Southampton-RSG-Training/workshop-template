@@ -52,7 +52,7 @@ like species, plot, weight, sex and date collected.
 
 Here's a poor example of data collection:
 
-![multiple-info example](../fig/multiple-info.png)
+![multiple-info example](fig/multiple-info.png)
 
 There are problems like the species and sex variables being in the same field. This data format would make it difficult
 to easily look at all of one species, or look at different weight distributions by sex. If, instead, we put sex and
@@ -60,7 +60,7 @@ species in different columns, it would be much easier to perform such analyses.
 
 The data could be better organised as:
 
-![single-info example](../fig/single-info.png)
+![single-info example](fig/single-info.png)
 
 > ## Columns for variables and rows for observations
 > The rule of thumb, when setting up data in a table is: columns = variables, rows = observations, cells = data values.
@@ -111,10 +111,10 @@ The the following example, the spreadsheet has 'raw' tabs in which to store the 
 tabs in which the processed data is stored. It is accompanied with a text file that describes the steps that have been
 taken.
 
-![spreadsheet setup](../fig/spreadsheet-setup-updated.png)
+![spreadsheet setup](fig/spreadsheet-setup-updated.png)
 
 > ## Version controlling your data
-> Although out of scope for this lesson, you can learn about version control in a [separate course](https://southampton-rsg.github.io/swc-git-novice/), 
+> Although out of scope for this lesson, you can learn about version control in a [separate course](https://southampton-rsg.github.io/swc-git-novice/),
 > which can be used to
 > record the transformation of your data over time, and provides tools to roll back to any previous version of the data.
 {: .callout}

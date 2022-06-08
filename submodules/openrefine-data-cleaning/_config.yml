@@ -5,6 +5,7 @@
 # Which carpentry is this ("rsg")?
 # rsg: Southampton Research Software Group
 carpentry: "rsg"
+
 # Overall title for pages.
 title: "Data Cleaning with OpenRefine"
 

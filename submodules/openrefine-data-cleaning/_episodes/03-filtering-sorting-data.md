@@ -50,7 +50,7 @@ You can also filter data using other types of facets - let's do it as an exercis
 > > potentially wrong with our data as values for `period` in the filtered subset 
 > > are negative (we are expecting only positive values) and potentially require futher examination and cleaning.
 > >
->   ![OpenRefine Scatterplot Filter](../fig/scatterplot-filter.png)
+>   ![OpenRefine Scatterplot Filter](fig/scatterplot-filter.png)
 > >
 > {: .solution}
 {: .challenge}
@@ -64,7 +64,7 @@ and reinstate the text facet on the `scientificName` column.
    rows in the raw data, there are 48 rows in which the text has been found within the `scientificName` column (and these rows will be selected for the
    subsequent steps).
 
-   ![OpenRefine Filtering](../fig/openrefine-filtering.png)
+   ![OpenRefine Filtering](fig/openrefine-filtering.png)
 
 3. Near the top of the screen, change `Show:` to 50. This way, you will see all the matching rows in a single page.
 
@@ -102,7 +102,7 @@ that will present you with different options, e.g. whether you wish to sort by `
 (i.e. `TRUE` or `FALSE` values). Additional options will appear to allow you to fine-tune your sorting - e.g. you can 
 specify where to place Blanks and Errors in the sorted results.
 
-![OpenRefine Sorting](../fig/openrefine-sorting.png)
+![OpenRefine Sorting](fig/openrefine-sorting.png)
 
 > ## Exercise
 >
@@ -112,11 +112,11 @@ specify where to place Blanks and Errors in the sorted results.
 > > `Sort cell values as text` first. (Note that you can rearrange `Errors`, `Blanks` and `Valid values` so that errors and blanks
 > > will sort to the top. This is a good practice detect some outliers.)      
 > >
->   ![OpenRefine Sorting](../fig/openrefine-sorting.png)
+>   ![OpenRefine Sorting](fig/openrefine-sorting.png)
 > >
 > > You will notice that values for month have been sorted in alphabetical order, where months 10, 11 and 12 came before month 2. 
 > >
->   ![OpenRefine Sorting](../fig/openrefine-sort-as-text.png)
+>   ![OpenRefine Sorting](fig/openrefine-sort-as-text.png)
 > >  
 > > This is probably not what you wanted - so you will have to redo the sort and select the `Sort cell values as number` option.
 > > 
@@ -142,7 +142,7 @@ It may not always be that obvious in OpenRefine that you performed a sort. Once 
 a `Sort` button will appear at the top of the page as an indicator that the data has been sorted. It will disappear if
 you remove the sort.
 
-![OpenRefine Sorting button](../fig/openrefine-sort-top-button.png) 
+![OpenRefine Sorting button](fig/openrefine-sort-top-button.png) 
  
 > ## Exercise
 > 

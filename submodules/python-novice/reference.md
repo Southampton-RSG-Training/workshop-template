@@ -1,6 +1,6 @@
 ---
-layout: page
-title: Reference
+layout: reference
+title: "Reference"
 ---
 ## [Analyzing Patient Data](01-numpy.html)
 

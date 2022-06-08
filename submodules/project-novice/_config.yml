@@ -12,7 +12,7 @@ title: "Managing Academic Software Development"
 # Life cycle stage of the lesson
 # See this page for more details: https://cdh.carpentries.org/the-lesson-life-cycle.html
 # Possible values: "pre-alpha", "alpha", "beta", "stable"
-life_cycle: "beta"
+life_cycle: "stable"
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -59,16 +59,17 @@ start_time: 0
 
 # order is critical
 setup_docs:
-  - text_editor.md
+  - project_setup.md
+  - install_vscode.md
 
 # Specify that things in the episodes collection should be output.
 collections:
   episodes:
     output: true
-    permalink: /:path/index.html
+    permalink: /:slug
   extras:
     output: true
-    permalink: /:path/index.html
+    permalink: /:slug
 
 # Set the default layout for things in the episodes collection.
 defaults:
@@ -96,6 +97,7 @@ exclude:
   - .vendor/
   - vendor/
   - .docker-vendor/
+  - submodules/
 
 
 # Turn on built-in syntax highlighting.

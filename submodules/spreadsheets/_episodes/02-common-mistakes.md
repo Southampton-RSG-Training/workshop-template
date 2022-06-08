@@ -45,7 +45,7 @@ detail below:
 A common mistake is creating multiple data tables within a single spreadsheet, as shown below. This will confuse a data analysis
 program (and many humans too).
 
-![multiple tabs](../fig/2_datasheet_example.jpg)
+![multiple tabs](fig/2_datasheet_example.jpg)
 
 There are a number of problems with multiple tables on one page. The main problem is that - although clearly separate to
 a human observer - a computer will rigidly interpret anything in the same row as belonging to the same observation.
@@ -109,7 +109,7 @@ It is very important to record zeros as zeros and truly missing data as nulls.
 Null values are also problematic! Different people take different approaches to recording the lack of data (see below),
 but not all approaches are useful.
 
-![White et al.](../fig/3_white_table_1.jpg)
+![White et al.](fig/3_white_table_1.jpg)
 
 Sometimes different null values are used to describe the different reasons why the observation could not be made.
 "NULL", "missing data" and "malfunction", all convey important information, but you are in effect using a single column
@@ -140,12 +140,12 @@ dealt with differently to others. For example, highlighting cells  that should b
 below). Another example is to leave a blank row to indicate a separation in the data. Both of these highlighting
  approaches will cause problems with later analysis because they are undetectable to computers.
 
-![formatting](../fig/formatting.png)
+![formatting](fig/formatting.png)
 
 The solution - as is so often the case with spreadsheets - is to create a new column to encode the data that should be
 excluded.
 
-![good formatting](../fig/good_formatting.png)
+![good formatting](fig/good_formatting.png)
 
 ## <a name="formatting_pretty"></a> Using formatting to make the spreadsheet look pretty
 
@@ -269,9 +269,9 @@ Best practice is to avoid adding anything other than text and spaces into a cell
 
 ## <a name="metadata"></a> Inclusion of metadata within data
 
-We have already learned that metadata is the data you record about your data - how the data was collected and organised. 
-This is just to reiterate that metadata should not be contained within the data itself. So, you should 
-explain comments, units, information about how null values are encoded and all other information relevant to your data in 
+We have already learned that metadata is the data you record about your data - how the data was collected and organised.
+This is just to reiterate that metadata should not be contained within the data itself. So, you should
+explain comments, units, information about how null values are encoded and all other information relevant to your data in
 a separate file in the same folder as your data or a separate tab within your data spreadsheet.
 
 ## Fixing mistakes in data organisation
@@ -303,18 +303,18 @@ the tabs '2013' and '2014', respectively.
 > {: .callout}
 >
 > > ## Solution
-> > When you finish, compare your clean spreadsheet with the structure suggested below or with 
+> > When you finish, compare your clean spreadsheet with the structure suggested below or with
 > > [surveys.csv](https://ndownloader.figshare.com/files/2292172)
-> > which is the example cleaned data file you downloaded during [setup](../setup.html). 
+> > which is the example cleaned data file you downloaded during [setup](../setup.html).
 > > For example, you could chose to record your data using the following columns:
-> > - date_collected	
-> > - plot_id	species_id	
-> > - sex	
-> > - hindfoot_length_cm	
-> > - weight_grams	
-> > - scale_calibrated	
+> > - date_collected
+> > - plot_id	species_id
+> > - sex
+> > - hindfoot_length_cm
+> > - weight_grams
+> > - scale_calibrated
 > > - comments
-> > 
+> >
 > > Your cleaned spreadsheet might not be identical
 > > to either of the above, but it should have a similar overall structure. We will address the reasoning behind separating date
 > > components in 3 separate columns in [surveys.csv](https://ndownloader.figshare.com/files/2292172) in the [next episode on formatting dates in spreadsheets](../03-dates-as-data/).

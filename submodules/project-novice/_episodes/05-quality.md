@@ -132,7 +132,7 @@ def fibonacci(n):
 
 This documentation lists the input variables, what the function returns, and any errors it might raise too. Along with a helpful description of what the function does, this information can act as a *contract* for readers to understand what to expect in terms of behaviour when using the function, as well as how to use it.
 
-This kind of clear, firm description of a function provides a solid basis for future devlopment. If you write a function that can only take positive numbers, but don't document that, then someone else might try and feed it negative numbers without realising that's not possible. Then, they'll be faced with a crash at best, or at worst the code will quietly give them the wrong answer.
+This kind of clear, firm description of a function provides a solid basis for future development. If you write a function that can only take positive numbers, but don't document that, then someone else might try and feed it negative numbers without realising that's not possible. Then, they'll be faced with a crash at best, or at worst the code will quietly give them the wrong answer.
 
 These types of comments are called *docstrings* in Python. We don't need to use triple quotes when we write one, but if we do, we can break the string across multiple lines. 
 
@@ -216,7 +216,8 @@ Not only does having well-structured docstrings (or their equivalents in another
 > >     return kelvin
 > > ~~~
 > > {: .language-python}
-> {: .solution}
+> > This level of commenting is a bit overkill for our example code - but once you have a file that's a few hundred lines long this kind of quick and clear overview is very useful! 
+>{: .solution}
 {: .challenge}
 
 > ## Help
