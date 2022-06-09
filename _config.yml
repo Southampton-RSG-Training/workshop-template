@@ -114,9 +114,6 @@ collections:
   episodes:
     output: true
     permalink: /:slug
-  extras:
-    output: true
-    permalink: /:path/index
 collections_dir: collections
 
 include:
