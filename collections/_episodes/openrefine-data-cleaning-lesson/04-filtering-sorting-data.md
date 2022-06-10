@@ -1,5 +1,5 @@
 ---
-lesson_title: Data Cleaning with OpenRefine
+lesson_title: 'Data Cleaning with OpenRefine'
 lesson_schedule_slug: openrefine-data-cleaning-schedule
 title: "Filtering and Sorting Data"
 slug: openrefine-data-cleaning-filtering-and-sorting-data

@@ -1,5 +1,5 @@
 ---
-lesson_title: Best Practices in Data Organisation Using Spreadsheets
+lesson_title: 'Best Practices in Data Organisation Using Spreadsheets'
 lesson_schedule_slug: spreadsheets-schedule
 title: "Dates as data"
 slug: spreadsheets-dates-as-data

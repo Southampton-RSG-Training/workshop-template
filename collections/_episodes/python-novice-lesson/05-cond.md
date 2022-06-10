@@ -1,5 +1,5 @@
 ---
-lesson_title: Building Programs with Python
+lesson_title: 'Building Programs with Python'
 lesson_schedule_slug: python-novice-schedule
 # layout: page
 title: Making choices

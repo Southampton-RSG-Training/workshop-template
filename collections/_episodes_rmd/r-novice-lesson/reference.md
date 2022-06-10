@@ -1,5 +1,5 @@
 Cheat sheet of functions used in the lessons
-lesson_title: Data Analysis and Visualization in R
+lesson_title: 'Data Analysis and Visualization in R'
 lesson_schedule_slug: r-novice-schedule
 
 ## Lesson 1 -- Introduction to R

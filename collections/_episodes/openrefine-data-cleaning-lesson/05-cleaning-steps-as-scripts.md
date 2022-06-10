@@ -1,5 +1,5 @@
 ---
-lesson_title: Data Cleaning with OpenRefine
+lesson_title: 'Data Cleaning with OpenRefine'
 lesson_schedule_slug: openrefine-data-cleaning-schedule
 title: "Exporting Data Cleaning Steps"
 slug: openrefine-data-cleaning-exporting-data-cleaning-steps

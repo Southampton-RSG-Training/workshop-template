@@ -1,5 +1,5 @@
 ---
-lesson_title: Managing Academic Software Development
+lesson_title: 'Managing Academic Software Development'
 lesson_schedule_slug: project-novice-schedule
 title: "Release Management"
 slug: project-novice-release-management

@@ -1,5 +1,5 @@
 ---
-lesson_title: Version Control with git
+lesson_title: 'Version Control with git'
 lesson_schedule_slug: git-novice-schedule
 title: "Ignoring Things"
 slug: git-novice-ignoring-things
