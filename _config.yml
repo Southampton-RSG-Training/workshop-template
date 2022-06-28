@@ -161,9 +161,6 @@ repository: <USERNAME>/<PROJECT>
 # Email address, no mailto:
 email: "rsginfo@soton.ac.uk"
 
-# Using the new jekyll remote themes
-remote_theme: carpentries/carpentries-theme
-
 # Sites.
 amy_site: "https://amy.carpentries.org/"
 carpentries_github: "https://github.com/carpentries"
@@ -223,5 +220,10 @@ exclude:
 # Turn on built-in syntax highlighting.
 highlighter: rouge
 
+# Using the new jekyll remote themes
+remote_theme: Southampton-RSG-Training/rsg-theme
+
 plugins:
+  - jekyll-remote-theme
   - jekyll-sitemap
+  - jekyll-include-cache
