@@ -103,7 +103,8 @@ def get_time_object(time_string):
 
     return time
 
-def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesson_title):
+
+def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesson_title, website_kind):
     """Create a detailed lesson schedule landing page for each lesson.
 
     The schedule is based on a modifed version of syllabus.html to work better
@@ -120,27 +121,49 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
         The start time of the lesson.
     lesson_title: str
         The title of the lesson.
+    website_kind: str
+        The type of website.
     """
     file_ext = "md"
-    containing_directory = f"collections/_episodes/{lesson_name}-lesson"
+    if website_kind != 'lesson':
+        containing_directory = f"collections/_episodes/{lesson_name}-lesson"
+    else:
+        containing_directory = "_episodes/"
 
     for i, file in enumerate(sorted(glob.glob(f"{containing_directory}/[0-9]*.{file_ext}"))):
         filepath = Path(file)
         new_file_name = f"{i + 1:02d}{filepath.stem.lstrip(string.digits)}.{file_ext}"
         filepath.rename(f"{containing_directory}/{new_file_name}")
 
-    schedule_markdown = textwrap.dedent(f"""---
-    lesson_title: '{lesson_title}'
-    lesson_schedule_slug: {lesson_name}-schedule
-    title: Lesson Schedule
-    slug: {lesson_name}-schedule
-    layout: schedule
-    ---
-    {{% include syllabus.html  name="{lesson_name}" start_time={start_time} %}}
-    """)
+    if website_kind != 'lesson':
+        schedule_markdown = textwrap.dedent(f"""---
+        lesson_title: '{lesson_title}'
+        lesson_schedule_slug: {lesson_name}-schedule
+        title: Lesson Schedule
+        slug: {lesson_name}-schedule
+        layout: schedule
+        ---
+        {{% include syllabus.html  name="{lesson_name}" start_time={start_time} %}}
+        """)
 
-    with open(f"{containing_directory}/00-schedule.md", "w") as fp:
-        fp.write("\n".join([line.lstrip() for line in schedule_markdown.splitlines()]))
+        with open(f"{containing_directory}/00-schedule.md", "w") as fp:
+            fp.write("\n".join([line.lstrip() for line in schedule_markdown.splitlines()]))
+    else:
+        # This is cheeky as it creates the index schedule but this is necessary the index is the detail
+        html = ""
+        # Make the container to hold the schedules 'table'
+        html += "<div class=\"container\">"
+        # Start a row that expects 2 columns at medium and above and one below
+        html += "<div class=\"row row-cols-1\">"
+        #include the syllabus
+        html += f"{{% include syllabus.html  name=\"{lesson_name}\" start_time={start_time} %}}"
+        # Close the main row and container
+        html += "</div>"
+        html += "</div>"
+        p = Path("_includes/rsg/")
+        p.mkdir(parents=True, exist_ok=True)
+        with open("_includes/rsg/schedule.html", "x") as fp:
+            fp.write(bs(html, "html.parser").prettify())
 
 
 def create_index_schedules(schedules):
@@ -224,9 +247,12 @@ def main():
     # Iterate over each lesson, to add their schedule to the html_schedules string
 
     lessons = website_config.get("lessons", None)
-    if not lessons:
+    if website_kind == 'lesson':
+        lessons = [website_config]  # This is a hack
+    elif not lessons:
         raise ValueError("No lessons found in the workshop configuration file (_config.yml)")
     lesson_schedules = []
+
 
     for lesson in lessons:
         lesson_type = LessonType(lesson.get("type", None))  # have to differentiate between markdown and r-markdown lessons
@@ -240,6 +266,9 @@ def main():
             assrt_opts = (lesson_name, lesson_dates, lesson_title, lesson_starts)
         if website_kind == 'course':
             assrt_opts = (lesson_name, lesson_title, lesson_order)
+        if website_kind == 'lesson':
+            assrt_opts = (lesson_title, lesson_starts)
+
         if [thing for thing in assrt_opts if thing is None]:
             if website_kind == 'workshop':
                 raise ValueError(f"gh-name, title, date, and start-time are required for workshop")
@@ -258,15 +287,14 @@ def main():
                 lesson_starts = [lesson_starts]
             lesson_dates = [get_date_object(date) for date in lesson_dates]
 
-
         # Get the schedule(s) for the lesson into a dataframe and also the html
         # so we can search for the permalinks.
 
-        with open(f"_includes/rsg/{lesson_name}-lesson/schedule.html", "r") as fp:
-            schedule_html = fp.read()
-
-        soup = bs(schedule_html, "html.parser")
-        all_schedules = pandas.read_html(schedule_html, flavor="lxml")
+        if website_kind != 'lesson':
+            with open(f"_includes/rsg/{lesson_name}-lesson/schedule.html", "r") as fp:
+                schedule_html = fp.read()
+            soup = bs(schedule_html, "html.parser")
+            all_schedules = pandas.read_html(schedule_html, flavor="lxml")
 
         if website_kind == 'workshop':
             if len(all_schedules) != len(lesson_dates):
@@ -323,7 +351,7 @@ def main():
 
             start_time = get_time_object(lesson_starts[0])
             start_time_minutes = start_time.hour * 60 + start_time.minute
-            create_detailed_lesson_schedules(lesson_name, lesson_type, start_time_minutes, lesson_title)
+            create_detailed_lesson_schedules(lesson_name, lesson_type, start_time_minutes, lesson_title, website_kind)
         elif website_kind == 'course':
             path = Path(f"_includes/rsg/{lesson_name}-lesson/blurb.html")
 
@@ -342,10 +370,14 @@ def main():
 
             lesson_schedules.append({"order_on": lesson_order, "schedule": table})
 
-            create_detailed_lesson_schedules(lesson_name, lesson_type, 0, lesson_title)
+            create_detailed_lesson_schedules(lesson_name, lesson_type, 0, lesson_title,website_kind)
             # make some untimed schedules
-
-    create_index_schedules(lesson_schedules)
+        elif website_kind == 'lesson':
+            start_time = get_time_object(lesson_starts)
+            start_time_minutes = start_time.hour * 60 + start_time.minute
+            create_detailed_lesson_schedules('', lesson_type, start_time_minutes, lesson_title, website_kind)
+    if website_kind != 'lesson':
+        create_index_schedules(lesson_schedules)
 
 if __name__ == "__main__":
     main()
