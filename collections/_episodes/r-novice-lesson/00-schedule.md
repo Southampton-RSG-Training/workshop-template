@@ -1,3 +1,4 @@
+
 ---
 lesson_title: 'Data Analysis and Visualization in R'
 lesson_schedule_slug: r-novice-schedule

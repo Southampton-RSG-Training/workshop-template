@@ -22,32 +22,40 @@ and up-to-date with the Carpentries example as possible.
 3. You need to edit several variables in `_config.yml` for the lesson to render
    correctly.
 
-4. Create the lesson data. If you are unfamiliar with the format, please refer
-   to the tutorial on [creating lessons](https://carpentries.github.io/lesson-example/).
+When making a lesson to be used with the workshop template, to ensure that your
+lesson is a consistent style with the other lessons, please use the `episode`
+layout, i.e. ensure that `layout: episode` is in the front matter, or do not
+specify a layout at all.
 
-# OpenRefine Lesson
-This is a lesson on OpenRefine data cleaning tool derived from [the Data Carpentry's Data Refine for Ecology](https://github.com/datacarpentry/OpenRefine-ecology-lesson/).
+Each lesson included in a workshop has a top level and a detailed schedule. The
+detailed schedule is automatically generated, however the top level one may need
+some manual changes. This schedule is located in `_includes/rsg/schedule.html`,
+and will need some knowledge of HTML to modify. However, the default schedule is
+probably okay for most circumstances.
 
-### Dataset
-* The data used in this lesson ata set is derived from [The Portal Project Long-term desert ecology](http://portal.weecology.org/) project data. [This data file](http://www.esapubs.org/archive/ecol/E090/118/Portal_rodents_19772002.csv) was downloaded and then modified specifically for use with OpenRefine.
-    * Taxon names were put back into the file.
-    * Globally Unique Identifiers (in the form of UUIDs) were added.
-* These modifications were made in order to illustrate some features of Open Refine.
-    - Errors were added to the taxon names (`scientificName` field), to demonstrate OpenRefine's ability to find likely mis-entered data.
-    - These errors can be found using clustering algorithms on the `scientificName` column, showing the power of the algorithms to find discrepancies quickly and making it simple to fix all issues found.
+If your lesson takes place over multiple days, then `_includes/rsg/schedule.html`
+will need to include two schedule tables. Additionally, for the first
+lesson episode for each day, you need to place `start: true` in the front
+matter. This will then mark where each day starts and ends in the detailed
+lesson schedule.
 
-## Maintainer(s)
+## Front Matter Variables
 
-Current maintainers of this lesson are:
+To make full use of the lesson template, it is wise to include as many as the
+following front matter variables in your episodes:
 
-* [Aleksandra Nenadic](https://github.com/anenadic)
-* [Simon Hettrick](https://github.com/SimonHettrick)
+1. `title` - the episode title
+2. `slug` - the episode slug, used as the permalink to that episode
+3. `teaching` - the number of minutes of teaching for the episode
+4. `exercises` - the number of minutes of exercises for the episode
+5. `questions` - a YAML list of questions for the episode
+6. `objectives` - a YAML list of episode objectives
+7. `keypoints` - a YAML list of episode key points
+8. `start` - either true or false, to indicate if a lesson is the first of a day
 
-## Authors
-
-A list of contributors to the lesson can be found in [AUTHORS](AUTHORS).
-
-## Citation
+The `title`, `slug`, `teaching` and `exercises` variables are required, the
+others are optional and the layout of the page will adjust accordingly to what
+has been included.
 
 ## Files to update/create
 

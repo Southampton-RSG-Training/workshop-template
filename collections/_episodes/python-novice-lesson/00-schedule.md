@@ -1,3 +1,4 @@
+
 ---
 lesson_title: 'Building Programs with Python'
 lesson_schedule_slug: python-novice-schedule

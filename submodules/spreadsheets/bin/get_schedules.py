@@ -105,9 +105,7 @@ def get_time_object(time_string):
 
 
 def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesson_title, website_kind):
-    """
-    Create a detailed lesson schedule landing page for each lesson in a workshop, or a section of the index for
-    standalone lessons
+    """Create a detailed lesson schedule landing page for each lesson.
 
     The schedule is based on a modifed version of syllabus.html to work better
     with the workshop format. This function also renames the ordering of
@@ -138,8 +136,7 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
         filepath.rename(f"{containing_directory}/{new_file_name}")
 
     if website_kind != 'lesson':
-        schedule_markdown = textwrap.dedent(f"""
-        ---
+        schedule_markdown = textwrap.dedent(f"""---
         lesson_title: '{lesson_title}'
         lesson_schedule_slug: {lesson_name}-schedule
         title: Lesson Schedule
@@ -152,7 +149,7 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
         with open(f"{containing_directory}/00-schedule.md", "w") as fp:
             fp.write("\n".join([line.lstrip() for line in schedule_markdown.splitlines()]))
     else:
-        # This is cheeky as it creates the index schedule but this is necessary the index is the detail for lessons
+        # This is cheeky as it creates the index schedule but this is necessary the index is the detail
         html = ""
         # Make the container to hold the schedules 'table'
         html += "<div class=\"container\">"
@@ -276,9 +273,7 @@ def main():
             if website_kind == 'workshop':
                 raise ValueError(f"gh-name, title, date, and start-time are required for workshop")
             if website_kind == 'course':
-                raise ValueError(f"gh-name, title, and order are required for course")
-            if website_kind == 'lesson':
-                raise ValueError(f"title and start-time are required for lesson")
+                raise ValueError(f"lesson_name, lesson_title, lesson_order are required for course")
 
 
         # Since we allow multiple dates and start times per lesson, we need to be
@@ -290,26 +285,31 @@ def main():
                 lesson_dates = [lesson_dates]
             if type(lesson_starts) is not list:
                 lesson_starts = [lesson_starts]
-
-            if len(lesson_dates) > 1 and len(lesson_starts) == 1:
-                lesson_starts *= len(lesson_dates)
-            else:
-                try:
-                    assert len(lesson_dates) != len(lesson_starts), "Lesson starts must be a single value " \
-                                                                    "or the same length as lesson dates"
-                except Exception as e:
-                    raise ValueError(e)
-
             lesson_dates = [get_date_object(date) for date in lesson_dates]
 
-            # Loop over each schedule table, if the lesson has multiple schedules
-            schedule_times = ["09:15", "9:30", "11:00", "11:15", "12:45", "13:00"]
-            schedule_sessions = ["Registration, questions, and technical help", "Teaching", "Break", "Teaching",
-                                 "Wrap Up", "Finish"]
+        # Get the schedule(s) for the lesson into a dataframe and also the html
+        # so we can search for the permalinks.
 
-            for i in range(len(lesson_dates)):
+        if website_kind != 'lesson':
+            with open(f"_includes/rsg/{lesson_name}-lesson/schedule.html", "r") as fp:
+                schedule_html = fp.read()
+            soup = bs(schedule_html, "html.parser")
+            all_schedules = pandas.read_html(schedule_html, flavor="lxml")
+
+        if website_kind == 'workshop':
+            if len(all_schedules) != len(lesson_dates):
+                raise ValueError(f"There are not the same number of lesson dates for the number of schedules for"
+                                 " {lesson_name} lesson")
+            if len(all_schedules) != len(lesson_starts):
+                raise ValueError(f"There are not the same number of lesson start times for the number of schedules for"
+                                 " {lesson_name} lesson")
+
+            # Loop over each schedule table, if the lesson has multiple schedules
+
+            for i, schedule in enumerate(all_schedules):
+                schedule.columns = ["time", "session"]
                 start_time = get_time_object(lesson_starts[i])
-                original_start = get_time_object(schedule_times[0])
+                original_start = get_time_object(schedule["time"][0])
                 datestr = lesson_dates[i].strftime("%d %B %Y")
 
                 if workshop_start_date and lesson_dates[i] < workshop_start_date:
@@ -319,14 +319,14 @@ def main():
 
                 # Calculate the time difference between the start time and the start
                 # time in the original schedule. This delta time (in minutes) is added
-                # to each time in the original schedule.
+                # to each time in the original schedule
 
                 delta_minutes = divmod((start_time - original_start).total_seconds(), 60)[0]
 
                 # Construct the schedule table for this lesson, adding delta_minutes to
                 # each original entry, and add the schedule table to the html template
 
-                if len(lesson_dates) > 1:
+                if len(all_schedules) > 1:
                     title = f"Day {i + 1}: '{lesson_title}'"
                 else:
                     title = f"'{lesson_title}'"
@@ -338,7 +338,7 @@ def main():
                     <table class="table table-striped">
                 """
 
-                for time, session in zip(schedule_times, schedule_sessions):
+                for time, session in zip(schedule["time"], schedule["session"]):
                     actual_time = datetime.datetime.strptime(time, "%H:%M") + datetime.timedelta(minutes=delta_minutes)
                     table += f"<tr> <td> {actual_time.hour:02d}:{actual_time.minute:02d} </td>    <td> {session} </td> </tr>\n"
 
