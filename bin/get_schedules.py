@@ -288,11 +288,6 @@ def main():
         # so we can search for the permalinks.
         p = Path("_includes/rsg/")
         p.mkdir(parents=True, exist_ok=True)
-        if website_kind != 'lesson':
-            with open(f"_includes/rsg/{lesson_name}-lesson/schedule.html", "r") as fp:
-                schedule_html = fp.read()
-            soup = bs(schedule_html, "html.parser")
-            all_schedules = pandas.read_html(schedule_html, flavor="lxml")
 
         if website_kind == 'workshop':
             if type(lesson_dates) is not list:
