@@ -1,4 +1,3 @@
-
 ---
 lesson_title: 'Automating Tasks with the Unix Shell'
 lesson_schedule_slug: shell-novice-schedule

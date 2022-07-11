@@ -67,9 +67,9 @@ def get_date_object(datestr):
         raise ValueError(f"datestr is not a string but {type(datestr)}")
 
     try:
-        date =  dateutil.parser.parse(datestr).date()
+        date = dateutil.parser.parse(datestr).date()
     except dateutil.parser.ParserError:
-        date =  None
+        date = None
 
     return date
 
@@ -138,8 +138,7 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
         filepath.rename(f"{containing_directory}/{new_file_name}")
 
     if website_kind != 'lesson':
-        schedule_markdown = textwrap.dedent(f"""
-        ---
+        schedule_markdown = textwrap.dedent(f"""---
         lesson_title: '{lesson_title}'
         lesson_schedule_slug: {lesson_name}-schedule
         title: Lesson Schedule
@@ -152,7 +151,7 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
         with open(f"{containing_directory}/00-schedule.md", "w") as fp:
             fp.write("\n".join([line.lstrip() for line in schedule_markdown.splitlines()]))
     else:
-        # This is cheeky as it creates the index schedule but this is necessary the index is the detail for lessons
+        # This is cheeky as it creates the index schedule but this is necessary the index is the detail
         html = ""
         # Make the container to hold the schedules 'table'
         html += "<div class=\"container\">"
@@ -285,6 +284,11 @@ def main():
         # able to iterate over even single values so turn into list. When done,
         # convert the dates from str to datetime.date objects.
 
+        # Get the schedule(s) for the lesson into a dataframe and also the html
+        # so we can search for the permalinks.
+        p = Path("_includes/rsg/")
+        p.mkdir(parents=True, exist_ok=True)
+
         if website_kind == 'workshop':
             if type(lesson_dates) is not list:
                 lesson_dates = [lesson_dates]
@@ -293,12 +297,12 @@ def main():
 
             if len(lesson_dates) > 1 and len(lesson_starts) == 1:
                 lesson_starts *= len(lesson_dates)
-            else:
-                try:
-                    assert len(lesson_dates) != len(lesson_starts), "Lesson starts must be a single value " \
-                                                                    "or the same length as lesson dates"
-                except Exception as e:
-                    raise ValueError(e)
+
+            try:
+                assert len(lesson_dates) == len(lesson_starts), "Lesson starts must be a single value " \
+                                                                "or the same length as lesson dates"
+            except Exception as e:
+                raise ValueError(e)
 
             lesson_dates = [get_date_object(date) for date in lesson_dates]
 
