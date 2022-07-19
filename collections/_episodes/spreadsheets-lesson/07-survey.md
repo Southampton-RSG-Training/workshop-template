@@ -2,7 +2,7 @@
 lesson_title: 'Best Practices in Data Organisation Using Spreadsheets'
 lesson_schedule_slug: spreadsheets-schedule
 title: "Survey"
-slug: lesson-survey
+slug: spreadsheets-survey
 layout: page
 ---
 

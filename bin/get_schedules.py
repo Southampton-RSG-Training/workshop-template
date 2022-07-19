@@ -140,10 +140,16 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
         if "99-" in file:
             with open(f"{containing_directory}/{new_file_name}", 'r') as fp:
                 data = fp.readlines()
-            if data[2] == "slug: lesson-survey\n":
-                data[2] = f"slug: {lesson_name}-survey\n"
+            try:
+                ix = data.index("slug: lesson-survey\n")
+                if lesson_name == '':
+                    data[ix] = f"slug: {lesson_title}-survey\n"
+                else:
+                    data[ix] = f"slug: {lesson_name}-survey\n"
                 with open(f"{containing_directory}/{new_file_name}", 'w') as fp:
                     fp.writelines(data)
+            except ValueError as e:
+                print(f"No survey markdown found, caught: {e}\n continuing")
 
     if website_kind != 'lesson':
         schedule_markdown = textwrap.dedent(f"""---

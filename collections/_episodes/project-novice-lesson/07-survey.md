@@ -2,7 +2,7 @@
 lesson_title: 'Managing Academic Software Development'
 lesson_schedule_slug: project-novice-schedule
 title: "Survey"
-slug: lesson-survey
+slug: project-novice-survey
 layout: page
 ---
 

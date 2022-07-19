@@ -2,7 +2,7 @@
 lesson_title: 'Data Cleaning with OpenRefine'
 lesson_schedule_slug: openrefine-data-cleaning-schedule
 title: "Survey"
-slug: lesson-survey
+slug: openrefine-data-cleaning-survey
 layout: page
 ---
 
