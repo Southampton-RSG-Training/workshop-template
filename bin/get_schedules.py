@@ -136,6 +136,15 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
         filepath = Path(file)
         new_file_name = f"{i + 1:02d}{filepath.stem.lstrip(string.digits)}.{file_ext}"
         filepath.rename(f"{containing_directory}/{new_file_name}")
+        # Check for survey from template and add the lesson slug
+        if "99-" in file:
+            with open(filepath, 'r') as fp:
+                data = fp.readlines()
+            if data[2] == "slug: lesson-survey\n":
+                data[2] = f"slug: {lesson_name}-survey\n"
+                with open(filepath, 'w') as fp:
+                    fp.write(data)
+
 
     if website_kind != 'lesson':
         schedule_markdown = textwrap.dedent(f"""---
@@ -157,7 +166,7 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
         html += "<div class=\"container\">"
         # Start a row that expects 2 columns at medium and above and one below
         html += "<div class=\"row row-cols-1\">"
-        #include the syllabus
+        # include the syllabus
         html += f"{{% include syllabus.html  name=\"{lesson_name}\" start_time={start_time} %}}"
         # Close the main row and container
         html += "</div>"
@@ -371,7 +380,7 @@ def main():
 
             lesson_schedules.append({"order_on": lesson_order, "schedule": table})
 
-            create_detailed_lesson_schedules(lesson_name, lesson_type, 0, lesson_title,website_kind)
+            create_detailed_lesson_schedules(lesson_name, lesson_type, 0, lesson_title, website_kind)
             # make some untimed schedules
         elif website_kind == 'lesson':
             start_time = get_time_object(lesson_starts)
