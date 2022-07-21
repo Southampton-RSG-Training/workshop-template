@@ -45,35 +45,35 @@ setup_docs:
 
 # Details about the lessons
 lessons:
-#  - title: Best Practices in Data Organisation Using Spreadsheets
-#    gh-name: spreadsheets
-#    type: episode
-#    branch: main
-#    date: 13 January 2022
-#    start-time: 15:00
-#    order: 1
-#
-#  - title: Data Cleaning with OpenRefine
-#    gh-name: openrefine-data-cleaning
-#    type: episode
-#    branch: main
-#    date: 14 January 2022
-#    start-time: 15:00
-#    order: 2
-#
-#  - title: Managing Academic Software Development
-#    gh-name: project-novice
-#    type: episode
-#    branch: main
-#    date: 10 January 2022
-#    start-time: 9:30 am
-#    order: 3
+  - title: Best Practices in Data Organisation Using Spreadsheets
+    gh-name: spreadsheets
+    type: episode
+    branch: main
+    date: 13 January 2022
+    start-time: 15:00
+    order: 1
+
+  - title: Data Cleaning with OpenRefine
+    gh-name: openrefine-data-cleaning
+    type: episode
+    branch: main
+    date: 14 January 2022
+    start-time: 15:00
+    order: 2
+
+  - title: Managing Academic Software Development
+    gh-name: project-novice
+    type: episode
+    branch: main
+    date: 10 January 2022
+    start-time: 9:30 am
+    order: 3
 
   - title: Automating Tasks with the Unix Shell  # Lesson title
     org-name: Southampton-RSG-Training           # Name of the GitHub organisation (or individual) the lesson is in defaults to Southampton-RSG-Training
     gh-name: shell-novice                        # Name of the GitHub repository for the lesson at https://github:com/{org-name}:
     type: episode                                # Currently only 'episode' or 'episode_r' is valid
-    branch: main                             # Set the branch of the repository to use, useful for lesson customization
+    branch: main                                 # Set the branch of the repository to use, useful for lesson customization
     date: 8 January 2022                         # The date of the lesson                   # date and start-time are required for z
     start-time: 10:30 am                         # The start time of the lesson             # 'kind: workshop'
     order: 4                                     # The position of the lesson in the course # order is required for 'kind: course'
