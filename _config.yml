@@ -7,10 +7,6 @@ kind: "course"
 # Overall title for the Workshop.
 # This variable is used to (optionally) add a title in the "jumbotron"
 # (the grey box at the top of the page), and to the extra pages.
-
-# Most workshops don't use extra pages. More information about extra
-# pages are included in the README:
-# https://github.com/carpentries/workshop-template#creating-extra-pages
 title: "TBC Workshop Title"
 form_title: "TBC+Workshop+Title" # This is required for the surveys
 
@@ -18,7 +14,6 @@ form_title: "TBC+Workshop+Title" # This is required for the surveys
 email: "rsginfo@soton.ac.uk"
 
 # Specify the location of the workshop
-# TODO: needs documenting a lot better
 venue: "TBC"           # name of location use "online" if online
 address: "TBC"         # address of location or url of platform
 platform-name: "TBC"   # name of online platform e.g. Teams, Zoom e.t.c
@@ -50,29 +45,29 @@ setup_docs:
 
 # Details about the lessons
 lessons:
-  - title: Best Practices in Data Organisation Using Spreadsheets
-    gh-name: spreadsheets
-    type: episode
-    branch: main
-    date: 13 January 2022
-    start-time: 15:00
-    order: 1
-
-  - title: Data Cleaning with OpenRefine
-    gh-name: openrefine-data-cleaning
-    type: episode
-    branch: main
-    date: 14 January 2022
-    start-time: 15:00
-    order: 2
-
-  - title: Managing Academic Software Development
-    gh-name: project-novice
-    type: episode
-    branch: main
-    date: 10 January 2022
-    start-time: 9:30 am
-    order: 3
+#  - title: Best Practices in Data Organisation Using Spreadsheets
+#    gh-name: spreadsheets
+#    type: episode
+#    branch: main
+#    date: 13 January 2022
+#    start-time: 15:00
+#    order: 1
+#
+#  - title: Data Cleaning with OpenRefine
+#    gh-name: openrefine-data-cleaning
+#    type: episode
+#    branch: main
+#    date: 14 January 2022
+#    start-time: 15:00
+#    order: 2
+#
+#  - title: Managing Academic Software Development
+#    gh-name: project-novice
+#    type: episode
+#    branch: main
+#    date: 10 January 2022
+#    start-time: 9:30 am
+#    order: 3
 
   - title: Automating Tasks with the Unix Shell  # Lesson title
     org-name: Southampton-RSG-Training           # Name of the GitHub organisation (or individual) the lesson is in defaults to Southampton-RSG-Training
