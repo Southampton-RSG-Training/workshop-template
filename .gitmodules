@@ -10,10 +10,6 @@
 	path = submodules/project-novice
 	url = https://github.com/Southampton-RSG-Training/project-novice.git
 	branch = main
-[submodule "submodules/setup-documents"]
-	path = submodules/setup-documents
-	url = https://github.com/Southampton-RSG-Training/setup-documents.git
-	branch = main
 [submodule "submodules/shell-novice"]
 	path = submodules/shell-novice
 	url = https://github.com/Southampton-RSG-Training/shell-novice.git
@@ -29,3 +25,7 @@
 [submodule "submodules/reveal.js"]
 	path = submodules/reveal.js
 	url = https://github.com/hakimel/reveal.js.git
+[submodule "submodules/setup-documents"]
+	path = submodules/setup-documents
+	url = https://github.com/Southampton-RSG-Training/setup-documents.git
+	branch = main
