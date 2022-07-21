@@ -1,4 +1,4 @@
-## Remote Desktop Client#
+## Remote Desktop Client 
 
 In this workshop we will be using remote desktops that come pre-configured with all the
 resources you will need to complete the course. Before you start the course you will
@@ -13,4 +13,5 @@ and potentially include some 'out of hours' time.
 
 During the course we will have time dedicated to helping you install the software on 
 your own computer so afterwards you can continue to use the skills you have learnt.
-The instructions for this are provided below.
+
+### The instructions to install the software on your own computer are provided below.

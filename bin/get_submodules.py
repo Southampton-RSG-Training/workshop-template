@@ -57,7 +57,7 @@ for n, lesson_info in enumerate(website_config['lessons']):
         lesson_name = lesson_info.get('gh-name', None)
         if lesson_name is None:
             raise ValueError(f"No lesson name specified for lesson {n}")
-        gh_branch = lesson_info.get('branch', 'gh-pages')
+        gh_branch = lesson_info.get('branch', 'main')
         # Check this repository exists
         r = requests.get(f'https://api.github.com/repos/{org_name}/{lesson_name}')
         if r.status_code != 200:
@@ -79,10 +79,8 @@ for n, lesson_info in enumerate(website_config['lessons']):
                 else:
                     raise f"Branch '{gh_branch}' or 'gh-pages' does not exist in '{org_name}/{lesson_name}', or 'Southampton-RSG-Training'"
 
-
-
         log.info(f"Getting lesson with parameters:\n org-name: {org_name} \n gh-name: {lesson_name} \n branch: {gh_branch} \n type: {lesson_type.value}")
-        os.system(f"git submodule add --force -b {gh_branch} https://github.com/Southampton-RSG-Training/{lesson_name}.git submodules/{lesson_name}")
+        os.system(f"git submodule add --force -b {gh_branch} https://github.com/{org_name}/{lesson_name}.git submodules/{lesson_name}")
         os.system("git submodule update --remote --merge")
 
         # move required files from the subdirectories to _includes/rsg/{lesson_name}/...
