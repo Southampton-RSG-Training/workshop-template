@@ -45,6 +45,9 @@ helper:
   - "Helper 1"
   - "Helper 2"
 
+setup_docs:
+  - remote_desktop.md
+
 # Details about the lessons
 lessons:
   - title: Best Practices in Data Organisation Using Spreadsheets
@@ -100,19 +103,19 @@ lessons:
       - 10:00 am
     order: 6
 
-  - title: Data Analysis and Visualization in R
-    gh-name: r-novice
-    type: episode_r
-    branch: main
-    date:
-      - 15 January 2022
-      - 16 January 2022
-      - 17 January 2022
-    start-time:
-      - 15:00
-      - 15:00
-      - 15:00
-    order: 7
+#  - title: Data Analysis and Visualization in R
+#    gh-name: r-novice
+#    type: episode_r
+#    branch: main
+#    date:
+#      - 15 January 2022
+#      - 16 January 2022
+#      - 17 January 2022
+#    start-time:
+#      - 15:00
+#      - 15:00
+#      - 15:00
+#    order: 7
 
 ###
 # It is unlikely you need to modify the values below this line
