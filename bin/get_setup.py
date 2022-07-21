@@ -8,7 +8,7 @@ except ImportError:
 
 log = logging.getLogger(__name__)
 
-#change this to get setup docs
+# change this to get setup docs
 
 log.info(f"Getting setup info")
 os.system(f"git submodule add --force -b main https://github.com/Southampton-RSG-Training/setup-documents.git submodules/setup-documents")
@@ -21,7 +21,10 @@ with open('_config.yml') as config:
 # Open the website config, which contains a list of the lessons we want in the
 # workshop, then create the directory "submodules" which will contain the files
 # for each lesson.
-set_up_docs = []
+
+# First get any docs that are at workshop level
+set_up_docs = [x for x in website_config['setup_docs']]
+# Then get the docs from lesson episode
 for n, lesson_info in enumerate(website_config['lessons']):
     with open(f'submodules/{lesson_info.get("gh-name")}/_config.yml') as config:
         episode_config = load(config, Loader=Loader)

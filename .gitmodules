@@ -1,15 +1,3 @@
-[submodule "submodules/spreadsheets"]
-	path = submodules/spreadsheets
-	url = https://github.com/Southampton-RSG-Training/spreadsheets.git
-	branch = main
-[submodule "submodules/openrefine-data-cleaning"]
-	path = submodules/openrefine-data-cleaning
-	url = https://github.com/Southampton-RSG-Training/openrefine-data-cleaning.git
-	branch = main
-[submodule "submodules/project-novice"]
-	path = submodules/project-novice
-	url = https://github.com/Southampton-RSG-Training/project-novice.git
-	branch = main
 [submodule "submodules/shell-novice"]
 	path = submodules/shell-novice
 	url = https://github.com/Southampton-RSG-Training/shell-novice.git
@@ -21,10 +9,6 @@
 [submodule "submodules/python-novice"]
 	path = submodules/python-novice
 	url = https://github.com/Southampton-RSG-Training/python-novice.git
-	branch = main
-[submodule "submodules/r-novice"]
-	path = submodules/r-novice
-	url = https://github.com/Southampton-RSG-Training/r-novice.git
 	branch = main
 [submodule "submodules/reveal.js"]
 	path = submodules/reveal.js
