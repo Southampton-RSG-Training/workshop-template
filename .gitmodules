@@ -1,0 +1,16 @@
+[submodule "submodules/spreadsheets"]
+	path = submodules/spreadsheets
+	url = https://github.com/Southampton-RSG-Training/spreadsheets.git
+	branch = main
+[submodule "submodules/openrefine-data-cleaning"]
+	path = submodules/openrefine-data-cleaning
+	url = https://github.com/Southampton-RSG-Training/openrefine-data-cleaning.git
+	branch = main
+[submodule "submodules/project-novice"]
+	path = submodules/project-novice
+	url = https://github.com/Southampton-RSG-Training/project-novice.git
+	branch = main
+[submodule "submodules/setup-documents"]
+	path = submodules/setup-documents
+	url = https://github.com/Southampton-RSG-Training/setup-documents.git
+	branch = main
