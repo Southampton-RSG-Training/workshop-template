@@ -4,6 +4,8 @@
 #                 if you are editing this file to make a local build work then the corresponding changes must be made in
 #                 the github workflow.
 
+trap clean_branch 1 2 3 6
+
 case "$OSTYPE" in
   solaris*) echo "OS SOLARIS not supported"; exit ;;
   darwin*)  MYOS="OSX" ;;
@@ -77,18 +79,29 @@ bundle exec jekyll serve --baseurl=""
 #Note: the site is up here and will remain up until an interrupt (ctrl-c) is sent then the resto of this script triggers
 #      and cleans out the build.
 
-# Clean the things not tracked by git (Local Only: not replicated on GH actions)
+clean_branch
+
+clean_branch()
+{
+#pull down the venv
+deactivate || source deactivate
+
+# Clean the things not tracked by git
 rm setup.md
-rm -r _site/ venv/ collections/ fig/ _includes/rsg/*-lesson/ slides/ _includes/ submodules/
-find -f ./data \! -name "*.md" -depth 1 -delete
+rm -r _site/ venv/ collections/ _includes/rsg/*-lesson/ slides/ _includes/ submodules/
+#find -f ./data \! -name "*.md" -depth 1 -delete # This is for the workshop only the data should be preserved in the lessons
 rm assets/favicons/rsg/apple* assets/favicons/rsg/favicon* assets/favicons/rsg/mstile*
-if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
+if [ 0 -lt $(ls _episodes_rmd/*.Rmd 2>/dev/null | wc -w) ]; then
   rm _episodes/*.md _episodes/_page_built_on.html
   rm -r _episodes_rmd/fig/
   # These files are created in r-novice day 3
   rm combo_plot_abun_weight.png name_of_file.png
 fi
-z
+
 # Checkout main and cleanup branch
 git checkout $MYBRANCH
 git branch -d localbuild || echo 'branch local build does not exist to delete'
+git add -u
+git commit -m "cleanup"
+exit
+}
