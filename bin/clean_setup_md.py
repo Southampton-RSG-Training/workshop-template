@@ -71,7 +71,7 @@ def main():
             lesson["date"] = parser.parse(date)
 
         sorted_lessons = sorted(lessons, key=lambda x: x["date"])
-    elif website_config.get("kind") == "course":
+    elif website_config.get("delivery") == "static":
         sorted_lessons = sorted(lessons, key=lambda x: x["order"])
 
     setup_md_string = """
