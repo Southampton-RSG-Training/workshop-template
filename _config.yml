@@ -208,8 +208,12 @@ highlighter: rouge
 # Using the new jekyll remote themes
 remote_theme: Southampton-RSG-Training/rsg-theme
 
+github_username: <USERNAME>
+github: <USERNAME>
+
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
   - jekyll-include-cache
   - jekyll-target-blank
+  - jekyll-github-metadata
