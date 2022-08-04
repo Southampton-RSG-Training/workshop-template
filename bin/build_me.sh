@@ -35,34 +35,6 @@ exit
 #Trap the teardown to avoid poor state on build failure
 trap clean_branch 1 2 3 6
 
-case "$OSTYPE" in
-  solaris*) echo "OS SOLARIS not supported"; exit ;;
-  darwin*)  MYOS="OSX" ;;
-  linux*)   MYOS="LINUX" ;;
-  bsd*)     echo "OS BSD not supported"; exit ;;
-  msys*)    echo "OS WINDOWS not supported"; exit ;;
-  cygwin*)  echo "OS WINDOWS not supported"; exit ;;
-  *)        exit ;;
-esac
-
-if [ "$MYOS" = "LINUX" ]; then
-  read -p "Please provide package manager: " MYPKGMGR
-  sudo $MYPKGMGR install -y libcurl4-openssl-dev python3 python3-pip ruby ruby-dev libxml2
-  curl -sSL https://get.rvm.io | bash -s stable
-  source ~/.bashrc
-fi;
-
-if [ "$MYOS" = "OSX" ]; then
-  read -p "Please confirm use of homebrew y/n: " HBOK
-  if [ "$HBOK" != "y" ]; then
-    exit
-  fi
-  brew install curl
-  brew install xml2
-  brew install ruby
-  brew install --cask jewelrybox
-fi
-
 # Make a branch to build on to avoid messing up main
 git branch -d localbuild || echo 'branch local build does not exist to delete'
 git checkout -b localbuild
@@ -90,9 +62,10 @@ if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   Rscript renv/activate.R
   script -e 'renv::restore()'
   RMD_PATH=$(find ./_episodes_rmd -name '*.Rmd')
-  Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f, knit_root_dir=getwd(), output_dir=dirname(sub("./_episodes_rmd/", "./_episodes/", f)))' ${RMD_PATH[*]}
-  perl -pi -e "s/([>\s]*)(>\s)(.*?)(\{: \.[a-zA-Z]+\})/\1\2\3\n\1\4\n\1/g" ./_episodes/*.md
-  perl -0777pi -e "s/(?<!\n){: .challenge}/\n{: .challenge}/g" ./_episodes/*.md
+  Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f, knit_root_dir=getwd(), output_dir=dirname(sub("./collections/_episodes_rmd/", "./collections/_episodes/", f)))' ${RMD_PATH[*]}
+  perl -pi -e "s/([>\s]*)(>\s)(.*?)(\{: \.[a-zA-Z]+\})/\1\2\3\n\1\4\n\1/g" ./collections/_episodes/r-novice-lesson/*.md
+  perl -0777pi -e "s/(?<!\n){: .challenge}/\n{: .challenge}/g" ./collections/_episodes/r-novice-lesson/*.md
+  cp ./collections/_episodes_rmd/**/fig/*.png ./fig/
 fi
 
 python bin/make_favicons.py
