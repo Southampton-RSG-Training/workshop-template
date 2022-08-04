@@ -1,8 +1,10 @@
 #------------------------------------------------------------
 # Values for this workshop.
 #------------------------------------------------------------
-# What kind of thing is this ("workshop" or "course")?
+# What kind of thing is this ("workshop")? #Don't Change
 kind: "workshop"
+# Is this a permanent page 'static' or a taught workshop 'dated'
+delivery: "static"
 
 # Overall title for the Workshop.
 # This variable is used to (optionally) add a title in the "jumbotron"
@@ -12,7 +14,9 @@ form_title: "TBC+Workshop+Title" # This is required for the surveys
 
 # Email address, no mailto:
 email: "rsginfo@soton.ac.uk"
+logo_site: "https://rsgsoton.net"
 
+# For static delivery this section can all be ignored ==================================================================
 # Specify the location of the workshop
 venue: "TBC"           # name of location use "online" if online
 address: "TBC"         # address of location or url of platform
@@ -39,6 +43,7 @@ instructor-email:
 helper:
   - "Helper 1"
   - "Helper 2"
+# ======================================================================================================================
 
 setup_docs:
   - remote_desktop.md
@@ -76,7 +81,7 @@ lessons:
     branch: main                                 # Set the branch of the repository to use, useful for lesson customization
     date: 8 January 2022                         # The date of the lesson                   # date and start-time are required for z
     start-time: 10:30 am                         # The start time of the lesson             # 'kind: workshop'
-    order: 4                                     # The position of the lesson in the course # order is required for 'kind: course'
+    order: 4                                     # The position of the lesson in the course # order is required for 'delivery: static'
 
   - title: Version Control with git
     gh-name: git-novice
@@ -159,7 +164,6 @@ lc_site: "https://librarycarpentry.org/"
 swc_github: "https://github.com/swcarpentry"
 swc_pages: "https://swcarpentry.github.io"
 swc_site: "https://software-carpentry.org"
-rsg_site: "https://rsgsoton.net"
 template_repo: "https://github.com/carpentries/styles"
 training_site: "https://carpentries.github.io/instructor-training"
 workshop_repo: "https://github.com/carpentries/workshop-template"
@@ -204,8 +208,12 @@ highlighter: rouge
 # Using the new jekyll remote themes
 remote_theme: Southampton-RSG-Training/rsg-theme
 
+github_username: <USERNAME>
+github: <USERNAME>
+
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
   - jekyll-include-cache
   - jekyll-target-blank
+  - jekyll-github-metadata

@@ -10,7 +10,7 @@ To configure a workshop please follow the steps below.
 1) Create a copy of this workshop using the GitHub (GH) templating function. Note the name of your new workshop will be the website URL, so be descriptive, concise as possible and accurate. Note the git org for workshops should not be Southampton-RSG-Training. For members of the RSG please use SRSG-Workshops.
 2) Using either the GH online code editor or pulling a local version, edit the _config.yml file. This is the only file that needs to be modified.
 3) The fields to change are as follows:
-   - kind: workshop or course depending on if you want a site with schedules and dates (workshop) or a site which hosts the content for people to access in their own time (course).
+   - kind: workshop depending on if you want a site with schedules and dates (workshop) or a site which hosts the content for people to access in their own time (course).
    - title, form_title: the title of the workshop and the title of the workshop with spaces replaced with '+' and special characters removed, this is used for Google forms.
    - venue, address, country, lat/long: updates the details for the workshop location. You can use, e.g., Google Maps or https://www.latlong.net/convert-address-to-lat-long.html to find the latitude and longitude of the venue.
    - humandate, humantime, startdate, enddate: human- and machine-readable dates and times, respectively, for the start and end of the workshop. Machine readable dates should be in YYYY-MM-DD format. The human-readable dates are free form.
@@ -22,7 +22,7 @@ To configure a workshop please follow the steps below.
       - gh-name: the name of a lesson repository in the provided (or default <https://github.com/Southampton-RSG-Training>) GH organisation e.g. 'git-novice'.
       - branch: the git branch to generate lessons from. To customise a lesson, one can specify another branch - more details below. The default choice is 'main'.
       - type: choose from either 'episode' for standard markdown lessons or 'episode_r' for R markdown.
-      - order (if kind == course): the position in the lesson running order used when 'kind' is set to 'course'
+      - order (if delivery == static): the position in the lesson running order used when 'kind' is set to 'course'
       - date (if kind == workshop): the date the lesson is to be taught. Many date formats accepted, more information can be found [here](https://dateutil.readthedocs.io/en/stable/parser.html) about accepted formats. If a date format is not accepted, then the build process will abort. For multi-day lessons, multiple dates have to be specified in a YAML list. The number of dates must equal the number of schedule tables in `_includes/rsg/lesson/schedule.html`.
       - time (if kind == workshop): the time to start the lesson, both 12-hour and 24-hour timestamps are accepted. For multi-day lessons, multiple start times must also be specified in a YAML list.
 4) Build the website 

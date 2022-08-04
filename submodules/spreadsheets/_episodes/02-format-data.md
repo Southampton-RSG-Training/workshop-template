@@ -114,15 +114,15 @@ taken.
 ![spreadsheet setup](fig/spreadsheet-setup-updated.png)
 
 > ## Version controlling your data
-> Although out of scope for this lesson, you can learn about version control in a [separate course](https://southampton-rsg.github.io/swc-git-novice/),
+> Although out of scope for this lesson, you can learn about version control in a [separate course](https://southampton-rsg.github.io/Southampton-RSG-Training/git-novice/),
 > which can be used to
 > record the transformation of your data over time, and provides tools to roll back to any previous version of the data.
 {: .callout}
 
 ## Fixing mistakes in data organisation
 
-Let's put this theory into practice! If you have not already done so, download the [messy survey data](../data/messy_survey_data.xls)
-(as outlined in [Setup section](/setup.html#data)). We will now clean this data and learn
+Let's put this theory into practice! If you have not already done so, download the [messy survey data](data/messy_survey_data.xls)
+(as outlined in [Setup section](setup.html#introduction-to-the-data-for-this-lesson)). We will now clean this data and learn
 some best practices in the process.
 
 Take the messy version of the survey data and open it in a spreadsheet program. There are four tabs:
@@ -131,7 +131,7 @@ the tabs '2013' and '2014', respectively.
  * Ignore the 'dates' tab for now, we will come back to it later in the lesson.
  * The 'semi-cleaned-combined' tab contains combined data from tabs '2013' and '2014'. Reproducing this tab is what
   the exercise is all about. However, we will revisit this tab in
-  [episode on quality assurance and control](/04-quality-control/index.html) and you will see why it is 'semi-clean'.
+  [episode on quality assurance and control](04-quality-control/index.html) and you will see why it is 'semi-clean'.
 
 > ## Exercise
 >  The goal of this exercise is to create a cleaned data set in a new tab by combining the data from tabs '2013' and
@@ -148,7 +148,7 @@ the tabs '2013' and '2014', respectively.
 > {: .callout}
 >
 > > ## Solution
-> > All the mistakes in this messy dataset are addressed in the [next episode](../02-common-mistakes).
+> > All the mistakes in this messy dataset are addressed in the [next episode](02-common-mistakes).
 > > You can refer to it to check if you spotted them all and go back and fix your spreadsheet.
 > {: .solution}
 {: .challenge}
