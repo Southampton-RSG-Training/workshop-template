@@ -15,7 +15,7 @@ deactivate || source deactivate
 # Clean the things not tracked by git
 rm setup.md
 rm -r _site/ venv/ collections/ _includes/rsg/*-lesson/ slides/ _includes/ submodules/
-#find -f ./data \! -name "*.md" -depth 1 -delete # This is for the workshop only the data should be preserved in the lessons
+find -f ./data \! -name "*.md" -depth 1 -delete # This is for the workshop only the data should be preserved in the lessons
 rm assets/favicons/rsg/apple* assets/favicons/rsg/favicon* assets/favicons/rsg/mstile*
 if [ 0 -lt $(ls _episodes_rmd/*.Rmd 2>/dev/null | wc -w) ]; then
   rm _episodes/*.md _episodes/_page_built_on.html
