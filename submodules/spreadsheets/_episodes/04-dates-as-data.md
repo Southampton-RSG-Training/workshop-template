@@ -111,7 +111,7 @@ as the 7th of December 1988. A researcher in the US will interpret the same entr
 
 > ## Exercise
 >
-> Look at the tab 'dates' in the [messy data spreadsheet](../data/messy_survey_data.xls) you used in previous exercises.
+> Look at the tab 'dates' in the [messy data spreadsheet](data/messy_survey_data.xls) you used in previous exercises.
 > It contains a copy of the 'plot 3' table from the '2014' tab (this is the table that contains the problematic dates).
 > You will notice that there are years missing from the "Date collected" column. Just by looking at the entered dates,
 > can you figure out the date format that was used?
@@ -138,7 +138,7 @@ variable.
 
 > ## Exercise
 >
-> Look at the tab 'dates' in the [messy data spreadsheet](../data/messy_survey_data.xls).
+> Look at the tab 'dates' in the [messy data spreadsheet](data/messy_survey_data.xls).
 > It contains a copy of the 'plot 3' table from the '2014' tab (this is the table that contains the problematic dates).
 > Select one of the cells in "Date collected" column, for example cell 'A3'. What is the date Excel thinks is
 > entered? What is the year of the date?
@@ -196,7 +196,7 @@ For example, [Excel determines the century](https://docs.microsoft.com/en-us/off
 >(Comma--Separated Value format) and then open the file in a plain text editor (like TextEdit or Notepad)?
 > What happens to the dates if we then open the `.csv` file back in Excel?
 > > ## Solution
-> > 1. Click to the `dates` tab of the [messy data spreadsheet](../data/messy_survey_data.xls).
+> > 1. Click to the `dates` tab of the [messy data spreadsheet](data/messy_survey_data.xls).
 > > 2. Select `File -> Save As` in Excel and in the drop down menu for file format select `CSV UTF-8 (Comma delimited) (.csv)`
 > > (or `Text CSV (.csv)` in LibreOffice).
 > > Enter a file name, e.g. `dates-export.csv` and click `Save`.

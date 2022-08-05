@@ -38,7 +38,7 @@ detail below:
 - [Using problematic field names](#field_name)
 - [Using special characters in data](#special)
 - [Inclusion of metadata within data](#metadata)
-- [Date formatting](../03-dates-as-data/)
+- [Date formatting](spreadsheets-dates-as-data)
 
 ## Using multiple tables
 
@@ -119,7 +119,7 @@ to include new columns - one for each type of information you need to capture.
 Sometimes unacceptable null values are automatically recorded by the device you use to measure the observation (older
 devices are especially guilty of not following best practice). If the erroneous null values stem from the measuring
 device, you're left with little choice but to clean the data and replace them with a better null value. A tool like
-[OpenRefine](https://southampton-rsg.github.io/openrefine-data-organisation-and-management/), which will be introduced
+[OpenRefine](https://southampton-rsg-training.github.io/openrefine-data-cleaning/), which will be introduced
 in a later lesson, is perfect for this kind of cleaning.
 
 Whatever the reason, it is a problem if unknown or missing data is recorded as -999, 999, or 0.
@@ -276,8 +276,8 @@ a separate file in the same folder as your data or a separate tab within your da
 
 ## Fixing mistakes in data organisation
 
-Let's put this theory into practice! If you have not already done so, download the [messy survey data](../data/messy_survey_data.xls)
-(as outlined in [Setup section](../setup.html#data)). We will now clean this data and learn
+Let's put this theory into practice! If you have not already done so, download the [messy survey data](data/messy_survey_data.xls)
+(as outlined in [Setup section](setup.html#data)). We will now clean this data and learn
 some best practices in the process.
 
 Take the messy version of the survey data and open it in a spreadsheet program. There are four tabs:
@@ -286,7 +286,7 @@ the tabs '2013' and '2014', respectively.
  * Ignore the 'dates' tab for now, we will come back to it later in the lesson.
  * The 'semi-cleaned-combined' tab contains combined data from tabs '2013' and '2014'. Reproducing this tab is what
   the exercise is all about. However, we will revisit this tab in
-  [episode on quality assurance and control](/04-quality-control/index.html) and you will see why it is 'semi-clean'.
+  [episode on quality assurance and control](spreadsheets-quality-assurance-and-control) and you will see why it is 'semi-clean'.
 
 > ## Exercise
 >  The goal of this exercise is to create a cleaned data set in a new tab by combining the data from tabs '2013' and
@@ -305,7 +305,7 @@ the tabs '2013' and '2014', respectively.
 > > ## Solution
 > > When you finish, compare your clean spreadsheet with the structure suggested below or with
 > > [surveys.csv](https://ndownloader.figshare.com/files/2292172)
-> > which is the example cleaned data file you downloaded during [setup](../setup.html).
+> > which is the example cleaned data file you downloaded during [setup](setup).
 > > For example, you could chose to record your data using the following columns:
 > > - date_collected
 > > - plot_id	species_id
@@ -317,7 +317,7 @@ the tabs '2013' and '2014', respectively.
 > >
 > > Your cleaned spreadsheet might not be identical
 > > to either of the above, but it should have a similar overall structure. We will address the reasoning behind separating date
-> > components in 3 separate columns in [surveys.csv](https://ndownloader.figshare.com/files/2292172) in the [next episode on formatting dates in spreadsheets](../03-dates-as-data/).
+> > components in 3 separate columns in [surveys.csv](https://ndownloader.figshare.com/files/2292172) in the [next episode on formatting dates in spreadsheets](spreadsheets-dates-as-data).
 > {: .solution}
 {: .challenge}
 

@@ -133,7 +133,7 @@ the tabs '2013' and '2014', respectively.
  * Ignore the 'dates' tab for now, we will come back to it later in the lesson.
  * The 'semi-cleaned-combined' tab contains combined data from tabs '2013' and '2014'. Reproducing this tab is what
   the exercise is all about. However, we will revisit this tab in
-  [episode on quality assurance and control](04-quality-control/index.html) and you will see why it is 'semi-clean'.
+  [episode on quality assurance and control](spreadsheets-quality-assurance-and-control) and you will see why it is 'semi-clean'.
 
 > ## Exercise
 >  The goal of this exercise is to create a cleaned data set in a new tab by combining the data from tabs '2013' and
@@ -150,7 +150,7 @@ the tabs '2013' and '2014', respectively.
 > {: .callout}
 >
 > > ## Solution
-> > All the mistakes in this messy dataset are addressed in the [next episode](02-common-mistakes).
+> > All the mistakes in this messy dataset are addressed in the [next episode](spreadsheets-common-spreadsheet-errors).
 > > You can refer to it to check if you spotted them all and go back and fix your spreadsheet.
 > {: .solution}
 {: .challenge}

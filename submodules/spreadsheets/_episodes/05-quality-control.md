@@ -37,7 +37,7 @@ rules but many others exist. For an overview of data validation rules
 available in Excel, check out the [Excel support page on data validation](https://support.office.com/en-us/article/Apply-data-validation-to-cells-29FECBCC-D1B9-42C1-9D76-EFF3CE5F7249). General steps to employ data validation are as follows.
 
 1. Open the tab 'semi-cleaned-combined' of the
-[messy data spreadsheet](../data/messy_survey_data.xls).
+[messy data spreadsheet](data/messy_survey_data.xls).
 It contains tables from the messy data tabs '2013' and '2014' combined into a single table (you may note that data is
 not fully yet cleaned, although it is in a much better shape than it was in the tabs '2013' and '2014').
 
@@ -73,10 +73,10 @@ Now let's try this out by setting the 'plot_id' in our spreadsheet to only allow
 plot values that are integers between 1 and 24.
 
 > ## Exercise
-> Set the 'plot_id' column in tab ‘semi-cleaned-combined’ of the [messy data spreadsheet](../data/messy_survey_data.xls)
+> Set the 'plot_id' column in tab ‘semi-cleaned-combined’ of the [messy data spreadsheet](data/messy_survey_data.xls)
 > to only allow values that are integers between 1 and 24.
 > > ## Solution
-> > 1. Open the tab 'semi-cleaned-combined' of [messy data spreadsheet](../data/messy_survey_data.xls) and select the 'plot_id' column.
+> > 1. Open the tab 'semi-cleaned-combined' of [messy data spreadsheet](data/messy_survey_data.xls) and select the 'plot_id' column.
 > > 2. On the `Data` tab the top level menu select `Data Validation`, or `Data Tools` and then `Data Validation`
 > > or `Validation Tools` (depending on your version of Excel) or `Validity` in LibreOffice.
 > > 3. In the `Allow` box of the `Settings` tab select `Whole number` (and in LibreOffice select the `Data` field to be
@@ -112,7 +112,7 @@ or whether or not you capitalised the words correctly. By restricting values in 
 values, you can select the right option from the list every time. Let’s apply this to our data.
 
 > ## Exercise
-> Restrict the values of the 'species_id' column in tab ‘semi-cleaned-combined’ of the [messy data spreadsheet](../data/messy_survey_data.xls)
+> Restrict the values of the 'species_id' column in tab ‘semi-cleaned-combined’ of the [messy data spreadsheet](data/messy_survey_data.xls)
 > to allow only values from the following list: “DM, NL, DS, PP, PE, PF”.
 >
 > > ## Solution
@@ -182,7 +182,7 @@ If your dataset is well-structured and does not contain formulas, sorting should
 
 > ## Exercise
 >
-> Look at the 'semi-cleaned-combined' tab of the [messy data spreadsheet](../data/messy_survey_data.xls). It contains
+> Look at the 'semi-cleaned-combined' tab of the [messy data spreadsheet](data/messy_survey_data.xls). It contains
 > tables from the messy data tabs '2013' and '2014' combined into a single table in a single tab (you will note that
 > the data is not yet fully cleaned).
 >
@@ -216,7 +216,7 @@ entering data. Let's apply some to our data.
 
 > ## Exercise
 >  Look at the 'semi-cleaned-combined' tab of the
-> [messy data spreadsheet](../data/messy_survey_data.xls) and apply
+> [messy data spreadsheet](data/messy_survey_data.xls) and apply
 > any `2-Color Scale` formatting rule to column `weight_grams`.
 >
 > > ## Solution
