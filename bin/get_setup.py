@@ -5,6 +5,7 @@ try:
     from yaml import CLoader as Loader
 except ImportError:
     from yaml import Loader
+from distutils.dir_util import copy_tree
 
 log = logging.getLogger(__name__)
 
@@ -30,6 +31,9 @@ for n, lesson_info in enumerate(website_config['lessons']):
         episode_config = load(config, Loader=Loader)
         #select element of the dictionary called setup_docs
         set_up_docs = set_up_docs + [x for x in episode_config['setup_docs'] if x not in set_up_docs]
+
+# Get the images for the setup documents
+copy_tree(f"submodules/setup-documents/fig", "fig/")
 
 #for each element in the list
 #paste into a string 'submodules/setup-documents/markdown'+setup docs element
