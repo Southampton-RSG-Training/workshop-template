@@ -17,7 +17,7 @@ keypoints:
 Dates are the scourge of spreadsheets! They are the cause of a huge number of problems with misinterpreted data.
 
 When working with data, the goal is to remove, as much as humanly possible, any ambiguity. But ambiguity can creep into your
-dates when there are regional variations (e.g. UK vs. US data formats), or if different software products
+dates when there are regional variations (e.g. UK vs. US date formats), or if different software products
 (e.g., LibreOffice, Microsoft Excel, Gnumeric) are used. Ambiguity also arises when
 spreadsheet programs attempt to "help" you, for example by filling in what it believes is the missing year in the date
 you expected to only include a day and a month.

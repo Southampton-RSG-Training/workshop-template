@@ -85,7 +85,7 @@ Rather, metadata should be stored as a separate file in the same directory as yo
 format (i.e. `.txt`) with a name that clearly associates it with your data file. Because metadata files are free text format,
 they allow you to encode comments, units, information about how null values are encoded and related information.
 
-Additionally, file or database level metadata describes how files that make up the dataset relate to each other; what format are they are
+Additionally, file or database level metadata describes how files that make up the dataset relate to each other; what format they are
 in; and whether they supersede or are superseded by previous files. A folder-level `README.txt` file is the classic way of accounting for
 all the files and folders in a project.
 
@@ -107,7 +107,7 @@ will be easy to start the analysis again!
 these steps as you would any step in an experiment. We recommend that you
 do this in a plain text file stored in the same folder as the data file.
 
-The the following example, the spreadsheet has 'raw' tabs in which to store the original, untouched data and 'clean'
+In the following example, the spreadsheet has 'raw' tabs in which to store the original, untouched data and 'clean'
 tabs in which the processed data is stored. It is accompanied with a text file that describes the steps that have been
 taken.
 
@@ -121,40 +121,4 @@ taken.
 
 ## Fixing mistakes in data organisation
 
-Let's put this theory into practice! If you have not already done so, download the [messy survey data](data/messy_survey_data.xls)
-(as outlined in [Setup section](setup.html#introduction-to-the-data-for-this-lesson)). We will now clean this data and learn
-some best practices in the process.
-
-Take the messy version of the survey data and open it in a spreadsheet program. There are four tabs:
- * Two field assistants conducted the surveys, one in 2013 and one in 2014, and they both kept track of the data in their own way in
-the tabs '2013' and '2014', respectively.
- * Ignore the 'dates' tab for now, we will come back to it later in the lesson.
- * The 'semi-cleaned-combined' tab contains combined data from tabs '2013' and '2014'. Reproducing this tab is what
-  the exercise is all about. However, we will revisit this tab in
-  [episode on quality assurance and control](spreadsheets-quality-assurance-and-control) and you will see why it is 'semi-clean'.
-
-> ## Exercise
->  The goal of this exercise is to create a cleaned data set in a new tab by combining the data from tabs '2013' and
-> '2014'. You will need to identify what is wrong with the way the data is arranged in these two tabs, and then make
-> steps to clean the data before combining it.
->
-> Whilst completing this exercise, you might like to contemplate how much
-> time could be have been saved if the researchers had agreed on a data format before the collection took place, and how
-> long it would take to clean real-world research data that could contain many millions of records.
->
-> > ## Keep your raw data - raw
-> > Do not forget to create a new file or a new tab for the cleaned data; never
-> > modify your original (raw) data.
-> {: .callout}
->
-> > ## Solution
-> > All the mistakes in this messy dataset are addressed in the [next episode](spreadsheets-common-spreadsheet-errors).
-> > You can refer to it to check if you spotted them all and go back and fix your spreadsheet.
-> {: .solution}
-{: .challenge}
-
-> ## Full & clean dataset
-> If you want to have a look at the full, clean dataset - have a look atsome of the other files you downloaded.
-> [surveys.csv](https://ndownloader.figshare.com/files/2292172) combines data from all the surveys
-> and [combined.csv](https://ndownloader.figshare.com/files/10717186) includes the cleaned data from [surveys.csv](https://ndownloader.figshare.com/files/2292172), [plots.csv](https://ndownloader.figshare.com/files/3299474) and [species.csv](https://ndownloader.figshare.com/files/3299483) combined into one clean file.
-{: .testimonial}
+We will now look at some common mistakes and learn some best practices in data organisation that will help us clean this data.
