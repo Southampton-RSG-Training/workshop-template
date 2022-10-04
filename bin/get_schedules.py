@@ -42,36 +42,29 @@ def get_yaml_config():
     return config
 
 
-def get_date_object(datestr):
+def get_date_object(date_string):
     """Convert a date string into a datetime object.
 
-    On failure to convert a string, None is returned.
+    On failure to convert a string, either a parser or a value error will be
+    raised.
 
     Parameters
     ----------
-    datestr: str
+    datestr: str, datetime.date
         The string of the date, in format YYYY-MM-DD. But any which dateutil
         accepts is also acceptable.
 
     Returns
     -------
     date: datetime.date
-        The date object. If unable to parse, then None is returned instead.
+        The date object parsed from date_string.
     """
-    if datestr is None:
-        return None
+    if isinstance(date_string, datetime.date):
+        return date_string
+    if not date_string or not isinstance(date_string, str):
+        raise ValueError(f"date_string is either None or not of type str: {type(date_string)}")
 
-    if isinstance(datestr, datetime.date):
-        return datestr
-    elif not isinstance(datestr, str):
-        raise ValueError(f"datestr is not a string but {type(datestr)}")
-
-    try:
-        date = dateutil.parser.parse(datestr).date()
-    except dateutil.parser.ParserError:
-        date = None
-
-    return date
+    return dateutil.parser.parse(date_string).date()
 
 
 def get_time_object(time_string):
