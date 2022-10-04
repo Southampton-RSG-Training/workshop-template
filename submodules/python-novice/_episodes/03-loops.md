@@ -1,20 +1,24 @@
 ---
-# layout: page
 title: Repeating actions using loops
 slug: python-novice-repeating-actions-using-loops
-minutes: 15
+minutes: 30
 teaching: 15
-exercises: 0
+exercises: 15
+questions: 
+- How do I repeat a task?
+- What is a for loop?
+- How to iterate over a list?
+- How to iterate over a range of values?
+objectives:
+- Write for loops to repeat simple calculations.
+- Build a basic Python script and run it.
+- Track changes to a loop variable as the loop runs.
+- Track changes to other variables as they are updated by a for loop.
+- Write as basic Python script that uses loops.
+keypoints:
+- We can use the 'for in' syntax to loop over collections or generators.
 ---
 
-{: .objectives}
-> ## Learning Objectives
->
-> *   Write for loops to repeat simple calculations.
-> *   Build a basic Python script and run it.
-> *   Track changes to a loop variable as the loop runs.
-> *   Track changes to other variables as they are updated by a for loop.
-> *   Write as basic Python script that uses loops
 
 ### Using loops to repeat things
 
@@ -22,31 +26,33 @@ Using the tools we've covered till now, repeating a simple statement many times 
 we can currently repeat easily is printing the exact same message multiple times. For example,
 
 
-{: .python}
+
 ~~~
 print("I love programming in Python!\n"*10)
 ~~~
+{: .python}
 
 will produce the output:
 
 
+
+~~~
+I love programming in Python!
+I love programming in Python!
+I love programming in Python!
+I love programming in Python!
+I love programming in Python!
+I love programming in Python!
+I love programming in Python!
+I love programming in Python!
+I love programming in Python!
+I love programming in Python!
+~~~
 {: .output}
-~~~
-I love programming in Python!
-I love programming in Python!
-I love programming in Python!
-I love programming in Python!
-I love programming in Python!
-I love programming in Python!
-I love programming in Python!
-I love programming in Python!
-I love programming in Python!
-I love programming in Python!
-~~~
+
 Imagine that we wanted to number this list so that we printed:
 
 
-{: .output}
 ~~~
 1. I love programming in Python!
 2. I love programming in Python!
@@ -59,6 +65,7 @@ Imagine that we wanted to number this list so that we printed:
 9. I love programming in Python!
 10. I love programming in Python!
 ~~~
+{: .output}
 
 Now, the times operator `*` is no longer capable of allowing us to produce this output. Fortunately,
 Python provides us with multiple general tools for repetition where we'll simply specify which statements
@@ -74,7 +81,7 @@ Generally you want to have the option of easily running your Python code later, 
 
 So, much like what we did with Bash, let's take a look at writing a Python script that stores Python in a file that we can run at our leisure.
 
-{: .callout}
+
 > ## Programs or scripts?
 >
 > The Python Software Foundation refers to Python as a 'programming language',
@@ -95,6 +102,8 @@ So, much like what we did with Bash, let's take a look at writing a Python scrip
 >
 > For that reason, it's considered a programming language, but to add to the
 > confusion, we refer to Python programs generally as scripts!
+> 
+> {: .callout}
 
 ### Our first Python script!
 
@@ -104,8 +113,6 @@ One way is to use four `print` statements.
 Let's write a simple Python program, using our text editor, like we did
 with Bash. Let's start our text editor and type the following, saving it in a file called `word_print.py`:
 
-
-{: .python}
 ~~~
 word = 'lead'
 print(word[0])
@@ -113,6 +120,7 @@ print(word[1])
 print(word[2])
 print(word[3])
 ~~~
+{: .python}
 
 Notice the file has `.py` at the end - this is a convention that indicates this
 is a Python script.
@@ -120,21 +128,21 @@ is a Python script.
 Once you've saved it, we can run it from the command line like this (from another terminal or shell, so we can see both the program and how it runs at once):
 
 
-{: .bash}
 ~~~
 $ python word_print.py
 ~~~
+{: .bash}
 
 Here we are asking Python to run our Python script. We should see the following:
 
 
-{: .output}
 ~~~
 l
 e
 a
 d
 ~~~
+{: .output}
 
 But looking at our code again, that's a bad approach for two reasons:
 
@@ -151,7 +159,7 @@ But looking at our code again, that's a bad approach for two reasons:
 We can easily demonstrate the second point by changing our script to the following (just changing the first statement):
 
 
-{: .python}
+
 ~~~
 word = 'tin'
 print(word[0])
@@ -159,63 +167,67 @@ print(word[1])
 print(word[2])
 print(word[3])
 ~~~
+{: .python}
 
 Running it again...
 
 
-{: .bash}
+
 ~~~
 $ python word_print.py
 ~~~
+{: .bash}
 
 ...gives us the following:
 
 
-{: .output}
 ~~~
 t
 i
 n
 ~~~
+{: .output}
 
-{: .error}
 ~~~
 Traceback (most recent call last):
   File "loop_test.py", line 6, in <module>
     print(word[3])
 IndexError: string index out of range
 ~~~
+{: .error}
 
 Here's a better approach:
 
 
-{: .python}
 ~~~
 word = 'lead'
 for char in word:
     print(char)
 ~~~
+{: .python}
 
-{: .output}
+
 ~~~
 l
 e
 a
 d
 ~~~
+{: .output}
 
 This is shorter---certainly shorter than something that prints every character in a hundred-letter string---and
 more robust as well:
 
 
-{: .python}
+
 ~~~
 word = 'oxygen'
 for char in word:
     print(char)
 ~~~
+{: .python}
 
-{: .output}
+
 ~~~
 o
 x
@@ -224,17 +236,19 @@ g
 e
 n
 ~~~
+{: .output}
 
 The improved version of code for printing characters uses a [for loop](reference.html#for-loop)
 to repeat an operation---in this case, printing---once for each thing in a collection.
 The general form of a loop is:
 
 
-{: .python}
+
 ~~~
 for variable in collection:
     do things with variable
 ~~~
+{: .python}
 
 We can call the [loop variable](reference.html#loop-variable) anything we
 like, but there must be a colon at the end of the line starting the loop,
@@ -247,23 +261,25 @@ means we can use the same loop structure for handling other types of data, like
 lists instead. So with one minor alteration:
 
 
-{: .python}
+
 ~~~
 word = ['oxygen', 'lead', 'tin']
 for char in word:
     print(char)
 ~~~
+{: .python}
 
-{: .output}
+
 ~~~
 oxygen
 lead
 tin
 ~~~
+{: .output}
 
 Which is really helpful, and means we don't need to remember a different way to do something else for a loop. Although, our variable names are now a bit misleading!
 
-{: .callout}
+
 > ## What's in a name?
 >
 > Whilst we can name variables anything we like, it's a good idea to ensure the
@@ -272,30 +288,31 @@ Which is really helpful, and means we don't need to remember a different way to 
 > were quite large (and/or more complex, with other similarly named variables)
 > it would become difficult to understand. So pick something that's meaningful
 > to help others, and yourself at a later date, understand what is happening.
+> {: .callout}
 
 ### So what's happening in a loop?
 
 Let's look at a different program called `count_vowels.py`, with another loop that repeatedly updates a variable:
 
 
-{: .python}
 ~~~
 length = 0
 for vowel in 'aeiou':
     length = length + 1
 print('There are', length, 'vowels')
 ~~~
+{: .python}
 
 
-{: .bash}
 ~~~
 $ python count_vowels.py
 ~~~
+{: .bash}
 
-{: .output}
 ~~~
 There are 5 vowels
 ~~~
+{: .output}
 
 It's worth tracing the execution of this little program step by step.
 Since there are five characters in `'aeiou'`,
@@ -318,7 +335,7 @@ It still exists after the loop is over,
 and we can re-use variables previously defined as loop variables as well:
 
 
-{: .python}
+
 ~~~
 length = 0
 for vowel in 'aeiou':
@@ -326,34 +343,36 @@ for vowel in 'aeiou':
 print('There are', length, 'vowels')
 print('The last vowel counted was', vowel)
 ~~~
+{: .python}
 
-{: .output}
+
 ~~~
 There are 5 vowels
 The last vowel counted was u
 ~~~
+{: .output}
 
 Note also that finding the length of a string is such a common operation
 that Python actually has a built-in function to do it called `len`, which
 we can add to the end of our program:
 
-
-{: .python}
 ~~~
 print(len('aeiou'))
 ~~~
+{: .python}
 
-{: .output}
+
 ~~~
 5
 ~~~
+{: .output}
 
 `len` is much faster than any function we could write ourselves,
 and much easier to read than a two-line loop;
 it will also give us the length of many other things that we haven't met yet,
 so we should always use it when we can.
 
-{: .challenge}
+
 > ## From 1 to N
 >
 > Python has a built-in function called `range` that creates a list of numbers:
@@ -365,65 +384,95 @@ so we should always use it when we can.
 > Using `range`,
 > write a loop to print the first 3 natural numbers:
 >
->
-> {: .python}
-> ~~~
-> 1
-> 2
-> 3
-> ~~~
->
->{: .solution}
+> > ~~~
+> > 1
+> > 2
+> > 3
+> > ~~~
+> > {: .python}
+> 
 > > ## Solution
-> > ~~~
-> > for i in range(1, 4):
-> >    print(i)
-> > ~~~
+> > > ~~~
+> > > for i in range(1, 4):
+> > >    print(i)
+> > > ~~~
+> > > {: .python}
+> > 
+> > {: .solution}
+> 
+> {: .challenge}
 
-{: .challenge}
+
 > ## Turn a String Into a List
 >
 > Use a for-loop to convert the string "hello" into a list of letters:
 >
 >
-> {: .python}
-> ~~~
-> ["h", "e", "l", "l", "o"]
-> ~~~
->
+> 
+> > ~~~
+> > ["h", "e", "l", "l", "o"]
+> > ~~~
+> > {: .python}
+> 
 > Hint: You can create an empty list like this:
 >
 >
-> {: .python}
-> ~~~
-> my_list = []
-> ~~~
 >
->
-> {: .solution}
-> > ## Solution
 > > ~~~
 > > my_list = []
-> > for char in "hello":
-> >     my_list.append(char)
-> > print(my_list)
 > > ~~~
+> > {: .python}
+>
+>
+> > ## Solution
+> > > ~~~
+> > > my_list = []
+> > > for char in "hello":
+> > >     my_list.append(char)
+> > > print(my_list)
+> > > ~~~
+> > > {: .python}
+> > 
+> >  {: .solution}
+>
+> {: .challenge}
 
-{: .challenge}
+
+
 > ## Computing powers with loops
 >
 > Exponentiation is built into Python:
 >
 >
-> {: .python}
-> ~~~
-> print(5 ** 3)
->125
-> ~~~
+> > ~~~
+> > print(5 ** 3)
+> > 125
+> > ~~~
+> > {: .python}
 >
->Write a loop that calculates the same result as `5 ** 3` using multiplication (and without exponentiation).
+> Write a loop that calculates the same result as `5 ** 3` using multiplication (and without exponentiation).
+>
+> > ## Solution
+> >
+> > > ~~~
+> > > value = 5
+> > > exponent = 3
+> > > result = 1
+> > > for i in range(exponent):
+> > >     result = result * value
+> > > print(result)
+> > > ~~~
+> > > {: .python}
+> > 
+> > This solution is inefficient in terms of number of variables created and times looped can you improve it?
+> >
+> > {: .solution}
+> 
+> {: .challenge}
 
-{: .challenge}
+
 >## Reverse a string
 >
 > Write a loop that takes a string, and produces a new string with the characters in reverse order, so `Newton` becomes `notweN`.
+> 
+> {: .challenge}

@@ -73,6 +73,13 @@ data organisation.
 files combined into one clean file (a good example of what a clean data file should look like)
 Fields: `record_id`, `month`, `day`, `year`, `plot_id`, `species_id`, `sex`, `hindfoot_length`, `weight`, `genus`,
 `species`, `taxa`, `plot_type`
+## Install Excel ##
+
+Excel is commonly provided by most institutions via the Microsoft Office suite via an instututional licence. 
+On Windows and Mac Excel can be downloaded using Microsoft Store or the App Store. 
+On Linux systems you can use Excel in a browser (not reccomended) or use an alterntive such as LibreOffice.
+If you do not have acess to a Microsoft offive licence then please see the LibreOffice installation instructions.
+
 ## Install LibreOffice ##
 
 To interact with spreadsheets, you can use various software - for example Microsoft Excel,
@@ -198,7 +205,7 @@ To use Git you must install the Apple Command Line Tools, this may take a few mi
 
 You can obtain these [from Apple](https://developer.apple.com/download/more/?name=command%20line%20tools%20for%20xcode%2012) (requires your Apple ID)
 
-- Select **Command Line Tools for Xcode 12** and click the link to download the dmg archive.
+- Select **Command Line Tools for Xcode 12 (or higher)** and click the link to download the dmg archive.
 - If prompted, choose to allow downloads from developer.apple.com
 - Open the downloaded dmg archive from the Downloads folder
 - Double-click the Command Line Tools.pkg icon to install

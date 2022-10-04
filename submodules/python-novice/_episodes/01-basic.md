@@ -1,18 +1,21 @@
 ---
-# layout: episode
 title: Python Basics
 slug: python-novice-python-basics
-minutes: 15
+minutes: 25
 teaching: 15
-exercises: 0
+exercises: 10
+questions:
+- How do I start the Python interpreter?
+- What is a variable?
+objectives:
+- Introduction to running the Python interpreter
+- Introduction to Python variables
+- Creating and Assigning values to variables
+keypoints:
+- Start the python interpreter by typing `python` in the shell.
+- Variables are named memory locations, they are used to access data.
 ---
 
-{: .objectives}
-> ## Learning Objectives
->
-> *   Introduction to running the Python interpreter
-> *   Introduction to Python variables
-> *   Creating and Assigning values to variables
 
 ## Running the Python interpreter
 
@@ -27,36 +30,40 @@ But as you progress to more interesting and complex things you need to move over
 You start the Python interpreter from the shell by:
 
 
-{: .bash}
+
 ~~~
 $ python
 ~~~
+{: .bash}
 
 And then you are presented with something like:
 
 
-{: .output}
+
 ~~~
 Python 3.4.3 |Anaconda 2.3.0 (x86_64)| (default, Mar  6 2015, 12:07:41)
 [GCC 4.2.1 (Apple Inc. build 5577)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ~~~
+{: .output}
 
-{: .callout}
+
+
 ~~~
 In some cases GitBash will hang on this command and not launch the Python interpreter. 
 In this case close and reopen git bash and issue the following commands:
 ~~~
+{: .callout}
 
-{: .bash}
+
 ~~~
 cd ~
 echo 'alias python="winpty python.exe"' >> .bashrc
 source .bashrc
 python
 ~~~
-
+{: .bash}
 
 And lo and behold! You are presented with yet another prompt.
 So, we're actually running a Python interpreter from the shell - it's only yet another program we can run from the shell after all.
@@ -65,40 +72,43 @@ But shell commands won't work again until we exit the interpreter.
 You can exit the interpreter and get back to the shell by typing:
 
 
-{: .python}
+
 ~~~
 >>> exit()
 ~~~
+{: .python}
 
 ...or alternatively pressing the Control and D keys at the same time.
 Then you'll see:
 
 
-{: .output}
+
 ~~~
 $
 ~~~
+{: .output}
 
 Phew - back to the shell!
 
 But let's get back to the Python interpreter and learn about variables in Python:
 
 
-{: .bash}
+
 ~~~
 $ python
 ~~~
+{: .bash}
 
 And we're back to the Python interpreter:
 
 
-{: .output}
 ~~~
 Python 3.4.3 |Anaconda 2.3.0 (x86_64)| (default, Mar  6 2015, 12:07:41)
 [GCC 4.2.1 (Apple Inc. build 5577)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ~~~
+{: .output}
 
 
 ## Variables
@@ -113,36 +123,37 @@ a single value.
 The line below assigns a value to a variable:
 
 
-{: .python}
+
 ~~~
 weight_kg = 55
 ~~~
+{: .python}
 
 Once a variable has a value, we can print it:
 
 
-{: .python}
 ~~~
 print(weight_kg)
 ~~~
+{: .python}
 
-{: .output}
 ~~~
 55
 ~~~
+{: .output}
 
 and do arithmetic with it:
 
 
-{: .python}
 ~~~
 print('weight in pounds:', 2.2 * weight_kg)
 ~~~
+{: .python}
 
-{: .output}
 ~~~
 weight in pounds: 121.0
 ~~~
+{: .output}
 
 In the above example, a floating point number `55` object has a tag labelled `weight_kg`.
 
@@ -151,16 +162,16 @@ If we reassign to `weight_kg`, we just move the tag to another object as shown b
 We can change a variable's value by assigning it a new one:
 
 
-{: .python}
 ~~~
 weight_kg = 57.5
 print('weight in kilograms is now:', weight_kg)
 ~~~
+{: .python}
 
-{: .output}
 ~~~
 weight in kilograms is now: 57.5
 ~~~
+{: .output}
 
 Now the name `weight_kg` is attached to another floating point number `57.5` object.
 
@@ -180,32 +191,34 @@ For example,
 let's store the subject's weight in pounds in a variable:
 
 
-{: .python}
 ~~~
 weight_lb = 2.2 * weight_kg
 print('weight in kilograms:', weight_kg, 'and in pounds:', weight_lb)
 ~~~
+{: .python}
 
-{: .output}
 ~~~
 weight in kilograms: 57.5 and in pounds: 126.5
 ~~~
+{: .output}
 
 ![Creating Another Variable](fig/python-sticky-note-variables-02.svg)
 
 and then change `weight_kg`:
 
 
-{: .python}
+
 ~~~
 weight_kg = 100.0
 print('weight in kilograms is now:', weight_kg, 'and weight in pounds is still:', weight_lb)
 ~~~
+{: .python}
 
-{: .output}
+
 ~~~
 weight in kilograms is now: 100.0 and weight in pounds is still: 126.5
 ~~~
+{: .output}
 
 ![Updating a Variable](fig/python-sticky-note-variables-03.svg)
 
@@ -215,44 +228,46 @@ This is different from the way spreadsheets work.
 
 Although we commonly refer to `variables` even in Python (because it is the common terminology), we really mean `names` or `identifiers`. In Python, `variables` are name tags for values, not labelled boxes.
 
-{: .challenge}
+
 > ## What's inside the box?
 >
 > Draw diagrams showing what variables refer to what values after each statement
 > in the following program:
 >
-> {: .python}
-> ~~~
-> weight = 70.5
-> age = 35
-> # Take a trip to the planet Neptune
-> weight = weight * 1.14
-> age = age + 20
-> ~~~
+> > ~~~
+> > weight = 70.5
+> > age = 35
+> > # Take a trip to the planet Neptune
+> > weight = weight * 1.14
+> > age = age + 20
+> > ~~~
+> > {: .python}
 >
->
->
+> {: .challenge}
 
-{: .challenge}
+
 > ## Sorting out references
 >
 > What does the following program print out?
 >
-> {: .python}
-> ~~~
-> first, second = 'Grace', 'Hopper'
-> ~~~
 >
-> {: .output}
-> ~~~
-> first = Grace
-> second = Hopper
-> ~~~
+> > ~~~
+> > first, second = 'Grace', 'Hopper'
+> > ~~~
+> > {: .python}
 >
-> {: .python}
-> ~~~
-> third, fourth = second, first
-> print(third, fourth)
-> ~~~
+> > ~~~
+> > first = Grace
+> > second = Hopper
+> > ~~~
+> > {: .output}
+>
+> > ~~~
+> > third, fourth = second, first
+> > print(third, fourth)
+> > ~~~
+> > {: .python}
+> 
+> {: .challenge}
 
 

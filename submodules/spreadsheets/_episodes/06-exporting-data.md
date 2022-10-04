@@ -65,8 +65,8 @@ you need to save multiple tabs, you must save each one as its own CSV file.
     ![Saving active sheet warning](fig/excel-to-csv-active-sheet.png)
 
 > ## Note on backwards compatibility
-You can open CSV files in Excel (or LibreOffice)!
-{: .callout}
+> You can open CSV files in Excel (or LibreOffice)!
+> {: .callout}
 
 > ## A note on Python/R and Excel's `.xls`/`.xlxs` formats
 >
@@ -77,7 +77,7 @@ You can open CSV files in Excel (or LibreOffice)!
 > software, there is no guarantee that they will continue to
 > work on new versions of Excel. Exporting your data to CSV or TSV
 > format is much safer and more reproducible.
-{: .callout}
+> {: .callout}
 
 > ## Note: when data contains commas
 >
@@ -91,4 +91,4 @@ You can open CSV files in Excel (or LibreOffice)!
 > enclosed with double quotes. This should occur automatically when you export from a spreadsheet program.
 > However, it is always a good idea to double check your CSV after it is saved by opening it in a spreadsheet program
 > and reviewing the columns to ensure that no new ones have been added.
-{: .callout}
+> {: .callout}

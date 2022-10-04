@@ -50,19 +50,21 @@ $ today_date=$(date +“%d-%m-%y”)
 > > ## Solution
 > > If we assume the output directory is named `copied`:
 > >
-> > {: .bash}
-> > ~~~
-> > today_date=$(date +"%d-%m-%y")
 > >
-> > for file in data/*.csv
-> > do
-> >     base_file=$(basename $file)
-> >     cp $file copied/$today_date-$base_file
-> > done
-> > ~~~
-> >
-> {: .solution}
-{: .challenge}
+> > > ~~~
+> > > today_date=$(date +"%d-%m-%y")
+> > >
+> > > for file in data/*.csv
+> > > do
+> > >     base_file=$(basename $file)
+> > >     cp $file copied/$today_date-$base_file
+> > > done
+> > > ~~~
+> > > {: .bash}
+> > 
+> > {: .solution}
+>
+> {: .challenge}
 
 
 ## Extracting columns from CSV
@@ -88,16 +90,18 @@ The `-d` argument specifies, within quotes, the delimiter that separates the col
 > > The `Max_temp_jul_F` column is the fourth column in each data file
 > > If we assume the input directory is named `copied` and the output directory is named `filtered`:
 > >
-> >{: .bash}
-> >~~~
-> >for file in copied/*.csv
-> >do
-> >    base_file=$(basename $file)
-> >    cat $file | cut -d"," -f 4 > filtered/$base_file
-> >done
-> >~~~
 > >
-> {: .solution}
-{: .challenge}
+> > > ~~~
+> > > for file in copied/*.csv
+> > > do
+> > >    base_file=$(basename $file)
+> > >    cat $file | cut -d"," -f 4 > filtered/$base_file
+> > > done
+> > > ~~~
+> > > {: .bash}
+> >
+> > {: .solution}
+>
+> {: .challenge}
 
 {% include links.md %}

@@ -21,8 +21,8 @@ logo_site: "https://rsgsoton.net/"
 venue: "TBC"           # name of location use "online" if online
 address: "TBC"         # address of location or url of platform
 platform-name: "TBC"   # name of online platform e.g. Teams, Zoom e.t.c
-country: "TBC"         # e.g. gb
-language: "TBC"        # e.g. en
+country: "gb"         # e.g. gb
+language: "en"        # e.g. en
 latitude: "50.909698"    # latitude of location (Soton: 50.909698)
 longitude: "-1.404351"   # longitude of location (Soton: -1.404351)
 
@@ -34,6 +34,14 @@ enddate: "TBC"          # e.g. YYYY-MM-DD
 
 # Start time in minutes (0 to be clock-independent, 3:30 pm or 15:30 both okay).
 start-time: 0
+
+# Specify the details of the instructors and helpers
+# Can be list, or single string
+instructor:
+  - "TBC"
+instructor-email:
+  - "TBC"
+
 # ======================================================================================================================
 
 ###
@@ -76,6 +84,7 @@ cc_by_human: "https://creativecommons.org/licenses/by/4.0/"
 setup_docs:
   - intro_to_mammal_data.md
   - download_spreadsheets_data.md
+  - install_excel.md
   - install_libreoffice.md
 
 # Specify that things in the episodes collection should be output.

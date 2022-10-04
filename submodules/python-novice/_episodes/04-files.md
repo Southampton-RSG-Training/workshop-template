@@ -1,19 +1,22 @@
 ---
-# layout: page
 title: Processing data files
 slug: python-novice-processing-data-files
 minutes: 15
 teaching: 15
 exercises: 0
+questions:
+- How do I open files?
+- How do I get data out of text?
+objectives:
+- Write a script to open a data file and print out its contents.
+- Perform some operations on strings to extract desired data from it.
+- Understand the basics of how Python handles objects.
+- Understand good practices of how and when to write a code comment.
+keypoints:
+- The python function `open` lets us read `r` or write `w` to files by creating a file handler.
+- We can use string operations such as `line.split(',')` to process data in files.
 ---
 
-{: .objectives}
-> ## Learning Objectives
->
-> *   Write a script to open a data file and print out its contents.
-> *   Perform some operations on strings to extract desired data from it.
-> *   Understand the basics of how Python handles objects.
-> *   Understand good practices of how and when to write a code comment.
 
 So far we've seen how to use and manipulate variables, and how to use loops in a script to process strings.
 But let's take a look at a more interesting use case - performing some
@@ -27,7 +30,6 @@ others (as well as ourselves, when we might come back to it at a later date).
 
 <!-- ** Mention CSV specific library -->
 
-
 ### Printing out the contents of a data file
 
 We first need to be able to read in our data from the `sc_climate_data_10.csv`
@@ -35,13 +37,14 @@ file, and using a loop, print out each line. Let's write another script
 called `climate_analysis.py`, and enter the following (*see `climate_analysis-1.py`*):
 
 
-{: .python}
+
 ~~~
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
 
 for line in climate_data:
     print(line)
 ~~~
+{: .python}
 
 Using `open`, we first specify the file we wish to open, and then include how
 we want to use that file. If we wanted to open a file to write to, we would use 'w', but in this case, we specify `r` for reading.
@@ -53,15 +56,15 @@ does something quite helpful in a loop. By specifying `climate_data` as our coll
 We can run our code with:
 
 
-{: .bash}
+
 ~~~
 $ python climate_analysis.py
 ~~~
+{: .bash}
 
 And we get the following output:
 
 
-{: .output}
 ~~~
 # POINT_X,POINT_Y,Min_temp_Jul_F,Max_temp_jul_F,Rainfall_jul_inch
 
@@ -86,6 +89,7 @@ And we get the following output:
 299196.8188,972890.0521,48.07,61.41,0.78
 
 ~~~
+{: .output}
 
 Hmmm... but that's not really perfect, since it's also printing out additional
 newlines which exist at the end of each line in our data file.
@@ -93,14 +97,15 @@ We can remove them by stripping them out, using `rstrip`, a function
 that works on strings. We can use it like:
 
 
-{: .python}
+
 ~~~
     print(line.rstrip())
 ~~~
+{: .python}
 
 So what's happening here?
 
-{: .callout}
+
 > ## Python and object orientation - in a nutshell
 >
 > So far we've used strings, which are a type of object in Python.
@@ -134,21 +139,23 @@ So what's happening here?
 > And that String class has a defined method called `rstrip()`, which
 > removes the trailing newline. There are many other String methods which
 > are incredibly useful!
+>
+> {: .callout}
 
 So, let's try that out (*see `climate_analysis-2.py`*):
 
 
-{: .python}
+
 ~~~
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
 
 for line in climate_data:
     print(line.rstrip())
 ~~~
+{: .python}
 
 And now we get:
 
-{: .output}
 ~~~
 # POINT_X,POINT_Y,Min_temp_Jul_F,Max_temp_jul_F,Rainfall_jul_inch
 461196.8188,1198890.052,47.77,58.53,0.76
@@ -162,6 +169,7 @@ And now we get:
 296196.8188,974890.0521,48.07,61.27,0.78
 299196.8188,972890.0521,48.07,61.41,0.78
 ~~~
+{: .output}
 
 Much better!
 
@@ -179,10 +187,11 @@ We've seen how we can trim trailing newlines from strings with `rstrip()` acting
 on a string object. Well, we use `split()` in exactly the same way:
 
 
-{: .python}
+
 ~~~
     data = line.split(',')
 ~~~
+{: .python}
 
 Although in this case, we're capturing the returned list from `split()` into a
 variable called `data`. We can access elements in that list as before.
@@ -190,7 +199,7 @@ variable called `data`. We can access elements in that list as before.
 So, let's change our code accordingly (*see `climate_analysis-3.py`*):
 
 
-{: .python}
+
 ~~~
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
 
@@ -200,13 +209,14 @@ for line in climate_data:
     # print 4th column (max temperature)
     print('Max temperature', data[3])
 ~~~
+{: .python}
 
 Now, it's important to remember that the column we want, the maximum
 temperature, is the 4th column. But in Python list indexes start at 0, so in
 fact we need to obtain the value from `data[3]` and **not** `data[4]`. So, we
 have made a note to that effect in a *comment*.
 
-{: .callout}
+
 > ## How and when should you add a comment?
 >
 > The trick is to keep your audience in mind when writing code --- this could
@@ -223,10 +233,11 @@ have made a note to that effect in a *comment*.
 > the ones you don't need**. You should write your code so it's easier to
 > understand without comments first, and only add comments when it **cannot**
 > be made easier to understand.
+> 
+> {: .callout}
 
 And we get:
 
-{: .output}
 ~~~
 Max temperature Max_temp_jul_F
 Max temperature 58.53
@@ -240,5 +251,6 @@ Max temperature 61.41
 Max temperature 61.27
 Max temperature 61.41
 ~~~
+{: .output}
 
 This perhaps isn't what we want - the column header is also part of the output!

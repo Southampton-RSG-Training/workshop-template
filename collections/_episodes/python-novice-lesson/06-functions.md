@@ -1,24 +1,28 @@
 ---
 lesson_title: 'Building Programs with Python'
 lesson_schedule_slug: python-novice-schedule
-# layout: page
 title: Modularising your code using functions
 slug: python-novice-modularising-your-code-using-functions
-minutes: 15
+minutes: 35
 teaching: 15
-exercises: 0
+exercises: 20
+questions:
+- What is a function?
+- Why would I want to use a function?
+- Where should I put my functions?
+objectives:
+- Define a function that takes parameters.
+- Return a value from a function.
+- Understand the scope of function variables and parameters.
+- Documenting a function.
+- Understand why we should divide programs into small, single-purpose functions.
+- Define and use a module that contains functions.
+keypoints:
+- A function is created using the `def` keyword.
+- Functions take variables that are specified in the function definition and use the `return` keyword to specify their output.
+- We can use a module to keep our functions separate to the main body of our code to improve code readability.
 ---
 
-{: .objectives}
-> ## Learning Objectives
->
-> *   Define a function that takes parameters.
-> *   Return a value from a function.
-> *   Understand the scope of function variables and parameters.
-> *   Documenting a function.
-> *   Understand why we should divide programs into small, single-purpose
->     functions.
-> *   Define and use a module that contains functions.
 
 At this point, we've written some scripts to do various things, including one to
 loop through a data file and output its contents.
@@ -32,11 +36,10 @@ We'll see how we can amend our code to be better structured to further increase 
 Let's look at adding a feature to our code to perform a conversion
 from Fahrenheit to Celsius on the temperature data we are looking at:
 
-
-{: .python}
 ~~~
 celsius = ((data[3] - 32) * (5/9))
 ~~~
+{: .python}
 
 Now this wouldn't work as it is - we can't just apply this formula directly to
 `data[3]` since it's a string. We need to convert it to a number first. To be
@@ -46,7 +49,7 @@ Fortunately, Python has some built-in functions to do these `type` conversions
 (*see `climate_analysis-5.py`*):
 
 
-{: .python}
+
 ~~~
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
 
@@ -65,6 +68,7 @@ for line in climate_data:
 
         print('Max temperature in Celsius', celsius)
 ~~~
+{: .python}
 
 So we first convert our `data[3]` value to a floating point number using
 `float()`, then we are free to use it in our conversion formula. Depending on
@@ -72,7 +76,6 @@ the structure of your own data, you may find you end up doing this a lot!
 
 So now we get:
 
-{: .output}
 ~~~
 Max temperature in Celsius 14.73888888888889
 Max temperature in Celsius 14.777777777777779
@@ -85,6 +88,7 @@ Max temperature in Celsius 16.33888888888889
 Max temperature in Celsius 16.261111111111113
 Max temperature in Celsius 16.33888888888889
 ~~~
+{: .output}
 
 ### Modularising conversion code into a function
 
@@ -110,7 +114,6 @@ So going back to our climate code, we can modularise our temperature
 conversion code into a function (*see `climate_analysis-6.py`*):
 
 
-{: .python}
 ~~~
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
 
@@ -133,6 +136,7 @@ for line in climate_data:
 
         print('Max temperature in Celsius', celsius)
 ~~~
+{: .python}
 
 The definition opens with the word `def`,
 which is followed by the name of the function
@@ -147,7 +151,7 @@ so that we can use them inside the function.
 Inside the function,
 we use a [return statement](reference.html#return-statement) to send a result back to whoever asked for it.
 
-{: .challenge}
+
 > ## Combining Strings
 >
 > "Adding" two strings produces their concatenation:
@@ -158,25 +162,29 @@ we use a [return statement](reference.html#return-statement) to send a result ba
 > A call to your function should look like this:
 >
 >
-> {: .python}
-> ~~~
-> print(fence('name', '*'))
-> ~~~
+> > ~~~
+> > print(fence('name', '*'))
+> > ~~~
+> > {: .python}
 >
-> {: .output}
-> ~~~
-> *name*
-> ~~~
+> > ~~~
+> > *name*
+> > ~~~
+> > {: .output}
 >
 >
-> {: .solution}
 > > ## Solution
-> > ~~~
-> > def fence(original, wrapper):
-> >     return wrapper + original + wrapper
-> > ~~~
+> > > ~~~
+> > > def fence(original, wrapper):
+> > >     return wrapper + original + wrapper
+> > > ~~~
+> > > {: .python}
+> >
+> >  {: .solution}
+> 
+> {: .challenge}
 
-{: .callout}
+
 > ## How large should functions be?
 >
 > We use functions to define a big task in terms of smaller ones. This helps
@@ -190,23 +198,25 @@ we use a [return statement](reference.html#return-statement) to send a result ba
 > --- some say 15-20 lines, some say no more than a page long. But in general,
 > think about how complex it is to understand, generally how readable
 > it is, and whether it would benefit from splitting up into more functions.
+> {: .callout}
 
 Note that the function is at the top of the script. This is because Python
 reads the script from top to bottom, and if we called the function before we
 defined it, Python wouldn't know about it and throw an error like this:
 
 
-{: .error}
+
 ~~~
 Traceback (most recent call last):
   File "climate_analysis-6.py", line 13, in <module>
     celsius = fahr_to_celsius(fahr)
 NameError: name 'fahr_to_celsius' is not defined
 ~~~
+{: .error}
 
 And when we run it again --- which we most definitely should, to make sure it's still working as expected --- we see the same output, which is correct.
 
-{: .challenge}
+
 > ## How do function parameters work?
 >
 > We actually used the same variable name `fahr` in our main code and
@@ -220,27 +230,26 @@ And when we run it again --- which we most definitely should, to make sure it's 
 > For example, what would be the output from the following:
 >
 >
-> {: .python}
-> ~~~
-> f = 0
-> k = 0
->
-> def multiply_by_10(f):
->   k = f * 10
->   return k
->
-> multiply_by_10(2)
-> multiply_by_10(8)
->
-> print(k)
-> ~~~
+> > ~~~
+> > f = 0
+> > k = 0
+> >
+> > def multiply_by_10(f):
+> >   k = f * 10
+> >   return k
+> >
+> > multiply_by_10(2)
+> > multiply_by_10(8)
+> >
+> > print(k)
+> > ~~~
+> > {: .python}
 >
 > 1. 20
 > 2. 80
 > 3. 0
 >
 >
-> {: .solution}
 > > ## Solution
 > > 3 - the f and k variables defined and used within the function
 > > do not interfere with those defined outside of the function.
@@ -248,8 +257,11 @@ And when we run it again --- which we most definitely should, to make sure it's 
 > > This is really useful, since it means we don't have to worry about
 > > conflicts with variable names that are defined outside of our function
 > > that may cause it to behave incorrectly. This is known as variable scoping.
+> > {: .solution}
+> 
+> {: .challenge}
 
-{: .challenge}
+
 > ## Does the sum of a list equal a given value?
 >
 > Write a function to take a list of numbers and another value, and return
@@ -257,25 +269,28 @@ And when we run it again --- which we most definitely should, to make sure it's 
 >
 > Following the function definition, a call to your function should look like this:
 >
+> > ~~~
+> > is_sum_equal([1,2,3], 6))
+> > True
+> > is_sum_equal([2,4,6], 100)
+> > False
+> > ~~~
+> > {: .python}
 >
-> {: .python}
-> ~~~
-> is_sum_equal([1,2,3], 6))
-> True
-> is_sum_equal([2,4,6], 100)
-> False
-> ~~~
 >
-> {: .solution}
 > > ## Solution
-> > ~~~
-> > def is_sum_equal(number_list, sum_value):
-> >     count = 0
-> >     for number in number_list:
-> >         count = count + number
+> > > ~~~
+> > > def is_sum_equal(number_list, sum_value):
+> > >     count = 0
+> > >     for number in number_list:
+> > >         count = count + number
+> > >
+> > >     return count == sum_value
+> > > ~~~
 > >
-> >     return count == sum_value
-> > ~~~
+> > {: .solution}
+> 
+> {: .challenge}
 
 ## Performing more temperature conversions
 
@@ -283,10 +298,11 @@ Of course, we can also add more functions. Let's add another, which performs
 a conversion from Fahrenheight to Kelvin. The formula looks like this:
 
 
-{: .python}
+
 ~~~
 kelvin = ((fahr - 32) * (5/9)) + 273.15
 ~~~
+{: .python}
 
 Now, we could just add a new function that does this exact conversion. But
 Kelvin uses the same units as Celsius, the part of the formula that
@@ -295,20 +311,20 @@ function for the unit conversion, and add 273.15 to that to get Kelvin. So
 our new function becomes:
 
 
-{: .python}
 ~~~
 def fahr_to_kelvin(fahr):
     # apply standard Fahrenheit to Kelvin formula
     kelvin = fahr_to_celsius(fahr) + 273.15
     return kelvin
 ~~~
+{: .python}
 
 Which we insert after the `fahr_to_celsius` function (since our new function
 needs to call that one). We can then amend our code to also call that new
 function and output the result. Our code then becomes (*see `climate_analysis-7.py`*):
 
 
-{: .python}
+
 ~~~
 climate_data = open('../data/sc_climate_data_10.csv', 'r')
 
@@ -337,6 +353,7 @@ for line in climate_data:
 
         print('Max temperature in Celsius', celsius, 'Kelvin', kelvin)
 ~~~
+{: .python}
 
 Hmm... our code is starting to get a little large with these functions.
 What could we do to make it clearer and less cluttered?
@@ -370,7 +387,7 @@ If the first thing in a function is a string that isn't assigned to a variable,
 that string is attached to the function as its documentation (*see `temp_conversion.py`*):
 
 
-{: .python}
+
 ~~~
 """A library to perform temperature conversions"""
 
@@ -396,6 +413,7 @@ def fahr_to_kelvin(fahr):
     kelvin = fahr_to_celsius(fahr) + 273.15
     return kelvin
 ~~~
+{: .python}
 
 A string like this is called a [docstring](reference.html#docstring).
 We don't need to use triple quotes when we write one,
@@ -406,27 +424,27 @@ So how would we use this module and its functions in code?
 We do this by `import`ing the module into Python.
 
 
-{: .python}
+
 ~~~
 Python 3.4.3 |Anaconda 2.3.0 (x86_64)| (default, Mar  6 2015, 12:07:41)
 [GCC 4.2.1 (Apple Inc. build 5577)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import temp_conversion
 ~~~
+{: .python}
 
 When modules and functions are described in docstrings, we can ask for these
 explanations directly from the interpreter which can be useful. Following on
 from the above:
 
-
-{: .python}
 ~~~
 >>> help(temp_conversion)
 ~~~
+{: .python}
 
 So here's the help we get for the module:
 
-{: .output}
+
 ~~~
 Help on module temp_conversion:
 
@@ -453,6 +471,7 @@ FUNCTIONS
 FILE
     /Users/user/.../python-novice/code/temp_conversion.py (note your path will vary)
 ~~~
+{: .output}
 
 Here, note we've used the term `library` in the code documentation. This
 is a more conventional, general term for a set of routines in any language.
@@ -460,10 +479,11 @@ is a more conventional, general term for a set of routines in any language.
 Similarly, for Docstrings in functions, e.g.:
 
 
-{: .python}
+
 ~~~
 >>> help(temp_conversion.fahr_to_celsius)
 ~~~
+{: .python}
 
 Note that we need to put in `temp_conversion.` prior the function name. We need
 to do this to specify that the function we want help on is within the
@@ -471,7 +491,6 @@ to do this to specify that the function we want help on is within the
 
 So we get:
 
-{: .output}
 ~~~
 Help on function fahr_to_celsius in module temp_conversion:
 
@@ -483,12 +502,13 @@ fahr_to_celsius(fahr)
     Arguments:
     fahr -- the temperature in Fahrenheit
 ~~~
+{: .output}
 
 And then we need to `import` that function from our module into our script, so
 we can use it (*see `climate_analysis-8.py`*).
 
 
-{: .python}
+
 ~~~
 import temp_conversion
 
@@ -509,13 +529,14 @@ for line in climate_data:
 
         print('Max temperature in Celsius', celsius, 'Kelvin', kelvin)
 ~~~
+{: .python}
 
 Like when we used the interpreter to ask for help on the `fahr_to_celsius()`
 function, we need to prefix the function with its `temp_conversion` module name.
 
 Again, the results should be the same as before.
 
-{: .challenge}
+
 > ## Readable Code
 >
 > Revise a function you wrote for one of the previous exercises to try to make
@@ -523,3 +544,5 @@ Again, the results should be the same as before.
 > to critique each other's functions and discuss how your function
 > implementations
 > could be further improved to make them more readable.
+> 
+> {: .challenge}

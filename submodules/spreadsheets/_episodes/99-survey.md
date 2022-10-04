@@ -1,6 +1,6 @@
 ---
 title: "Survey"
-slug: Best Practices in Data Organisation Using Spreadsheets-survey
+slug: lesson-survey
 layout: page
 ---
 

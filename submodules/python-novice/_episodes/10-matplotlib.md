@@ -1,18 +1,21 @@
 ---
-# layout: page
 title: Data Visualisation
 slug: python-novice-data-visualisation
-minutes: 5
-teaching: 5
-exercises: 0
+minutes: 25
+teaching: 10
+exercises: 15
+questions:
+- How can I visualise my data?
+- Can I use python to output plots for papers?
+objectives:
+- Displaying simple graphs
+- Plotting data using matplotlib library
+- Analysing data from multiple files
+keypoints:
+- We can use `matplotlib` to create and manipulate a wide variety of plots in Python.
+- Once a plot has been made we can use matplotlib's function `savefig` to output it in formats appropriate for publication.
 ---
 
-{: .objectives}
-> ## Learning Objectives
->
-> *  Displaying simple graphs
-> *  Plotting data using matplotlib library
-> *  Analysing data from multiple files
 
 The mathematician Richard Hamming once said,
 "The purpose of computing is insight, not numbers,"
@@ -26,13 +29,12 @@ we will import the `pyplot` module from `matplotlib`
 and use two of its functions to create and display a heat map of our data
 from the previous topic:
 
-
-{: .python}
 ~~~
 from matplotlib import pyplot
 pyplot.imshow(data)
 pyplot.show()
 ~~~
+{: .python}
 
 pyplot keeps track of the graph as we are building it, so when we do `pyplot.show()` it's
 just showing us what's been built so far.
@@ -46,22 +48,20 @@ Note that if we try and run `pyplot.show()` again, the graph doesn't show. This 
 after it's been displayed, matplotlib *resets* and clears the current graph. To see it
 again, we need to generate the plot again, e.g.:
 
-
-{: .python}
 ~~~
 pyplot.imshow(data)
 pyplot.show()
 ~~~
+{: .python}
 
 Let's take a look at the average inflammation over time:
 
-
-{: .python}
 ~~~
 ave_inflammation = data.mean(axis=0)
 pyplot.plot(ave_inflammation)
 pyplot.show()
 ~~~
+{: .python}
 
 ![Average Inflammation Over Time](fig/01-numpy_76_0.png)
 
@@ -74,21 +74,19 @@ based on other studies,
 we expect a sharper rise and slower fall.
 Let's have a look at two other statistics:
 
-
-{: .python}
 ~~~
 pyplot.plot(data.max(axis=0))
 pyplot.show()
 ~~~
+{: .python}
 
 ![Maximum Value Along The First Axis](fig/01-numpy_78_1.png)
 
-
-{: .python}
 ~~~
 pyplot.plot(data.min(axis=0))
 pyplot.show()
 ~~~
+{: .python}
 
 ![Minimum Value Along The First Axis](fig/01-numpy_78_3.png)
 
@@ -102,9 +100,6 @@ It's very common to create an alias for a library when importing it
 in order to reduce the amount of typing we have to do.
 Here are our three plots side by side using aliases for `numpy` and `pyplot`:
 
-
-
-{: .python}
 ~~~
 import numpy as np
 from matplotlib import pyplot as plt
@@ -128,14 +123,15 @@ axes3.plot(data.min(axis=0))
 
 plt.show()
 ~~~
+{: .python}
 
 Running the above code (present under `code` directory in the file `three-plots.py`) may throw the warning as below. If you see the warning, please ignore it.
 
-{: .error}
 ~~~
 `/Users/user/anaconda/lib/python3.4/site-packages/matplotlib/tight_layout.py:225: UserWarning: tight_layout : falling back to Agg renderer
   warnings.warn("tight_layout : falling back to Agg renderer")`
 ~~~
+{: .error}
 
 `tight_layout` still works by falling back to a different way of generating the graph (the Agg renderer).
 
@@ -147,25 +143,24 @@ how large we want the figure to be,
 that we're creating three sub-plots,
 and what to draw for each one.
 
-{: .challenge}
 > ## Make your own plot
 >
 > Create a plot showing the standard deviation of the inflammation data for each day across all patients.
 > Hint: `data.std(axis=0)` gives you standard deviation.
+> {: .challenge}
 
-{: .challenge}
 > ## Moving plots around
 >
 > Modify the program to display the three plots on top of one another instead of side by side.
+> {: .challenge}
 
 We now have almost everything we need to process all our data files.
 The only thing that's missing is a library with a rather unpleasant name:
 
-
-{: .python}
 ~~~
 import glob
 ~~~
+{: .python}
 
 The `glob` library contains a single function, also called `glob`,
 that finds files whose names match a pattern.
@@ -174,25 +169,29 @@ the character `*` matches zero or more characters,
 while `?` matches any one character.
 We can use this to get the names of all the HTML files in the current directory:
 
-
-{: .python}
 ~~~
 print(glob.glob('*.html'))
 ~~~
+{: .python}
 
 
-{: .output}
 ~~~
 ['01-numpy.html', '02-loop.html', '03-lists.html', '04-files.html', '05-cond.html', '06-func.html', '07-errors.html', '08-defensive.html', '09-debugging.html', '10-cmdline.html', 'index.html', 'LICENSE.html', 'instructors.html', 'README.html', 'discussion.html', 'reference.html']
 ~~~
+{: .output}
 
-{: .challange}
+
+> ## Glob and filetypes
+> 
 > Your output may have been different it depends on what folder you are in and what filetype you search for.
 > Try using different filetypes and see what you find eg.
-> {:. python}
-> ~~~
-> print(glob.glob('*.py'))
-> ~~~
+>
+> > ~~~
+> > print(glob.glob('*.py'))
+> > ~~~
+> > {: . python}
+> 
+> {: .challenge}
 
 As these examples show,
 `glob.glob`'s result is a list of strings,
@@ -202,8 +201,6 @@ In our case,
 the "something" we want to do is generate a set of plots for each file in our inflammation dataset.
 Let's test it by analyzing the first three files in the list:
 
-
-{: .python}
 ~~~
 import glob
 
@@ -237,29 +234,26 @@ for filename in filenames:
     fig.tight_layout()
     plt.show()
 ~~~
+{: .python}
 
-{: .output}
 ~~~
 inflammation-01.csv
 ~~~
+{: .output}
 
 ![Analysis of inflammation-01.csv](fig/03-loop_49_1.png)
 
-
-
-{: .output}
 ~~~
 inflammation-02.csv
 ~~~
+{: .output}
 
 ![Analysis of inflammation-02.csv](fig/03-loop_49_3.png)
 
-
-
-{: .output}
 ~~~
 inflammation-03.csv
 ~~~
+{: .output}
 
 ![Analysis of inflammation-03.csv](fig/03-loop_49_5.png)
 
@@ -275,8 +269,6 @@ We can also save our plots to disk. Let's change our updated script to do that, 
 
 Let's do this now, e.g.:
 
-
-{: .python}
 ~~~
 import glob
 
@@ -310,6 +302,7 @@ for filename in filenames:
     fig.tight_layout()
     fig.savefig(filename + '.png')
 ~~~
+{: .python}
 
 If we rerun this script, we can see that our graphs have appeared as PNG files in the `data` directory, with the filenames `inflammation-XX.csv.png`.
 

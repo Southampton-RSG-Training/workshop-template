@@ -115,7 +115,8 @@ Now we'll create a new file using a text editor in this new directory.
 >
 > Your choice of editor will depend on the size of project you're working on,
 > and how comfortable you are with the terminal.
-{: .callout}
+>
+> {: .callout}
 
 Let's first change our working directory to `thesis` using `cd`,
 and then we'll use the `Nano` editor to create a text file called `draft.txt`, and then save it in that directory.
@@ -191,7 +192,8 @@ $ ls
 > recovering deleted files do exist, but there's no guarantee they'll
 > work in any particular situation, since the computer may recycle the
 > file's disk space right away.
-{: .callout}
+>
+> {: .callout}
 
 But what if we want to delete a directory, perhaps one that already contains a file? Let's re-create that file
 and then move up one directory using `cd ..`:
@@ -283,7 +285,8 @@ $ rmdir thesis
 > the directory contains sub-directories, `rm -r` does the same thing to
 > them, and so on. It's very handy, but can do a lot of damage if used
 > without care.
-{: .callout}
+>
+> {: .callout}
 
 
 ### Renaming and moving files and directories
@@ -437,36 +440,43 @@ but it does find the copy in `thesis` that we didn't delete.
 > > without renaming, so the spelling mistake won't be fixed.
 > >
 > > Both **1** and **2** will leave you with a file called `statistics.txt` at the end, but if you use `cp` it will be a copy, and you'll still have your incorrectly-named original.
-> {: .solution}
-{: .challenge}
+> >
+> > {: .solution}
+>
+> {: .challenge}
 
 > ## Moving and Copying
 >
 > What is the output of the closing `ls` command in the sequence shown below?
 >
-> ~~~
-> $ pwd
-> ~~~
-> {: .language-bash}
-> ~~~
-> /Users/jamie/data
-> ~~~
-> {: .output}
-> ~~~
-> $ ls
-> ~~~
-> {: .language-bash}
-> ~~~
-> proteins.dat
-> ~~~
-> {: .output}
-> ~~~
-> $ mkdir recombine
-> $ mv proteins.dat recombine
-> $ cp recombine/proteins.dat ../proteins-saved.dat
-> $ ls
-> ~~~
-> {: .language-bash}
+> > ~~~
+> > $ pwd
+> > ~~~
+> > {: .language-bash}
+> 
+> > ~~~
+> > /Users/jamie/data
+> > ~~~
+> > {: .output}
+> 
+> > ~~~
+> > $ ls
+> > ~~~
+> > {: .language-bash}
+> 
+> > ~~~
+> > proteins.dat
+> > ~~~
+> > {: .output}
+> 
+> > ~~~
+> > $ mkdir recombine
+> > $ mv proteins.dat recombine
+> > $ cp recombine/proteins.dat ../proteins-saved.dat
+> > $ ls
+> > ~~~
+> > {: .language-bash}
+> 
 >
 > 1.   `proteins-saved.dat recombine`
 > 2.   `recombine`
@@ -481,103 +491,108 @@ but it does find the copy in `thesis` that we didn't delete.
 > > and finally copied `proteins.dat` into **the directory above the current one** as `proteins-saved.dat`.
 > >
 > > So as it's in the directory above the current one (`..`), it won't show up when you do `ls` in the current directory.
-> {: .solution}
-{: .challenge}
+> >
+> > {: .solution}
+>
+> {: .challenge}
 
 > ## Organizing Directories and Files
 >
-> Jamie is working on a project and she sees that her files aren't very well
-> organized:
+> Jamie is working on a project and she sees that her files aren't very well organized:
 >
-> ~~~
-> $ ls -F
-> ~~~
-> {: .language-bash}
+> > ~~~
+> > $ ls -F
+> > ~~~
+> > {: .language-bash}
 >
-> ~~~
-> analyzed/  fructose.dat    raw/   sucrose.dat
-> ~~~
-> {: .output}
+> > ~~~
+> > analyzed/  fructose.dat    raw/   sucrose.dat
+> > ~~~
+> > {: .output}
 >
 > The `fructose.dat` and `sucrose.dat` files contain output from her data
 > analysis. What command(s) covered in this lesson does she need to run so that the commands below will produce the output shown?
 >
-> ~~~
-> $ ls -F
-> ~~~
-> {: .language-bash}
+> > ~~~
+> > $ ls -F
+> > ~~~
+> > {: .language-bash}
 >
-> ~~~
-> analyzed/   raw/
-> ~~~
-> {: .output}
+> > ~~~
+> > analyzed/   raw/
+> > ~~~
+> > {: .output}
 >
-> ~~~
-> $ ls analyzed
-> ~~~
-> {: .language-bash}
+> > ~~~
+> > $ ls analyzed
+> > ~~~
+> > {: .language-bash}
 >
-> ~~~
-> fructose.dat    sucrose.dat
-> ~~~
-> {: .output}
+> > ~~~
+> > fructose.dat    sucrose.dat
+> > ~~~
+> > {: .output}
 >
 > > ## Solution
 > >
 > > `ls` lists the contents of the current directory, whilst `ls analyzed` lists the contents of the `analyzed` directory.
 > >
 > > So we need to move the files `fructose.dat` and `sucrose.dat` out of the current directory, and into the `analyzed` directory, which we do with `mv`.
-> > ~~~
-> > $ ls -F
-> > $ mv fructose.dat analyzed/
-> > $ mv sucrose.dat analyzed/
-> > $ ls analyzed
-> > ~~~
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
+> > 
+> > > ~~~
+> > > $ ls -F
+> > > $ mv fructose.dat analyzed/
+> > > $ mv sucrose.dat analyzed/
+> > > $ ls analyzed
+> > > ~~~
+> > > {: .language-bash}
+> >
+> > {: .solution}
+>
+> {: .challenge}
 
 > ## Copy with Multiple Filenames
 >
 > What does `cp` do when given several filenames and a directory name, as in:
 >
-> ~~~
-> $ mkdir backup
-> $ cp thesis/citations.txt thesis/quotations.txt backup
-> ~~~
-> {: .language-bash}
+> > ~~~
+> > $ mkdir backup
+> > $ cp thesis/citations.txt thesis/quotations.txt backup
+> > ~~~
+> > {: .language-bash}
 >
 > > ## Solution
 > >
 > > It copies the files to the directory with the same name.
 > >
-> > ~~~
-> > $ ls backup
-> > ~~~
-> > {: .language-bash}
+> > > ~~~
+> > > $ ls backup
+> > > ~~~
+> > > {: .language-bash}
 > >
-> > ~~~
-> > citations.txt    quotations.txt
-> > ~~~
-> > {: .output}
-> {: .solution}
+> > > ~~~
+> > > citations.txt    quotations.txt
+> > > ~~~
+> > > {: .output}
+> >
+> > {: .solution}
 >
 > What does `cp` do when given three or more filenames, as in:
 >
-> ~~~
-> $ ls -F
-> ~~~
-> {: .language-bash}
+> > ~~~
+> > $ ls -F
+> > ~~~
+> > {: .language-bash}
 >
-> ~~~
-> intro.txt    methods.txt    survey.txt
-> ~~~
-> {: .output}
+> > ~~~
+> > intro.txt    methods.txt    survey.txt
+> > ~~~
+> > {: .output}
 >
-> ~~~
-> $ cp intro.txt methods.txt survey.txt
-> ~~~
-> {: .language-bash}
+> > ~~~
+> > $ cp intro.txt methods.txt survey.txt
+> > ~~~
+> > {: .language-bash}
 >
 > > ## Solution
 > >
@@ -585,13 +600,16 @@ but it does find the copy in `thesis` that we didn't delete.
 > > When passing 3 or more arguments, the last one needs to be a directory.
 > >
 > > However,
-> > ~~~
-> > $ cp intro.txt methods.txt
-> > ~~~
-> > {: .language-bash}
+> > > ~~~
+> > > $ cp intro.txt methods.txt
+> > > ~~~
+> > > {: .language-bash}
+> >
 > > Will not fail even though both of the arguments are existing files - it will copy the contents
 > > of `intro.txt` *over* the contents of `methods.txt`. So be careful!
-> {: .solution}
-{: .challenge}
+> >
+> > {: .solution}
+>
+> {: .challenge}
 
 {% include links.md %}

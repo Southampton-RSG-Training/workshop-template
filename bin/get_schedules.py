@@ -42,37 +42,34 @@ def get_yaml_config():
     return config
 
 
-def get_date_object(datestr):
+def get_date_object(date_string):
     """Convert a date string into a datetime object.
 
-    On failure to convert a string, None is returned.
+    On incorrect input, a ValueError will be raised. If the string cannot
+    be parsed and converted into a date, a ParserError is raised. The
+    exception to this is when date_string is TBC, where the string TBC is
+    returned.
 
     Parameters
     ----------
-    datestr: str
+    datestr: str, datetime.date
         The string of the date, in format YYYY-MM-DD. But any which dateutil
         accepts is also acceptable.
 
     Returns
     -------
-    date: datetime.date
-        The date object. If unable to parse, then None is returned instead.
+    date: datetime.date, str
+        The date object parsed from date_string.
     """
-    if datestr is None:
-        return None
+    if isinstance(date_string, datetime.date):
+        return date_string
+    if not date_string or not isinstance(date_string, str):
+        raise ValueError(f"date_string is either None or not of type str: {type(date_string)}")
 
-    if isinstance(datestr, datetime.date):
-        return datestr
-    elif not isinstance(datestr, str):
-        raise ValueError(f"datestr is not a string but {type(datestr)}")
-
-    try:
-        date = dateutil.parser.parse(datestr).date()
-    except dateutil.parser.ParserError:
-        date = None
-
-    return date
-
+    if date_string.lower() == "tbc":
+        return date_string.upper()
+    else:
+        return dateutil.parser.parse(date_string).date()
 
 def get_time_object(time_string):
     """Convert a string into a datetime object.
@@ -244,9 +241,16 @@ def main():
     a detailed syllabus.
     """
     website_config = get_yaml_config()
-
     website_kind = website_config.get('kind')
     website_delivery = website_config.get('delivery')
+
+    # create generic schedule layout for lessons
+
+    all_schedule_times = ["09:15", "9:30", "11:00", "11:15", "12:45", "13:00"]
+    schedule_sessions = [
+        "Registration, questions, and technical help", "Teaching", "Break", "Teaching", "Wrap Up", "Finish"
+    ]
+
 
     # Try to parse the start and end date for the workshop, to check that lessons
     # are in the correct time frame. If the date is not a valid date, i.e. if it
@@ -264,22 +268,21 @@ def main():
         raise ValueError("No lessons found in the workshop configuration file (_config.yml)")
     lesson_schedules = []
 
-
     for lesson in lessons:
         lesson_type = LessonType(lesson.get("type", None))  # have to differentiate between markdown and r-markdown lessons
         lesson_title = lesson.get("title", None)
         lesson_name = lesson.get("gh-name", None)
         lesson_dates = lesson.get("date", None)             # can be a list
-        lesson_starts = lesson.get("start-time", None)      # can be a list
+        lesson_start_times = lesson.get("start-time", None)      # can be a list
         lesson_order = lesson.get("order", None)
 
         if website_kind == 'workshop':
             if website_delivery == 'dated':
-                assrt_opts = (lesson_name, lesson_dates, lesson_title, lesson_starts)
+                assrt_opts = (lesson_name, lesson_dates, lesson_title, lesson_start_times)
             if website_delivery == 'static':
                 assrt_opts = (lesson_name, lesson_title, lesson_order)
         if website_kind == 'lesson':
-            assrt_opts = (lesson_title, lesson_starts)
+            assrt_opts = (lesson_title, lesson_start_times)
 
         if [thing for thing in assrt_opts if thing is None]:
             if website_kind == 'workshop':
@@ -302,36 +305,39 @@ def main():
 
         if website_kind == 'workshop':
             if website_delivery == 'dated':
-                if type(lesson_dates) is not list:
+
+                if not isinstance(lesson_dates, list):
                     lesson_dates = [lesson_dates]
-                if type(lesson_starts) is not list:
-                    lesson_starts = [lesson_starts]
 
-                if len(lesson_dates) > 1 and len(lesson_starts) == 1:
-                    lesson_starts *= len(lesson_dates)
+                if not isinstance(lesson_start_times, list):
+                    lesson_start_times = [lesson_start_times]
+
+                # We have a special case where if there are multiple lesson, we
+                # allow people to only specify one start time for both. But
+                # only allow this when there is just one lesson_ start time
+                if len(lesson_dates) > 1 and len(lesson_start_times) == 1:
+                    lesson_start_times *= len(lesson_dates)
                 else:
-                    try:
-                        assert len(lesson_dates) == len(lesson_starts), "Lesson starts must be a single value " \
-                                                                        "or the same length as lesson dates"
-                    except Exception as e:
-                        raise ValueError(e)
+                    # if the above conditions aren't met, then we asser that
+                    # there should be as many start times are there are dates
+                    assert len(lesson_dates) == len(lesson_start_times), \
+                        "Lesson starts must be a single value or the same length as lesson dates"
 
-                lesson_dates = [get_date_object(date) for date in lesson_dates]
+                # Iterate over each start time and start date in the available
+                # lessons ane create shedule for thoe
+                for i, (start, date) in enumerate(zip(lesson_start_times, lesson_dates)):
+                    date = get_date_object(date)
+                    start_time = get_time_object(start)
+                    original_start = get_time_object(all_schedule_times[0])
 
-                # Loop over each schedule table, if the lesson has multiple schedules
-                schedule_times = ["09:15", "9:30", "11:00", "11:15", "12:45", "13:00"]
-                schedule_sessions = ["Registration, questions, and technical help", "Teaching", "Break", "Teaching",
-                                     "Wrap Up", "Finish"]
-
-                for i in range(len(lesson_dates)):
-                    start_time = get_time_object(lesson_starts[i])
-                    original_start = get_time_object(schedule_times[0])
-                    datestr = lesson_dates[i].strftime("%d %B %Y")
-
-                    if workshop_start_date and lesson_dates[i] < workshop_start_date:
-                        raise ValueError(f"The date for {lesson_name} day {i + 1} is before the workshop start date")
-                    if workshop_end_date and lesson_dates[i] > workshop_end_date:
-                        raise ValueError(f"The date for {lesson_name} day {i + 1} is after the workshop end date")
+                    if isinstance(date, datetime.date):
+                        date_string = date.strftime("%d %B %Y")
+                        if workshop_start_date and date < workshop_start_date:
+                            raise ValueError(f"The date for {lesson_name} day {i + 1} is before the workshop start date")
+                        if workshop_end_date and date > workshop_end_date:
+                            raise ValueError(f"The date for {lesson_name} day {i + 1} is after the workshop end date")
+                    else:
+                        date_string = date  # i.e. TBC has been returned up get_date_object
 
                     # Calculate the time difference between the start time and the start
                     # time in the original schedule. This delta time (in minutes) is added
@@ -350,11 +356,11 @@ def main():
                     table = f"""
                     <div class="col">
                         <a href="{lesson_name}-schedule"><h3>{title}</h3></a>
-                        <h4>{datestr}</h4>
+                        <h4>{date_string}</h4>
                         <table class="table table-striped">
                     """
 
-                    for time, session in zip(schedule_times, schedule_sessions):
+                    for time, session in zip(all_schedule_times, schedule_sessions):
                         actual_time = datetime.datetime.strptime(time, "%H:%M") + datetime.timedelta(minutes=delta_minutes)
                         table += f"<tr> <td> {actual_time.hour:02d}:{actual_time.minute:02d} </td>    <td> {session} </td> </tr>\n"
 
@@ -365,7 +371,7 @@ def main():
 
                     lesson_schedules.append({"order_on": lesson_dates[i], "schedule": table})
 
-                start_time = get_time_object(lesson_starts[0])
+                start_time = get_time_object(lesson_start_times[0])
                 start_time_minutes = start_time.hour * 60 + start_time.minute
                 create_detailed_lesson_schedules(lesson_name, lesson_type, start_time_minutes, lesson_title, website_kind)
             elif website_delivery == 'static':
@@ -389,7 +395,7 @@ def main():
                 create_detailed_lesson_schedules(lesson_name, lesson_type, 0, lesson_title,website_kind)
                 # make some untimed schedules
         elif website_kind == 'lesson':
-            start_time = get_time_object(lesson_starts)
+            start_time = get_time_object(lesson_start_times)
             start_time_minutes = start_time.hour * 60 + start_time.minute
             create_detailed_lesson_schedules('', lesson_type, start_time_minutes, lesson_title, website_kind)
     if website_kind != 'lesson':
