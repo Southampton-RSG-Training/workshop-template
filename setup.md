@@ -1,4 +1,8 @@
-# Setup for all episodes.
+---
+title: Setup for TBC Workshop Title
+---
+
+
 ## Remote Desktop Client 
 
 In this workshop we will be using remote desktops that come pre-configured with all the
@@ -39,6 +43,9 @@ allocated additional time you may log in to your session and continue working.
 <hline/>
 ## The instructions to install the software on your own computer are provided below.
 
+
+# Best Practices in Data Organisation Using Spreadsheets
+
 ## Introduction to the Data for this Lesson ##
 The data used in this lesson comes from a project observing a small mammal community in southern
 Arizona, US. This is part of a project studying the effects of rodents and ants on the plant
@@ -57,11 +64,12 @@ This is a real dataset that has been used in over 100 publications. It is publis
 > **CITATION:** Ernest, Morgan; Brown, James; Valone, Thomas; White, Ethan P. (2017): Portal Project Teaching Database. Figshare. [https://doi.org/10.6084/m9.figshare.1314459.v6](https://doi.org/10.6084/m9.figshare.1314459.v6)
 {: .testimonial}
 
+
 ## Download Data for Spreadsheets Lesson ##
 
 For the purposes of training, this data has been simplified a bit (you can still download the full dataset and work with it using exactly the same tools we will learn here). This simplified version of data is available from the [Portal Project Teaching Dataset](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459). In this lesson, you will need to download the following five files from the [Portal Project Teaching Dataset](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459):
--  [messy_survey_data.xls](/data/messy_survey_data.xls) - this is the main file we will work with. It includes messy survey data
-(in Excel's `.xls` format) that you will clean during the lesson and use to learn some best practices in
+-  [messy_survey_data.xls](data/messy_survey_data.xlsx) - this is the main file we will work with. It includes messy survey data
+(in Excel's `.xlsx` format) that you will clean during the lesson and use to learn some best practices in
 data organisation.
 - [surveys.csv](https://ndownloader.figshare.com/files/2292172) - the cleaned survey data
     Fields: `record_id`, `month`, `day`, `year`, `plot_id`, `species_id`, `sex`, `hindfoot_length`, `weight`
@@ -73,12 +81,15 @@ data organisation.
 files combined into one clean file (a good example of what a clean data file should look like)
 Fields: `record_id`, `month`, `day`, `year`, `plot_id`, `species_id`, `sex`, `hindfoot_length`, `weight`, `genus`,
 `species`, `taxa`, `plot_type`
+
+
 ## Install Excel ##
 
 Excel is commonly provided by most institutions via the Microsoft Office suite via an instututional licence. 
 On Windows and Mac Excel can be downloaded using Microsoft Store or the App Store. 
 On Linux systems you can use Excel in a browser (not reccomended) or use an alterntive such as LibreOffice.
 If you do not have acess to a Microsoft offive licence then please see the LibreOffice installation instructions.
+
 
 ## Install LibreOffice ##
 
@@ -111,6 +122,9 @@ as it can open Excel spreadsheets, which is the format of the data we will work 
   - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Linux should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
 - Install LibreOffice
 - Once the installer is downloaded, double click on it and LibreOffice should install.
+
+# Data Cleaning with OpenRefine
+
 ## Download Data for OpenRefine Lesson ##
 
 The Portal Project Teaching Dataset is a real dataset that has been used in over 100 publications. We have simplified it
@@ -121,6 +135,7 @@ For this lesson, you will need to download the following file (remember where yo
 *  [portal_project_rodents.csv](data/portal_project_rodents.csv)
 
 Data in some of the columns of the above file (e.g. `geolocation`, `locality`, `county`, `country`, `JSON`) are contrived for the purpose of the lessons and are in no way related to the original dataset.
+
 ## Install OpenRefine ##
 
 For this lesson you will need [OpenRefine](http://openrefine.org/) (formerly GoogleRefine) and a web browser.
@@ -151,6 +166,7 @@ Once it is running on your machine, you access it via your browser at the addres
 - Check that you have Firefox or Chrome browser installed and set as your default browser. You can check how to set your browser as default for [Google Chrome](https://support.google.com/chrome/answer/95417?co=GENIE.Platform%3DDesktop&hl=en-GB) or [Firefox](https://support.mozilla.org/en-US/kb/make-firefox-your-default-browser).
 - Unzip the downloaded file into a directory. Go to this directory from terminal and type ./refine to start.
 - Wait for OpenRefine to launch in your default Web browser, which is where you will interact with the program. If this does not happen, head to [http://localhost:3333](http://localhost:3333) in your Web browser of choice.
+
 ## Text Editor ##
 
 A text editor is the piece of software you use to view and write code. If you
@@ -159,12 +175,16 @@ Notepad++ (Windows), TextEdit (macOS), Gedit (GNU/Linux), GNU Nano, Vim.
 Alternatively, there are IDE's (integrated developer environments) that have
 more features specifically for coding such as VS Code; there are also IDEs
 specific to languages will be listed in the appropriate section(s) below.
+
+# Managing Academic Software Development
+
 ## Project Demo Repository
 
 We'll be showing you how to manage an example academic software project. 
 If you've completed our [Version Control with git workshop (linked here)](https://southampton-rsg-training.github.io/git-novice/) , you'll have an example project.
 If not, please [create a copy of our demo repository from this template (linked here)](https://github.com/Southampton-RSG-Training/project-novice-climate-analysis/generate),
 and name it `climate-analysis`. You don't need to run this code as part of the course! It's purely for demonstration purposes.
+
 
 ## Install Visual Studio Code
 
@@ -180,6 +200,9 @@ Go to [the Visual Studio Code website](https://code.visualstudio.com/), and down
 If you're on **Ubuntu**, Visual Studio Code should be available through the software centre! 
 If not, [follow the detailed instructions here](https://code.visualstudio.com/docs/setup/linux) to install it.
 
+
+# The Bash Shell
+
 ## Open a Terminal ##
 
 For this lesson, first you need to be able to open a terminal:
@@ -187,6 +210,7 @@ For this lesson, first you need to be able to open a terminal:
 - **On Windows:** run "Git Bash", to install git bash go here [https://gitforwindows.org/](https://gitforwindows.org/) click download and select 'Git-X.XX.X-64-bit.exe' from the assets list.
 - **On Mac OS X:** accessed by opening the “Terminal” application, which can be found in the “Utilities” folder which is in your “Applications” folder.
 - **On Linux:** this will depend on the Linux distribution you are running, but you should be able to find a "Terminal" application in your desktop's application menu.
+
 
 
 ## Git Setup ##
@@ -222,6 +246,7 @@ Git comes pre-installed on most Linux distributions. You can test if it's instal
 If it's not installed, you can install it by running `sudo apt-get install git` or `sudo yum install git`, depending on 
 your distribution.
 
+
 ## GitHub ##
 Later on in the session, we'll be demonstrating how to share work with collaborators using [GitHub](https://github.com/). You'll need to [create an account there](https://github.com/signup). As your GitHub username will appear in the URLs of your projects there, it's best to use a short, clear version of your name if you can.
 
@@ -250,6 +275,7 @@ Copy the last line of output that starts with `ssh-ed25519` and ends with your e
 ![SSH-Output](fig/setup-SSH-Output.png){:width="50%"}
 
 Finally, go to [your Settings -> SSH keys page and add a new SSH key](https://github.com/settings/ssh/new) (you'll need to be logged into GitHub with the account you have created). Give the key a memorable name (e.g. the name of the computer you are working on) and paste the key from your clipboard into the box labelled key. Then, click **Add SSH key** and you're done!
+
 ## Download Data for Shell Lesson ##
 
 Type the following into the prompt that appears (pressing enter/return after each line):
@@ -274,6 +300,9 @@ This should download all the content for the lesson to a new directory.
 Please let the instructors know if you run into any problems.
 
 {% include links.md %}
+
+# Version Control with Git
+
 ## Download Data for Git Lesson ##
 
 Now we are ready to download the code that we need for this lesson, using Git on the command line. Open a terminal on your machine, and enter:
@@ -286,6 +315,9 @@ $ git clone https://github.com/Southampton-RSG-Training/git-novice
 `cd` will move to your home directory, and `git clone` will download a copy of the materials.
 
 {% include links.md %}
+
+# Building Programs with Python
+
 ## Python Setup ##
 
 IDEs: PyCharm, Spyder, VS Code
@@ -369,6 +401,7 @@ $ bash Anaconda3-2021.11-Linux-x86_64.sh
 {: .language-bash}
 
 Answer ‘yes’ to allow the installer to initialize Anaconda3 in your .bashrc.
+
 ## Download Data for Python Lesson ##
 
 Now we are ready to download the code that we need for this lesson. Open a terminal on your machine, and enter:
