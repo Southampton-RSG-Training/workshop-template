@@ -63,7 +63,3 @@ with open("setup.md", "w") as file_out:
             doc_filepath = 'submodules/setup-documents/markdown/' + setup
             with open(doc_filepath, "r", encoding="utf-8") as file_in:
                 file_out.write('\n\n' + file_in.read())
-
-
-
-
