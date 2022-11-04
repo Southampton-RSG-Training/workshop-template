@@ -24,7 +24,7 @@ platform-name: "TBC"   # name of online platform e.g. Teams, Zoom e.t.c
 country: "gb"         # e.g. gb
 language: "en"        # e.g. en
 latitude: "50.909698"    # latitude of location (Soton: 50.909698)
-longitude: "-1.404351"   # longitude of location (Soton: -1.404351)
+longitude: "-1.40435"   # longitude of location (Soton: -1.404351)
 
 # Specify the start and end date of the lesson
 humandate: "TBC"      # e.g. "6th August"
@@ -33,6 +33,7 @@ startdate: "TBC"        # e.g. YYYY-MM-DD # e.g. YYYY-MM-DD # This is required f
 enddate: "TBC"          # e.g. YYYY-MM-DD
 
 # Start time in minutes (0 to be clock-independent, 3:30 pm or 15:30 both okay).
+
 start-time: 0
 
 # Specify the details of the instructors and helpers

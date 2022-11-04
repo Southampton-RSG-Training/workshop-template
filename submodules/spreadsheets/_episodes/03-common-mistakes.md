@@ -117,9 +117,10 @@ Rather than entering data into multiple tabs, try adding another column to your 
 > > This format is much easier for data analysis programs to read. Humans will have an easier time as well, since there
 > > is no need to scroll to the right or switch between tabs to find all of the data.
 > >
-> > If you didn't manage to finish on time, or if you just want to look at the solution, you can download the updated
-> > [messy survey data](data/messy_survey_data_ep3_ex1.xlsx).
+> > If you didn't manage to finish in time, or if you just want to look at the solution instead, you can download
+> > the updated [messy survey data](data/messy_survey_data_ex1.xlsx).
 > > {: .solution}
+> 
 > {: .challenge}
 
 
@@ -276,11 +277,11 @@ reason they are not, create a new column to specify the units.
 > >
 > > ![solution](fig/episode3_ex3.png)
 > >
-> > If you didn't manage to finish on time, or if you just want to look at the solution, you can download
-> > the updated [messy survey data](data/messy_survey_data_ep3_ex2.xlsx).
+> > If you didn't manage to finish in time, or if you just want to look at the solution instead, you can download
+> > the updated [messy survey data](data/messy_survey_data_ex2.xlsx).
 > > {: .solution}
+>
 > {: .challenge}
-
 
 ## <a name="formatting_pretty"></a> Using formatting to make the spreadsheet look pretty
 
@@ -332,9 +333,12 @@ It is often occurrence to input data into Excel, and to then watch it come out i
 > > ![weight calibrated](fig/episode3_ex3.png)
 > >
 > > If you didn't manage to finish in time, or if you just want to look at the solution instead, you can download
-> > the updated [messy survey data](data/messy_survey_data_ep3_ex3.xlsx).
+> > the updated [messy survey data](data/messy_survey_data_ex3.xlsx).
+> >
 > > {: .solution}
+>
 > {: .challenge}
+
 
 
 > ## Full & clean dataset
