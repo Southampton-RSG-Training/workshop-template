@@ -46,9 +46,9 @@ for n, lesson_info in enumerate(website_config['lessons']):
         #
         lesson_type = LessonType(lesson_info.get("type", None))
         if lesson_type == LessonType.markdown:
-            directory = "_episodes"
+            directory = "./_episodes"
         elif lesson_type == LessonType.r_markdown:
-            directory = "_episodes_rmd"
+            directory = "./_episodes_rmd"
         else:
             raise ValueError(f"Unknown lesson type {lesson_type}")
 
@@ -103,12 +103,12 @@ for n, lesson_info in enumerate(website_config['lessons']):
                 log.error(f"Cannot find or move submodules/{lesson_name}/{file}, but carrying on anyway")
 
         # Things to move to ./collections/... -- episodes and extras
-        dest = f"_{directory}/{lesson_name}-lesson"
+        dest = f"{directory}/{lesson_name}-lesson"
         Path(dest).mkdir(parents=True, exist_ok=True)
         copy_tree(f"submodules/{lesson_name}/{directory}/", dest)
         for file in ["reference.md"]:
             try:
-                dest = f"_{directory}/{lesson_name}-lesson"
+                dest = f"{directory}/{lesson_name}-lesson"
                 Path(dest).mkdir(parents=True, exist_ok=True)
                 copy(f"submodules/{lesson_name}/{file}", f"{dest}/{file.split('/')[-1]}")
                 log.info(f"Copied submodules/{lesson_name}/{file} to {dest}")
@@ -138,7 +138,7 @@ for n, lesson_info in enumerate(website_config['lessons']):
         # Things to move only for Rmd set up files
         if lesson_type == LessonType.r_markdown:
             # Set the destination to the lesson collection, R needs these in the 'resource path'
-            dest = f"_{directory}/{lesson_name}-lesson"
+            dest = f"{directory}/{lesson_name}-lesson"
             # Move the figures for this lesson
             #copy_tree(f"submodules/{lesson_name}/fig", f"{dest}/fig/")
             # Move the footer and navbar

@@ -123,9 +123,9 @@ def create_detailed_lesson_schedules(lesson_name, lesson_type, start_time, lesso
     """
     file_ext = "md"
     if website_kind != 'lesson':
-        containing_directory = f"_episodes/{lesson_name}-lesson"
+        containing_directory = f"./_episodes/{lesson_name}-lesson"
     else:
-        containing_directory = "_episodes/"
+        containing_directory = "./_episodes/"
 
     for i, file in enumerate(sorted(glob.glob(f"{containing_directory}/[0-9]*.{file_ext}"))):
         filepath = Path(file)
