@@ -6,7 +6,6 @@ on:
   pull_request: null
 jobs:
   build-website:
-    # if: ${{ !endsWith(github.repository, '/styles') }}
     runs-on: ubuntu-latest
     env:
       RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
@@ -41,10 +40,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-
-      - name: Install GitHub Pages, Bundler, and kramdown gems
-        run: |
-          gem install github-pages bundler kramdown kramdown-parser-gfm
 
       - name: Install Python modules
         run: |
