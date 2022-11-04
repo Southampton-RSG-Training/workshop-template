@@ -9,10 +9,13 @@ if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   perl -pi -e "s/([>\s]*)(>\s)(.*?)(\{: \.[a-zA-Z]+\})/\1\2\3\n\1\4\n\1/g" ./_episodes/*.md
   perl -0777pi -e "s/(?<!\n)\{: .challenge\}/\n\{: .challenge\}/g" ./_episodes/*.md
 fi
-
+echo 'Getting sub modules'
+python3 bin/get_submoudules.py
 echo 'Making favicons'
 python3 bin/make_favicons.py
 echo 'Making schedules'
 python3 bin/get_schedules.py
 echo 'Making setup'
 python3 bin/get_setup.py
+echo 'Cleaning setup'
+python3 bin/clean_setup_md.py
