@@ -10,15 +10,9 @@ jobs:
     env:
       RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    # defaults:
-    #   run:
-    #     shell: bash
     steps:
       - name: Checkout the lesson
         uses: actions/checkout@v2
-        # with:
-        #   path: build
-        #   fetch-depth: 0
 
       - name: Install sys deps
         run: |
@@ -30,11 +24,6 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7'
 
       - name: Set up Python
         uses: actions/setup-python@v2
