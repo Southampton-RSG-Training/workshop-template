@@ -126,7 +126,6 @@ collections:
   episodes:
     output: true
     permalink: /:slug
-collections_dir: collections
 
 include:
   - _includes/rsg/
