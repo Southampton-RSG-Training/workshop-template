@@ -67,7 +67,7 @@ for n, lesson_info in enumerate(website_config['lessons']):
                 log.warning(f"Lesson {lesson_name} found in 'Southampton-RSG-Training' using as fallback")
                 org_name = "Southampton-RSG-Training"
             else:
-                raise f"Lesson {lesson_name} does not exist in '{org_name}', or 'Southampton-RSG-Training'"
+                raise ValueError(f"Lesson {lesson_name} does not exist in '{org_name}', or 'Southampton-RSG-Training'")
         else:
             r = requests.get(f'https://api.github.com/repos/{org_name}/{lesson_name}/branches/{gh_branch}')
             if r.status_code != 200:
@@ -77,7 +77,7 @@ for n, lesson_info in enumerate(website_config['lessons']):
                     log.warning(f'Branch {gh_branch} found in {org_name}/{lesson_name} using as fallback')
                     gh_branch = "gh-pages"
                 else:
-                    raise f"Branch '{gh_branch}' or 'gh-pages' does not exist in '{org_name}/{lesson_name}', or 'Southampton-RSG-Training'"
+                    raise ValueError(f"Branch '{gh_branch}' or 'gh-pages' does not exist in '{org_name}/{lesson_name}', or 'Southampton-RSG-Training'")
 
         log.info(f"Getting lesson with parameters:\n org-name: {org_name} \n gh-name: {lesson_name} \n branch: {gh_branch} \n type: {lesson_type.value}")
         os.system(f"git submodule add --force -b {gh_branch} https://github.com/{org_name}/{lesson_name}.git submodules/{lesson_name}")
