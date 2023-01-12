@@ -204,8 +204,7 @@ last three characters: gen
 > What is `element[-2]`?
 > Given those answers,
 > explain what `element[1:-1]` does.
-> 
-> {: .challenge}
+{: .challenge}
 
 List slicing is more or less the same as string slicing except that we can modify a slice. For example:
 
@@ -297,8 +296,7 @@ does not.
 > Because of pitfalls like this, code which modifies data in place can be more difficult to understand. However,
 > it is often far more efficient to modify a large data structure in place than to create a modified copy for
 > every small change. You should consider both of these aspects when writing your code.
-> 
-> {: .callout}
+{: .callout}
 
 
 There are many ways to change the contents of lists besides assigning new values to
@@ -431,18 +429,18 @@ This works but it only works if we need to build up the list in this particular 
 >
 >
 > 
-> > ~~~
-> > string_for_slicing = "Observation date: 02-Feb-2013"
-> > list_for_slicing = [["fluorine", "F"], ["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
-> > ~~~
-> > {: .python}
+> ~~~
+> string_for_slicing = "Observation date: 02-Feb-2013"
+> list_for_slicing = [["fluorine", "F"], ["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
+> ~~~
+> {: .python}
 >
 >
-> > ~~~
-> > "2013"
-> > [["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
-> > ~~~
-> > {: .output}
+> ~~~
+> "2013"
+> [["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
+> ~~~
+> {: .output}
 > 
 > Would your solution work regardless of whether you knew beforehand
 > the length of the string or list
@@ -457,15 +455,15 @@ This works but it only works if we need to build up the list in this particular 
 > > (such as list or string):
 > >
 > > 
-> > > ~~~
-> > > string_for_slicing[-4:]
-> > > list_for_slicing[-4:]
-> > > ~~~
-> > > {: .python}
+> > ~~~
+> > string_for_slicing[-4:]
+> > list_for_slicing[-4:]
+> > ~~~
+> > {: .python}
 > >
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 
 > ## Overloading
@@ -477,12 +475,12 @@ This works but it only works if we need to build up the list in this particular 
 >
 >
 >
-> > ~~~
-> > counts = [2, 4, 6, 8, 10]
-> > repeats = counts * 2
-> > print(repeats)
-> > ~~~
-> > {: .python}
+> ~~~
+> counts = [2, 4, 6, 8, 10]
+> repeats = counts * 2
+> print(repeats)
+> ~~~
+> {: .python}
 > 
 > 1.  `[2, 4, 6, 8, 10, 2, 4, 6, 8, 10]`
 > 2.  `[4, 8, 12, 16, 20]`
@@ -498,21 +496,20 @@ This works but it only works if we need to build up the list in this particular 
 > > The multiplication operator `*` used on a list replicates elements of the
 > > list and concatenates them together:
 > >
-> > > ~~~
-> > > [2, 4, 6, 8, 10, 2, 4, 6, 8, 10]
-> > > ~~~
-> > > {: .output}
+> > ~~~
+> > [2, 4, 6, 8, 10, 2, 4, 6, 8, 10]
+> > ~~~
+> > {: .output}
 > >
 > > It's equivalent to:
 > >
-> > > ~~~
-> > > counts + counts
-> > > ~~~
-> > > {: .python}
+> > ~~~
+> > counts + counts
+> > ~~~
+> > {: .python}
 > > 
 > > So using `*` on lists works in a similar way as it does on strings.
 > > Where Python employs overloading, it tries to be consistent!
-> >
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}

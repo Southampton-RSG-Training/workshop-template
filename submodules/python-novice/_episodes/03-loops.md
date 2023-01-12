@@ -102,8 +102,7 @@ So, much like what we did with Bash, let's take a look at writing a Python scrip
 >
 > For that reason, it's considered a programming language, but to add to the
 > confusion, we refer to Python programs generally as scripts!
-> 
-> {: .callout}
+{: .callout}
 
 ### Our first Python script!
 
@@ -288,7 +287,7 @@ Which is really helpful, and means we don't need to remember a different way to 
 > were quite large (and/or more complex, with other similarly named variables)
 > it would become difficult to understand. So pick something that's meaningful
 > to help others, and yourself at a later date, understand what is happening.
-> {: .callout}
+{: .callout}
 
 ### So what's happening in a loop?
 
@@ -384,23 +383,22 @@ so we should always use it when we can.
 > Using `range`,
 > write a loop to print the first 3 natural numbers:
 >
-> > ~~~
-> > 1
-> > 2
-> > 3
-> > ~~~
-> > {: .python}
+> ~~~
+> 1
+> 2
+> 3
+> ~~~
+> {: .python}
 > 
 > > ## Solution
-> > > ~~~
-> > > for i in range(1, 4):
-> > >    print(i)
-> > > ~~~
-> > > {: .python}
-> > 
-> > {: .solution}
+> > ~~~
+> > for i in range(1, 4):
+> >    print(i)
+> > ~~~
+> > {: .python}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 
 > ## Turn a String Into a List
@@ -409,33 +407,32 @@ so we should always use it when we can.
 >
 >
 > 
-> > ~~~
-> > ["h", "e", "l", "l", "o"]
-> > ~~~
-> > {: .python}
+> ~~~
+> ["h", "e", "l", "l", "o"]
+> ~~~
+> {: .python}
 > 
 > Hint: You can create an empty list like this:
 >
 >
 >
-> > ~~~
-> > my_list = []
-> > ~~~
-> > {: .python}
+> ~~~
+> my_list = []
+> ~~~
+> {: .python}
 >
 >
 > > ## Solution
-> > > ~~~
-> > > my_list = []
-> > > for char in "hello":
-> > >     my_list.append(char)
-> > > print(my_list)
-> > > ~~~
-> > > {: .python}
-> > 
-> >  {: .solution}
+> > ~~~
+> > my_list = []
+> > for char in "hello":
+> >     my_list.append(char)
+> > print(my_list)
+> > ~~~
+> > {: .python}
+> {: .solution}
 >
-> {: .challenge}
+{: .challenge}
 
 
 
@@ -444,35 +441,34 @@ so we should always use it when we can.
 > Exponentiation is built into Python:
 >
 >
-> > ~~~
-> > print(5 ** 3)
-> > 125
-> > ~~~
-> > {: .python}
+> ~~~
+> print(5 ** 3)
+> 125
+> ~~~
+> {: .python}
 >
 > Write a loop that calculates the same result as `5 ** 3` using multiplication (and without exponentiation).
 >
 > > ## Solution
 > >
-> > > ~~~
-> > > value = 5
-> > > exponent = 3
-> > > result = 1
-> > > for i in range(exponent):
-> > >     result = result * value
-> > > print(result)
-> > > ~~~
-> > > {: .python}
+> > ~~~
+> > value = 5
+> > exponent = 3
+> > result = 1
+> > for i in range(exponent):
+> >     result = result * value
+> > print(result)
+> > ~~~
+> > {: .python}
 > > 
 > > This solution is inefficient in terms of number of variables created and times looped can you improve it?
-> >
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 
 >## Reverse a string
 >
 > Write a loop that takes a string, and produces a new string with the characters in reverse order, so `Newton` becomes `notweN`.
 > 
-> {: .challenge}
+{: .challenge}

@@ -139,8 +139,7 @@ So what's happening here?
 > And that String class has a defined method called `rstrip()`, which
 > removes the trailing newline. There are many other String methods which
 > are incredibly useful!
->
-> {: .callout}
+{: .callout}
 
 So, let's try that out (*see `climate_analysis-2.py`*):
 
@@ -233,8 +232,7 @@ have made a note to that effect in a *comment*.
 > the ones you don't need**. You should write your code so it's easier to
 > understand without comments first, and only add comments when it **cannot**
 > be made easier to understand.
-> 
-> {: .callout}
+{: .callout}
 
 And we get:
 

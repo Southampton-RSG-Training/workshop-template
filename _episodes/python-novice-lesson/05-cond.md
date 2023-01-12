@@ -153,25 +153,24 @@ In this case,
 >
 >
 >
-> > ~~~
-> > if 4 > 5:
-> >     print('A')
-> > elif 4 <= 5:
-> >     print('B')
-> > elif 4 < 5:
-> >     print('C')
-> > ~~~
-> > {: .python}
+> ~~~
+> if 4 > 5:
+>     print('A')
+> elif 4 <= 5:
+>     print('B')
+> elif 4 < 5:
+>     print('C')
+> ~~~
+> {: .python}
 >
 > > ## Solution
 > > B gets printed. The first condition, `4 > 5` is not true so it moves 
 > > to the next elif, but `4 <= 5` is true so that statement executes 
 > > printing B. The third condition is therefore not checked and C is 
 > > not printed.
-> >
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 
 > ## What Is Truth?
@@ -184,23 +183,22 @@ In this case,
 > explain what the rule is for which values are considered true and which are considered false.
 >
 > 
-> > ~~~
-> > if '':
-> >     print('empty string is true')
-> > if 'word':
-> >     print('word is true')
-> > if []:
-> >     print('empty list is true')
-> > if [1, 2, 3]:
-> >     print('non-empty list is true')
-> > if 0:
-> >     print('zero is true')
-> > if 1:
-> >     print('one is true')
-> > ~~~
-> > {: .python}
-> 
-> {: .challenge}
+> ~~~
+> if '':
+>     print('empty string is true')
+> if 'word':
+>     print('word is true')
+> if []:
+>     print('empty list is true')
+> if [1, 2, 3]:
+>     print('non-empty list is true')
+> if 0:
+>     print('zero is true')
+> if 1:
+>     print('one is true')
+> ~~~
+> {: .python}
+{: .challenge}
 
 ## Another type of loop
 
@@ -216,8 +214,6 @@ know how many times the loop needs to execute. For these types of cases, we can 
 true.
 
 Consider the following example:
-
-
 
 ~~~
 from random import randint
