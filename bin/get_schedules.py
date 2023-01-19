@@ -21,13 +21,6 @@ from enum import Enum
 import dateutil
 
 
-class LessonType(Enum):
-    """Enum for the different types of lessons.
-    """
-    markdown = "episode"
-    r_markdown = "episode_r"
-
-
 def get_yaml_config():
     """Open the YAML config file for the website.
 
@@ -269,7 +262,7 @@ def main():
     lesson_schedules = []
 
     for lesson in lessons:
-        lesson_type = LessonType(lesson.get("type", None))  # have to differentiate between markdown and r-markdown lessons
+        lesson_type = lesson.get("type", None)
         lesson_title = lesson.get("title", None)
         lesson_name = lesson.get("gh-name", None)
         lesson_dates = lesson.get("date", None)             # can be a list
