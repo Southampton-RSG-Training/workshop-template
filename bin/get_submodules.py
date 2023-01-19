@@ -17,12 +17,6 @@ from shutil import copy2 as copy, rmtree
 
 log = logging.getLogger(__name__)
 
-class LessonType(Enum):
-    """Enum for the different types of lessons.
-    """
-    markdown = "episode"
-    r_markdown = "episode_r"
-
 # Remove previously existing directories, to start fresh
 
 rmtree("submodules", ignore_errors=True)
@@ -42,16 +36,8 @@ Path("submodules").mkdir(parents=True, exist_ok=True)
 
 for n, lesson_info in enumerate(website_config['lessons']):
     #
-    if lesson_info.get('type', None) in ["episode", "episode_r"]:
-        #
-        lesson_type = LessonType(lesson_info.get("type", None))
-        if lesson_type == LessonType.markdown:
-            directory = "./_episodes"
-        elif lesson_type == LessonType.r_markdown:
-            directory = "./_episodes_rmd"
-        else:
-            raise ValueError(f"Unknown lesson type {lesson_type}")
-
+    if lesson_info.get('type', None) in ["episode"]:
+        directory = "./_episodes"
         # Create the command to pull the subdirectory from GitHub
         org_name = lesson_info.get("org-name", "Southampton-RSG-Training")
         lesson_name = lesson_info.get('gh-name', None)
@@ -79,18 +65,12 @@ for n, lesson_info in enumerate(website_config['lessons']):
                 else:
                     raise ValueError(f"Branch '{gh_branch}' or 'gh-pages' does not exist in '{org_name}/{lesson_name}', or 'Southampton-RSG-Training'")
 
-        log.info(f"Getting lesson with parameters:\n org-name: {org_name} \n gh-name: {lesson_name} \n branch: {gh_branch} \n type: {lesson_type.value}")
+        log.info(f"Getting lesson with parameters:\n org-name: {org_name} \n gh-name: {lesson_name} \n branch: {gh_branch}")
         os.system(f"git submodule add --force -b {gh_branch} https://github.com/{org_name}/{lesson_name}.git submodules/{lesson_name}")
         os.system("git submodule update --remote --merge")
 
         # move required files from the subdirectories to _includes/rsg/{lesson_name}/...
         # lesson destinations need to be appended with -lesson to avoid gh-pages naming conflicts
-
-        # Things to move to ./ -- only for Rmd set up files
-        if lesson_type == LessonType.r_markdown:
-            for file in ["renv.lock", f"{lesson_name}_setup.R"]:
-                copy(f"submodules/{lesson_name}/{file}", f"./{file.split('/')[-1]}")
-                log.info(f"Copied submodules/{lesson_name}/{file} to ./")
 
         # Things to move to ./_includes/rsg -- for lesson schedules and setup
         dest = f"_includes/rsg/{lesson_name}-lesson"
@@ -135,17 +115,6 @@ for n, lesson_info in enumerate(website_config['lessons']):
         except:
             log.info(f"No data file to move in {lesson_name}")
 
-        # Things to move only for Rmd set up files
-        if lesson_type == LessonType.r_markdown:
-            # Set the destination to the lesson collection, R needs these in the 'resource path'
-            dest = f"{directory}/{lesson_name}-lesson"
-            # Move the figures for this lesson
-            #copy_tree(f"submodules/{lesson_name}/fig", f"{dest}/fig/")
-            # Move the footer and navbar
-            #Path(f"{dest}/_includes/").mkdir(parents=True, exist_ok=True)
-            #copy("_includes/footer.html", f"{dest}/_includes/")
-            #copy("_includes/navbar.html", f"{dest}/_includes/")
-
 # Now need to do the same for slides, but have to do it afterwards because we
 # need a specific version of reveal.js, so we need to avoid the git submodule
 # update
@@ -154,8 +123,7 @@ os.system("git submodule add --force https://github.com/hakimel/reveal.js.git su
 os.system("cd submodules/reveal.js && git checkout 8a54118f43")
 
 for n, lesson_info in enumerate(website_config['lessons']):
-    #
-    lesson_type = LessonType(lesson_info.get("type", None))
+    lesson_type = lesson_info.get("type", None)
     lesson_name = lesson_info.get('gh-name', None)
     if lesson_name is None:
         raise ValueError("No lesson name specified for lesson {n}")
