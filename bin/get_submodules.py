@@ -35,85 +35,83 @@ Path("submodules").mkdir(parents=True, exist_ok=True)
 # Now process each lesson in the list
 
 for n, lesson_info in enumerate(website_config['lessons']):
-    #
-    if lesson_info.get('type', None) in ["episode"]:
-        directory = "./_episodes"
-        # Create the command to pull the subdirectory from GitHub
-        org_name = lesson_info.get("org-name", "Southampton-RSG-Training")
-        lesson_name = lesson_info.get('gh-name', None)
-        if lesson_name is None:
-            raise ValueError(f"No lesson name specified for lesson {n}")
-        gh_branch = lesson_info.get('branch', 'main')
-        # Check this repository exists
-        r = requests.get(f'https://api.github.com/repos/{org_name}/{lesson_name}')
-        if r.status_code != 200:
-            log.warning(f'Lesson {lesson_name} does not exist in {org_name} trying in default org')
-            r = requests.get(f'https://api.github.com/repos/Southampton-RSG-Training/{lesson_name}')
-            if r.status_code == 200:
-                log.warning(f"Lesson {lesson_name} found in 'Southampton-RSG-Training' using as fallback")
-                org_name = "Southampton-RSG-Training"
-            else:
-                raise ValueError(f"Lesson {lesson_name} does not exist in '{org_name}', or 'Southampton-RSG-Training'")
+    directory = "./_episodes"
+    # Create the command to pull the subdirectory from GitHub
+    org_name = lesson_info.get("org-name", "Southampton-RSG-Training")
+    lesson_name = lesson_info.get('gh-name', None)
+    if lesson_name is None:
+        raise ValueError(f"No lesson name specified for lesson {n}")
+    gh_branch = lesson_info.get('branch', 'main')
+    # Check this repository exists
+    r = requests.get(f'https://api.github.com/repos/{org_name}/{lesson_name}')
+    if r.status_code != 200:
+        log.warning(f'Lesson {lesson_name} does not exist in {org_name} trying in default org')
+        r = requests.get(f'https://api.github.com/repos/Southampton-RSG-Training/{lesson_name}')
+        if r.status_code == 200:
+            log.warning(f"Lesson {lesson_name} found in 'Southampton-RSG-Training' using as fallback")
+            org_name = "Southampton-RSG-Training"
         else:
-            r = requests.get(f'https://api.github.com/repos/{org_name}/{lesson_name}/branches/{gh_branch}')
-            if r.status_code != 200:
-                log.warning(f'Branch {gh_branch} does not exist in {org_name}/{lesson_name} trying default branch')
-                r = requests.get(f'https://api.github.com/repos/{org_name}/{lesson_name}/branches/gh-pages')
-                if r.status_code == 200:
-                    log.warning(f'Branch {gh_branch} found in {org_name}/{lesson_name} using as fallback')
-                    gh_branch = "gh-pages"
-                else:
-                    raise ValueError(f"Branch '{gh_branch}' or 'gh-pages' does not exist in '{org_name}/{lesson_name}', or 'Southampton-RSG-Training'")
+            raise ValueError(f"Lesson {lesson_name} does not exist in '{org_name}', or 'Southampton-RSG-Training'")
+    else:
+        r = requests.get(f'https://api.github.com/repos/{org_name}/{lesson_name}/branches/{gh_branch}')
+        if r.status_code != 200:
+            log.warning(f'Branch {gh_branch} does not exist in {org_name}/{lesson_name} trying default branch')
+            r = requests.get(f'https://api.github.com/repos/{org_name}/{lesson_name}/branches/gh-pages')
+            if r.status_code == 200:
+                log.warning(f'Branch {gh_branch} found in {org_name}/{lesson_name} using as fallback')
+                gh_branch = "gh-pages"
+            else:
+                raise ValueError(f"Branch '{gh_branch}' or 'gh-pages' does not exist in '{org_name}/{lesson_name}', or 'Southampton-RSG-Training'")
 
-        log.info(f"Getting lesson with parameters:\n org-name: {org_name} \n gh-name: {lesson_name} \n branch: {gh_branch}")
-        os.system(f"git submodule add --force -b {gh_branch} https://github.com/{org_name}/{lesson_name}.git submodules/{lesson_name}")
-        os.system("git submodule update --remote --merge")
+    log.info(f"Getting lesson with parameters:\n org-name: {org_name} \n gh-name: {lesson_name} \n branch: {gh_branch}")
+    os.system(f"git submodule add --force -b {gh_branch} https://github.com/{org_name}/{lesson_name}.git submodules/{lesson_name}")
+    os.system("git submodule update --remote --merge")
 
-        # move required files from the subdirectories to _includes/rsg/{lesson_name}/...
-        # lesson destinations need to be appended with -lesson to avoid gh-pages naming conflicts
+    # move required files from the subdirectories to _includes/rsg/{lesson_name}/...
+    # lesson destinations need to be appended with -lesson to avoid gh-pages naming conflicts
 
-        # Things to move to ./_includes/rsg -- for lesson schedules and setup
-        dest = f"_includes/rsg/{lesson_name}-lesson"
-        Path(dest).mkdir(parents=True, exist_ok=True)
-        for file in ["blurb.html"]:
-            try:
-                copy(f"submodules/{lesson_name}/{file}", f"{dest}/{file.split('/')[-1]}")
-                log.info(f"Copied submodules/{lesson_name}/{file} to {dest}")
-            except:
-                log.error(f"Cannot find or move submodules/{lesson_name}/{file}, but carrying on anyway")
-
-        # Things to move to ./collections/... -- episodes and extras
-        dest = f"{directory}/{lesson_name}-lesson"
-        Path(dest).mkdir(parents=True, exist_ok=True)
-        copy_tree(f"submodules/{lesson_name}/{directory}/", dest)
-        for file in ["reference.md"]:
-            try:
-                dest = f"{directory}/{lesson_name}-lesson"
-                Path(dest).mkdir(parents=True, exist_ok=True)
-                copy(f"submodules/{lesson_name}/{file}", f"{dest}/{file.split('/')[-1]}")
-                log.info(f"Copied submodules/{lesson_name}/{file} to {dest}")
-            except:
-                log.error(f"Cannot find or move submodules/{lesson_name}/{file}, but carrying on anyway")
-
-        for file in os.listdir(dest):
-            if file.endswith(".md"):
-                with open(f"{dest}/{file}", "r") as f:
-                    contents = f.readlines()
-
-                contents.insert(1, f"lesson_title: '{lesson_info.get('title', '')}'\n"
-                                   f"lesson_schedule_slug: {lesson_name}-schedule\n")
-
-                with open(f"{dest}/{file}", "w") as f:
-                    contents = "".join(contents)
-                    f.write(contents)
-
-        # Move figures
-        copy_tree(f"submodules/{lesson_name}/fig", "fig/")
-        # Move data
+    # Things to move to ./_includes/rsg -- for lesson schedules and setup
+    dest = f"_includes/rsg/{lesson_name}-lesson"
+    Path(dest).mkdir(parents=True, exist_ok=True)
+    for file in ["blurb.html"]:
         try:
-            copy_tree(f"submodules/{lesson_name}/data", "data/")
+            copy(f"submodules/{lesson_name}/{file}", f"{dest}/{file.split('/')[-1]}")
+            log.info(f"Copied submodules/{lesson_name}/{file} to {dest}")
         except:
-            log.info(f"No data file to move in {lesson_name}")
+            log.error(f"Cannot find or move submodules/{lesson_name}/{file}, but carrying on anyway")
+
+    # Things to move to ./collections/... -- episodes and extras
+    dest = f"{directory}/{lesson_name}-lesson"
+    Path(dest).mkdir(parents=True, exist_ok=True)
+    copy_tree(f"submodules/{lesson_name}/{directory}/", dest)
+    for file in ["reference.md"]:
+        try:
+            dest = f"{directory}/{lesson_name}-lesson"
+            Path(dest).mkdir(parents=True, exist_ok=True)
+            copy(f"submodules/{lesson_name}/{file}", f"{dest}/{file.split('/')[-1]}")
+            log.info(f"Copied submodules/{lesson_name}/{file} to {dest}")
+        except:
+            log.error(f"Cannot find or move submodules/{lesson_name}/{file}, but carrying on anyway")
+
+    for file in os.listdir(dest):
+        if file.endswith(".md"):
+            with open(f"{dest}/{file}", "r") as f:
+                contents = f.readlines()
+
+            contents.insert(1, f"lesson_title: '{lesson_info.get('title', '')}'\n"
+                                f"lesson_schedule_slug: {lesson_name}-schedule\n")
+
+            with open(f"{dest}/{file}", "w") as f:
+                contents = "".join(contents)
+                f.write(contents)
+
+    # Move figures
+    copy_tree(f"submodules/{lesson_name}/fig", "fig/")
+    # Move data
+    try:
+        copy_tree(f"submodules/{lesson_name}/data", "data/")
+    except:
+        log.info(f"No data file to move in {lesson_name}")
 
 # Now need to do the same for slides, but have to do it afterwards because we
 # need a specific version of reveal.js, so we need to avoid the git submodule
@@ -123,7 +121,6 @@ os.system("git submodule add --force https://github.com/hakimel/reveal.js.git su
 os.system("cd submodules/reveal.js && git checkout 8a54118f43")
 
 for n, lesson_info in enumerate(website_config['lessons']):
-    lesson_type = lesson_info.get("type", None)
     lesson_name = lesson_info.get('gh-name', None)
     if lesson_name is None:
         raise ValueError("No lesson name specified for lesson {n}")
