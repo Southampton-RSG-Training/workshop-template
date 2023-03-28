@@ -371,7 +371,7 @@ def main():
                     </div>
                     """
 
-                    lesson_schedules.append({"order_on": lesson_dates[i], "schedule": table})
+                    lesson_schedules.append({"order_on": date, "schedule": table})
 
                 start_time = get_time_object(lesson_start_times[0])
                 start_time_minutes = start_time.hour * 60 + start_time.minute
