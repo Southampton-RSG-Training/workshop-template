@@ -134,7 +134,7 @@ for n, lesson_info in enumerate(website_config['lessons']):
     # Move lesson episodes into the _episodes directory
     lesson_content_dest = f"_episodes/{lesson_name}-lesson"
     Path(lesson_content_dest).mkdir(parents=True, exist_ok=True)
-    copytree(f"submodules/{lesson_name}/_episodes/", lesson_content_dest)
+    copytree(f"submodules/{lesson_name}/_episodes/", lesson_content_dest, dirs_exist_ok=True)
 
     # move any extra lesson files into the same directory as the episodes, e.g.
     # the glossary is a good example
@@ -159,19 +159,19 @@ for n, lesson_info in enumerate(website_config['lessons']):
 
     # Moves figures into fig directory
     try:
-        copytree(f"submodules/{lesson_name}/fig", "fig/")
+        copytree(f"submodules/{lesson_name}/fig", "fig/", dirs_exist_ok=True)
     except IOError:
         log.info(f"No figures to move for {lesson_name}")
 
     # Move lesson data into data directory
     try:
-        copytree(f"submodules/{lesson_name}/data", "data/")
+        copytree(f"submodules/{lesson_name}/data", "data/", dirs_exist_ok=True)
     except IOError:
         log.info(f"No data file to move for {lesson_name}")
 
     # Move codes for lessons into code directory
     try:
-        copytree(f"submodules/{lesson_name}/code", "code/")
+        copytree(f"submodules/{lesson_name}/code", "code/", dirs_exist_ok=True)
     except IOError:
         log.info(f"No code files for {lesson_name}")
 
@@ -190,13 +190,13 @@ for n, lesson_info in enumerate(website_config['lessons']):
     if slides_src.is_dir():
         slides_dest = Path(f"slides/{lesson_name}/")
         slides_dest.mkdir(parents=True, exist_ok=True)
-        copytree(f"submodules/{lesson_name}/slides", str(slides_dest))
+        copytree(f"submodules/{lesson_name}/slides", str(slides_dest), dirs_exist_ok=True)
 
         # The lesson reveal.js folder which gets copied is empty, so delete that
         # and copy the reveal.js submodule
         rmtree(f"slides/{lesson_name}/reveal.js", ignore_errors=True)
         Path(f"slides/{lesson_name}/reveal.js").mkdir(parents=True, exist_ok=True)
-        copytree("submodules/reveal.js", f"slides/{lesson_name}/reveal.js")
+        copytree("submodules/reveal.js", f"slides/{lesson_name}/reveal.js", dirs_exist_ok=True)
 
         # slides are built using pandoc in this script -- sometimes we seem to
         # need to specify revealjs-url
