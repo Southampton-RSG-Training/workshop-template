@@ -53,7 +53,6 @@ setup_docs:
 lessons:
   - title: Best Practices in Data Organisation Using Spreadsheets
     gh-name: spreadsheets
-    type: episode
     branch: main
     date: 13 January 2022
     start-time: 15:00
@@ -61,7 +60,6 @@ lessons:
 
   - title: Data Cleaning with OpenRefine
     gh-name: openrefine-data-cleaning
-    type: episode
     branch: main
     date: 14 January 2022
     start-time: 15:00
@@ -69,7 +67,6 @@ lessons:
 
   - title: Managing Academic Software Development
     gh-name: project-novice
-    type: episode
     branch: main
     date: 10 January 2022
     start-time: 9:30 am
@@ -78,7 +75,6 @@ lessons:
   - title: Automating Tasks with the Unix Shell  # Lesson title
     org-name: Southampton-RSG-Training           # Name of the GitHub organisation (or individual) the lesson is in defaults to Southampton-RSG-Training
     gh-name: shell-novice                        # Name of the GitHub repository for the lesson at https://github:com/{org-name}:
-    type: episode                                # Currently only 'episode' is valid
     branch: main                                 # Set the branch of the repository to use, useful for lesson customization
     date: 8 January 2022                         # The date of the lesson                   # date and start-time are required for z
     start-time: 10:30 am                         # The start time of the lesson             # 'kind: workshop'
@@ -86,7 +82,6 @@ lessons:
 
   - title: Version Control with git
     gh-name: git-novice
-    type: episode
     branch: main
     date: 9 January 2022
     start-time: 8:30 am
@@ -94,7 +89,6 @@ lessons:
 
   - title: Building Programs with Python
     gh-name: python-novice
-    type: episode
     branch: main
     date:
       - 11 January 2022
