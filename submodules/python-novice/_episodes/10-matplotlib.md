@@ -34,7 +34,7 @@ from matplotlib import pyplot
 pyplot.imshow(data)
 pyplot.show()
 ~~~
-{: .python}
+{: .language-python}
 
 pyplot keeps track of the graph as we are building it, so when we do `pyplot.show()` it's
 just showing us what's been built so far.
@@ -52,7 +52,7 @@ again, we need to generate the plot again, e.g.:
 pyplot.imshow(data)
 pyplot.show()
 ~~~
-{: .python}
+{: .language-python}
 
 Let's take a look at the average inflammation over time:
 
@@ -61,7 +61,7 @@ ave_inflammation = data.mean(axis=0)
 pyplot.plot(ave_inflammation)
 pyplot.show()
 ~~~
-{: .python}
+{: .language-python}
 
 ![Average Inflammation Over Time](fig/01-numpy_76_0.png)
 
@@ -78,7 +78,7 @@ Let's have a look at two other statistics:
 pyplot.plot(data.max(axis=0))
 pyplot.show()
 ~~~
-{: .python}
+{: .language-python}
 
 ![Maximum Value Along The First Axis](fig/01-numpy_78_1.png)
 
@@ -86,7 +86,7 @@ pyplot.show()
 pyplot.plot(data.min(axis=0))
 pyplot.show()
 ~~~
-{: .python}
+{: .language-python}
 
 ![Minimum Value Along The First Axis](fig/01-numpy_78_3.png)
 
@@ -123,7 +123,7 @@ axes3.plot(data.min(axis=0))
 
 plt.show()
 ~~~
-{: .python}
+{: .language-python}
 
 Running the above code (present under `code` directory in the file `three-plots.py`) may throw the warning as below. If you see the warning, please ignore it.
 
@@ -147,12 +147,12 @@ and what to draw for each one.
 >
 > Create a plot showing the standard deviation of the inflammation data for each day across all patients.
 > Hint: `data.std(axis=0)` gives you standard deviation.
-> {: .challenge}
+{: .challenge}
 
 > ## Moving plots around
 >
 > Modify the program to display the three plots on top of one another instead of side by side.
-> {: .challenge}
+{: .challenge}
 
 We now have almost everything we need to process all our data files.
 The only thing that's missing is a library with a rather unpleasant name:
@@ -160,7 +160,7 @@ The only thing that's missing is a library with a rather unpleasant name:
 ~~~
 import glob
 ~~~
-{: .python}
+{: .language-python}
 
 The `glob` library contains a single function, also called `glob`,
 that finds files whose names match a pattern.
@@ -172,7 +172,7 @@ We can use this to get the names of all the HTML files in the current directory:
 ~~~
 print(glob.glob('*.html'))
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -191,7 +191,7 @@ print(glob.glob('*.html'))
 > > ~~~
 > > {: . python}
 > 
-> {: .challenge}
+{: .challenge}
 
 As these examples show,
 `glob.glob`'s result is a list of strings,
@@ -234,7 +234,7 @@ for filename in filenames:
     fig.tight_layout()
     plt.show()
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 inflammation-01.csv
@@ -302,7 +302,7 @@ for filename in filenames:
     fig.tight_layout()
     fig.savefig(filename + '.png')
 ~~~
-{: .python}
+{: .language-python}
 
 If we rerun this script, we can see that our graphs have appeared as PNG files in the `data` directory, with the filenames `inflammation-XX.csv.png`.
 

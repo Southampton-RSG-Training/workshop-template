@@ -50,7 +50,7 @@ outliers and errors.
 > ## Data file types supported
 > OpenRefine can import a variety of different file types, including tab separated (`tsv`), 
 > comma separated (`csv`), Excel (`xls`, `xlsx`), JSON, XML, RDF as XML, and Google Spreadsheets. 
-> See the [OpenRefine Importers page](https://github.com/OpenRefine/OpenRefine/wiki/Importers) for more information.
+> See the [OpenRefine Importers page](https://openrefine.org/docs/manual/starting#create-a-project-by-importing-data) for more information.
 {: .callout}
 
 ## Data faceting
@@ -60,7 +60,7 @@ multiple filters to investigate its composition. It also allows you to identify 
 in bulk.
 
 > ## OpenRefine Wiki: Faceting 
-> Full documentation on faceting can be found at [OpenRefine Wiki: Faceting](https://github.com/OpenRefine/OpenRefine/wiki/Faceting)
+> Full documentation on faceting can be found at [OpenRefine Wiki: Faceting](https://openrefine.org/docs/manual/facets)
 {: .callout}
 
 OpenRefine supports a range of facets, including:

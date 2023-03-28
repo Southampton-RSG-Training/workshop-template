@@ -51,7 +51,7 @@ In the `scientificName` text facet box - click the `Cluster` button.
 your solutions for later exercises will not be the same as shown in those exercise solutions.
 
 > ## OpenRefine Wiki: Clustering
-> Full documentation on clustering can be found at [OpenRefine Wiki: Clustering](https://github.com/OpenRefine/OpenRefine/wiki/Clustering-In-Depth)
+> Full documentation on clustering can be found at [OpenRefine Wiki: Clustering](https://openrefine.org/docs/manual/cellediting#cluster-and-edit)
 {: .callout}
 
 ## Data splitting

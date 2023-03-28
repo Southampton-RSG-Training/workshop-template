@@ -60,7 +60,7 @@ You can find out more on the [OpenRefine website](http://openrefine.org) and che
 answer a lot of beginner questions and problems. 
 [OpenRefine recipes, scripts, projects, and extensions](https://github.com/OpenRefine/OpenRefine/wiki/Recipes) are available too, where you can find useful transformations to run on your own data.
 
-The OpenRefine GitHub wiki page has a [reference](https://github.com/OpenRefine/OpenRefine/wiki/GREL-Functions) of the General Refine Expression Language (GREL) used by OpenRefine. We won't be covering GREL in this lesson but it is a powerful scripting language 
+The OpenRefine GitHub wiki page has a [reference](https://openrefine.org/docs/manual/grelfunctions) of the General Refine Expression Language (GREL) used by OpenRefine. We won't be covering GREL in this lesson but it is a powerful scripting language 
 that is worth learning once you get the hang of OpenRefine as it will enable you to do even more complex data cleaning 
 and transformation steps.
 

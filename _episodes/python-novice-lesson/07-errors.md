@@ -38,7 +38,7 @@ Let's examine one:
 ~~~
 print(a)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -66,7 +66,7 @@ The first is that you meant to use a [string](reference.html/#string), but forgo
 ~~~
 print(hello)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 Traceback (most recent call last):
@@ -86,7 +86,7 @@ for number in range(10):
     count = count + number
 print("The count is:", count)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -109,7 +109,7 @@ for number in range(10):
     count = count + number
 print("The count is:", count)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 Traceback (most recent call last):
@@ -141,7 +141,7 @@ NameError: name 'count' is not defined
 > >         message = message + "b"
 > > print(message)
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 >
 >
 > > ## Solution
@@ -159,11 +159,11 @@ NameError: name 'count' is not defined
 > > >         message = message + "b"
 > > > print(message)
 > > > ~~~
-> > > {: .python}
+> > > {: .language-python}
 > > 
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 ## Syntax Errors
 
@@ -191,7 +191,7 @@ def some_function()
     print(msg)
      return msg
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
   File "<stdin>", line 1
@@ -218,7 +218,7 @@ def some_function():
     print(msg)
      return msg
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -253,7 +253,7 @@ it *always* means that there is a problem with how your code is indented.
 > >     print(msg)
 > >     return msg
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 >
 > > ~~~
 > >  File "hello_world.py", line 4
@@ -268,7 +268,7 @@ it *always* means that there is a problem with how your code is indented.
 > In general, it is better to just never use tabs and always use spaces,
 > because it can make things very confusing.
 > 
-> {: .callout}
+{: .callout}
 
 
 > ## Identifying Syntax Errors
@@ -284,7 +284,7 @@ it *always* means that there is a problem with how your code is indented.
 > >    print("But at least python tells us about them!")
 > >   print("So they are usually not too hard to fix.")
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 >
 >
 > > ## Solution
@@ -297,11 +297,11 @@ it *always* means that there is a problem with how your code is indented.
 > > >     print("But at least python tells us about them!")
 > > >     print("So they are usually not too hard to fix.")
 > > > ~~~
-> > > {: .python}
+> > > {: .language-python}
 > >
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 ## Index Errors
 
@@ -321,7 +321,7 @@ print("Letter #2 is", letters[1])
 print("Letter #3 is", letters[2])
 print("Letter #4 is", letters[3])
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 Letter #1 is a
@@ -352,7 +352,7 @@ meaning we tried to access a list index that did not exist.
 > > seasons = ['Spring', 'Summer', 'Fall', 'Winter']
 > > print('My favorite season is ', seasons[4])
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 >
 >
 >
@@ -366,11 +366,11 @@ meaning we tried to access a list index that did not exist.
 > > > seasons = ['Spring', 'Summer', 'Fall', 'Winter']
 > > > print('My favorite season is ', seasons[-1])
 > > > ~~~
-> > > {: .python}
+> > > {: .language-python}
 > >
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 Here's another example of Index Error.
 
@@ -387,7 +387,7 @@ def favorite_ice_cream():
 
 favorite_ice_cream()
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 Traceback (most recent call last):
@@ -422,7 +422,7 @@ the program encountered an error on Line 6, when it tried to run the code `print
 > you can just pay attention to the bottom-most level,
 > which is the actual place where the error occurred.
 >
-> {: .callout}
+{: .callout}
 
 So what error did the program actually encounter?
 In the last line of the traceback,
@@ -480,7 +480,7 @@ hopefully the custom error message is informative enough to help you figure out 
 > >
 > > print_friday_message()
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > 
 >
 > > ~~~
@@ -503,9 +503,9 @@ hopefully the custom error message is informative enough to help you figure out 
 > > 4. `KeyError`
 > > 5. There isn't really a message; you're supposed to infer that `Friday` is not a key in `messages`.
 > >
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 ## Silent Errors
 
@@ -530,7 +530,7 @@ def normalize_rectangle(rect):
 
     return (0, 0, upper_x, upper_y)
 ~~~
-{: .python}
+{: .language-python}
 
 So if we normalize a rectangle that is taller than it is wide...:
 
@@ -538,7 +538,7 @@ So if we normalize a rectangle that is taller than it is wide...:
 from normalize import normalize_rectangle
 print(normalize_rectangle( (0.0, 0.0, 1.0, 5.0) ))
 ~~~
-{: .python}
+{: .language-python}
 
 ...everything seems ok:
 
@@ -552,7 +552,7 @@ And if we normalize one that's wider than it is tall:
 ~~~
 print(normalize_rectangle( (0.0, 0.0, 5.0, 1.0) ))
 ~~~
-{: .python}
+{: .language-python}
 
 Everything still seems... wait a minute!
 
@@ -571,7 +571,7 @@ Looking at our code, line 8 should divide dy by dx.
 > Switch seats with your neighbor and attempt to identify - or debug - the problem
 > that they introduced into their function.
 > 
-> {: .challenge}
+{: .challenge}
 
 
 > ## Not Supposed to be the Same
@@ -595,7 +595,7 @@ Looking at our code, line 8 should divide dy by dx.
 > >     bmi = calculate_bmi(height, weight)
 > >     print("Patient's BMI is: %f" % bmi)
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 >
 > > ~~~
 > > Patient's BMI is: 21.604938
@@ -611,9 +611,9 @@ Looking at our code, line 8 should divide dy by dx.
 > > * The height/weight variables are reversed in the function call to
 > >   `calculate_bmi(...)`
 > >
-> > {: .solution}
+> {: .solution}
 > 
-> {: .challenge}
+{: .challenge}
 
 In our `normalize_rectangle` example, we identified and fixed the error.
 But we could have missed it,
@@ -650,7 +650,7 @@ More generally, problems with input and output manifest as
 ~~~
 file_handle = open('myfile.txt', 'r')
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -682,7 +682,7 @@ telling you that the file was not opened for reading:
 file_handle = open('myfile.txt', 'w')
 file_handle.read()
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 Traceback (most recent call last):

@@ -35,7 +35,7 @@ else:
     print("not greater")
 print("done")
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 not greater
@@ -67,7 +67,7 @@ if num > 100:
     print("53 is greater than 100")
 print("...after conditional")
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -88,7 +88,7 @@ elif num == 0:
 else:
     print("Sign of a number",num, "is:",-1)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -118,7 +118,7 @@ if (1 > 0) and (-1 > 0):
 else:
     print("one part is not true")
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 one part is not true
@@ -131,7 +131,7 @@ while `or` is true if either part is true:
 if (1 < 0) or ('left' < 'right'):
     print("at least one test is true")
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 at least one test is true
@@ -161,7 +161,7 @@ In this case,
 > elif 4 < 5:
 >     print('C')
 > ~~~
-> {: .python}
+> {: .language-python}
 >
 > > ## Solution
 > > B gets printed. The first condition, `4 > 5` is not true so it moves 
@@ -197,7 +197,7 @@ In this case,
 > if 1:
 >     print('one is true')
 > ~~~
-> {: .python}
+> {: .language-python}
 {: .challenge}
 
 ## Another type of loop
@@ -222,7 +222,7 @@ while number != 5:
     number = randint(1, 10)
     print(number)
 ~~~
-{: .python}
+{: .language-python}
 
 We use Python's ability to generate a random number here for clarity, but this could
 instead be calling a function that runs another step in our simulation and returns a
@@ -260,7 +260,7 @@ for line in climate_data:
         # print 4th column (max temperature)
         print('Max temperature', data[3])
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~

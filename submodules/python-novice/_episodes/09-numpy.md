@@ -55,7 +55,7 @@ Let's start by ensuring we are in the `python-novice/' directory, e.g.:
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 And we should see:
 
@@ -70,14 +70,14 @@ First, let's go into the `code` subdirectory, and run the Python interpreter.
 $ cd code
 $ python
 ~~~
-{: .bash}
+{: .language-bash}
 
 We can load NumPy using:
 
 ~~~
 import numpy
 ~~~
-{: .python}
+{: .language-python}
 
 Importing a library is like getting a piece of lab equipment out of a storage locker
 and setting it up on the bench.
@@ -90,7 +90,7 @@ to a variable using the same syntax:
 ~~~
 data = numpy.loadtxt(fname='../data/inflammation-01.csv', delimiter=',')
 ~~~
-{: .python}
+{: .language-python}
 
 This statement doesn't produce any output because assignment doesn't display anything.
 
@@ -119,7 +119,7 @@ If we want to check that our data has been loaded, we can print the variable's v
 ~~~
 print(data)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 array([[ 0.,  0.,  1., ...,  3.,  0.,  0.],
@@ -137,7 +137,7 @@ Let's ask what [type](reference.html#type) of thing `data` refers to:
 ~~~
 print(type(data))
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 <type 'numpy.ndarray'>
@@ -150,7 +150,7 @@ We can see what its [shape](reference.html#shape) is like this:
 ~~~
 print(data.shape)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 (60, 40)
@@ -172,7 +172,7 @@ just as we do in math:
 ~~~
 print('first value in data:', data[0, 0])
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 first value in data: 0.0
@@ -182,7 +182,7 @@ first value in data: 0.0
 ~~~
 print('middle value in data:', data[30, 20])
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 middle value in data: 13.0
@@ -215,7 +215,7 @@ the index is how many steps we have to take from the start to get the item we wa
 > but different from the Cartesian coordinates.
 > The indices are (row, column) instead of (column, row) for the same reason,
 > which can be confusing when plotting data.
-> {: .callout}
+{: .callout}
 
 An index like `[30, 20]` selects a single element of an array,
 but we can select whole sections as well.
@@ -226,7 +226,7 @@ for the first four (rows) patients like this:
 ~~~
 print(data[0:4, 0:10])
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 [[ 0.  0.  1.  3.  1.  2.  4.  7.  8.  3.]
@@ -248,7 +248,7 @@ We don't have to start slices at 0:
 ~~~
 print(data[5:10, 0:10])
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 [[ 0.  0.  1.  2.  2.  4.  2.  1.  6.  4.]
@@ -273,7 +273,7 @@ small = data[:3, 36:]
 print('small is:')
 print(small)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -294,7 +294,7 @@ Thus:
 ~~~
 doubledata = data * 2.0
 ~~~
-{: .python}
+{: .language-python}
 
 will create a new array `doubledata`
 whose elements have the value of two times the value of the corresponding elements in `data`:
@@ -305,7 +305,7 @@ print(data[:3, 36:])
 print('doubledata:')
 print(doubledata[:3, 36:])
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 original:
@@ -328,7 +328,7 @@ Thus:
 ~~~
 tripledata = doubledata + data
 ~~~
-{: .python}
+{: .language-python}
 
 will give you an array where `tripledata[0,0]` will equal `doubledata[0,0]` plus `data[0,0]`,
 and so on for all other elements of the arrays.
@@ -337,7 +337,7 @@ and so on for all other elements of the arrays.
 print('tripledata:')
 print(tripledata[:3, 36:])
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 tripledata:
@@ -356,7 +356,7 @@ we can just ask the array for its mean value
 ~~~
 print(data.mean())
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 6.14875
@@ -384,7 +384,7 @@ print('maximum inflammation:', data.max())
 print('minimum inflammation:', data.min())
 print('standard deviation:', data.std())
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 maximum inflammation: 20.0
@@ -405,7 +405,7 @@ then ask it to do the calculation:
 patient_0 = data[0, :] # 0 on the first axis, everything on the second
 print('maximum inflammation for patient 0:', patient_0.max())
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 maximum inflammation for patient 0: 18.0
@@ -418,7 +418,7 @@ Instead, we can combine the selection and the method call:
 ~~~
 print('maximum inflammation for patient 3:', data[2, :].max())
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 maximum inflammation for patient 3: 19.0
@@ -440,7 +440,7 @@ we get:
 ~~~
 print(data.mean(axis=0))
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 [  0.           0.45         1.11666667   1.75         2.43333333   3.15
@@ -460,7 +460,7 @@ we can ask this array what its shape is:
 ~~~
 print(data.mean(axis=0).shape)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 (40,)
@@ -474,7 +474,7 @@ If we average across axis 1, we get:
 ~~~
 print(data.mean(axis=1))
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 [ 5.45   5.425  6.1    5.9    5.55   6.225  5.975  6.65   6.625  6.525
@@ -496,4 +496,4 @@ which is the average inflammation for each patient across all days.
 > If `data` holds our array of patient data,
 > what does `data[3:3, 4:4]` produce?
 > What about `data[3:3, :]`?
-> {: .challenge}
+{: .challenge}

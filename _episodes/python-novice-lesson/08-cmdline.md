@@ -70,14 +70,14 @@ for line in climate_data:
 
             print('Max temperature in Celsius', celsius, 'Kelvin', kelvin)
 ~~~
-{: .python}
+{: .language-python}
 
 And if we run that from the shell, with
 
 ~~~
 $ python climate_analysis.py ../data/sc_climate_data_10.csv
 ~~~
-{: .bash}
+{: .language-bash}
 
 So we pass in the filename as argument that gets picked up and used. Handy!
 When we run it, we get the following (same as before):
@@ -103,7 +103,7 @@ But now we can run it on any file, for example:
 ~~~
 $ python climate_analysis.py ../data/sc_climate_data_1000.csv
 ~~~
-{: .bash}
+{: .language-bash}
 
 But wait!
 
@@ -146,7 +146,7 @@ In this case, we can fix our code by adding in a condition
 
             print('Max temperature in Celsius', celsius, 'Kelvin', kelvin)
 ~~~
-{: .python}
+{: .language-python}
 
 So in this special case, we ensure that we aren't processing these
 invalid values. In practice, we'd also need to make sure that any
@@ -177,7 +177,7 @@ Insert the following before the `filename` assignment (*see `climate_analysis-11
 script = sys.argv[0]
 assert len(sys.argv) == 2, script + ": requires filename"
 ~~~
-{: .python}
+{: .language-python}
 
 Here, we use the Python `assert` statement, which accepts a condition and a
 string to output if the condition is false, to **assert** that we have only
@@ -210,7 +210,7 @@ is clearly understood, we can simplify the output by changing the
 ~~~
 print(str(celsius)+", "+str(kelvin))
 ~~~
-{: .python}
+{: .language-python}
 
 Here, we are using Python's `+` operator to **concatenate** strings
 together, so we can get output such as `20.561111111111114, 293.7111111111111`.
@@ -221,21 +221,21 @@ We could run the script now in a pipeline, for example, to get the last
 ~~~
 python climate_analysis.py ../data/sc_climate_data_1000.csv | tail -10
 ~~~
-{: .bash}
+{: .language-bash}
 
 Or use `grep ` to search the output for fahrenheit values that are equal to '14.85':
 
 ~~~
 python climate_analysis.py ../data/sc_climate_data_1000.csv | grep '14.85,'
 ~~~
-{: .bash}
+{: .language-bash}
 
 We can now also do things like:
 
 ~~~
 python climate_analysis.py ../data/sc_climate_data_1000.csv | wc -l
 ~~~
-{: .bash}
+{: .language-bash}
 
 Which tells us the number of lines it processed, taking into account the
 -9999 values it ignored:
@@ -259,7 +259,7 @@ and we won't cover it here.
 > which handles common cases in a systematic way,
 > and also makes it easy for us to provide sensible error messages for our
 > users.
-> {: .callout}
+{: .callout}
 
 ## Dealing with pipeline errors
 
@@ -269,7 +269,7 @@ We could also run the script now in a pipeline, for example, to get the first
 ~~~
 python climate_analysis.py ../data/sc_climate_data_1000.csv | head -10
 ~~~
-{: .bash}
+{: .language-bash}
 
 But whilst we get our first 10 rows as expected, we now get a really odd error as well:
 
@@ -297,7 +297,7 @@ We can fix this on these platforms by including the following at the top, after 
 import signal
 signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 ~~~
-{: .python}
+{: .language-python}
 
 We're telling our Python script to ignore any pipe errors --- not ideal,
 but solves our problem.

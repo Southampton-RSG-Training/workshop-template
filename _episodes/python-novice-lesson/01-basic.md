@@ -65,7 +65,7 @@ echo 'alias python="winpty python.exe"' >> .bashrc
 source .bashrc
 python
 ~~~
-{: .bash}
+{: .language-bash}
 
 And lo and behold! You are presented with yet another prompt.
 So, we're actually running a Python interpreter from the shell - it's only yet another program we can run from the shell after all.
@@ -78,7 +78,7 @@ You can exit the interpreter and get back to the shell by typing:
 ~~~
 >>> exit()
 ~~~
-{: .python}
+{: .language-python}
 
 ...or alternatively pressing the Control and D keys at the same time.
 Then you'll see:
@@ -99,7 +99,7 @@ But let's get back to the Python interpreter and learn about variables in Python
 ~~~
 $ python
 ~~~
-{: .bash}
+{: .language-bash}
 
 And we're back to the Python interpreter:
 
@@ -129,7 +129,7 @@ The line below assigns a value to a variable:
 ~~~
 weight_kg = 55
 ~~~
-{: .python}
+{: .language-python}
 
 Once a variable has a value, we can print it:
 
@@ -137,7 +137,7 @@ Once a variable has a value, we can print it:
 ~~~
 print(weight_kg)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 55
@@ -150,7 +150,7 @@ and do arithmetic with it:
 ~~~
 print('weight in pounds:', 2.2 * weight_kg)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 weight in pounds: 121.0
@@ -168,7 +168,7 @@ We can change a variable's value by assigning it a new one:
 weight_kg = 57.5
 print('weight in kilograms is now:', weight_kg)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 weight in kilograms is now: 57.5
@@ -197,7 +197,7 @@ let's store the subject's weight in pounds in a variable:
 weight_lb = 2.2 * weight_kg
 print('weight in kilograms:', weight_kg, 'and in pounds:', weight_lb)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 weight in kilograms: 57.5 and in pounds: 126.5
@@ -214,7 +214,7 @@ and then change `weight_kg`:
 weight_kg = 100.0
 print('weight in kilograms is now:', weight_kg, 'and weight in pounds is still:', weight_lb)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -230,7 +230,6 @@ This is different from the way spreadsheets work.
 
 Although we commonly refer to `variables` even in Python (because it is the common terminology), we really mean `names` or `identifiers`. In Python, `variables` are name tags for values, not labelled boxes.
 
-
 > ## What's inside the box?
 >
 > Draw diagrams showing what variables refer to what values after each statement
@@ -243,9 +242,9 @@ Although we commonly refer to `variables` even in Python (because it is the comm
 > > weight = weight * 1.14
 > > age = age + 20
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 >
-> {: .challenge}
+{: .challenge}
 
 
 > ## Sorting out references
@@ -256,7 +255,7 @@ Although we commonly refer to `variables` even in Python (because it is the comm
 > > ~~~
 > > first, second = 'Grace', 'Hopper'
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 >
 > > ~~~
 > > first = Grace
@@ -268,8 +267,9 @@ Although we commonly refer to `variables` even in Python (because it is the comm
 > > third, fourth = second, first
 > > print(third, fourth)
 > > ~~~
-> > {: .python}
-> 
-> {: .challenge}
+> > {: .language-python}
+>
+{: .challenge}
+
 
 

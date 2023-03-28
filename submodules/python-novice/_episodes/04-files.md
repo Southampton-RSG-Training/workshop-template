@@ -44,7 +44,7 @@ climate_data = open('../data/sc_climate_data_10.csv', 'r')
 for line in climate_data:
     print(line)
 ~~~
-{: .python}
+{: .language-python}
 
 Using `open`, we first specify the file we wish to open, and then include how
 we want to use that file. If we wanted to open a file to write to, we would use 'w', but in this case, we specify `r` for reading.
@@ -60,7 +60,7 @@ We can run our code with:
 ~~~
 $ python climate_analysis.py
 ~~~
-{: .bash}
+{: .language-bash}
 
 And we get the following output:
 
@@ -101,7 +101,7 @@ that works on strings. We can use it like:
 ~~~
     print(line.rstrip())
 ~~~
-{: .python}
+{: .language-python}
 
 So what's happening here?
 
@@ -151,7 +151,7 @@ climate_data = open('../data/sc_climate_data_10.csv', 'r')
 for line in climate_data:
     print(line.rstrip())
 ~~~
-{: .python}
+{: .language-python}
 
 And now we get:
 
@@ -190,7 +190,7 @@ on a string object. Well, we use `split()` in exactly the same way:
 ~~~
     data = line.split(',')
 ~~~
-{: .python}
+{: .language-python}
 
 Although in this case, we're capturing the returned list from `split()` into a
 variable called `data`. We can access elements in that list as before.
@@ -208,7 +208,7 @@ for line in climate_data:
     # print 4th column (max temperature)
     print('Max temperature', data[3])
 ~~~
-{: .python}
+{: .language-python}
 
 Now, it's important to remember that the column we want, the maximum
 temperature, is the 4th column. But in Python list indexes start at 0, so in

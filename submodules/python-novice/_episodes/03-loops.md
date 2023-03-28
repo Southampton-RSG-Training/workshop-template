@@ -30,7 +30,7 @@ we can currently repeat easily is printing the exact same message multiple times
 ~~~
 print("I love programming in Python!\n"*10)
 ~~~
-{: .python}
+{: .language-python}
 
 will produce the output:
 
@@ -119,7 +119,7 @@ print(word[1])
 print(word[2])
 print(word[3])
 ~~~
-{: .python}
+{: .language-python}
 
 Notice the file has `.py` at the end - this is a convention that indicates this
 is a Python script.
@@ -130,7 +130,7 @@ Once you've saved it, we can run it from the command line like this (from anothe
 ~~~
 $ python word_print.py
 ~~~
-{: .bash}
+{: .language-bash}
 
 Here we are asking Python to run our Python script. We should see the following:
 
@@ -166,7 +166,7 @@ print(word[1])
 print(word[2])
 print(word[3])
 ~~~
-{: .python}
+{: .language-python}
 
 Running it again...
 
@@ -175,7 +175,7 @@ Running it again...
 ~~~
 $ python word_print.py
 ~~~
-{: .bash}
+{: .language-bash}
 
 ...gives us the following:
 
@@ -203,7 +203,7 @@ word = 'lead'
 for char in word:
     print(char)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -224,7 +224,7 @@ word = 'oxygen'
 for char in word:
     print(char)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -247,7 +247,7 @@ The general form of a loop is:
 for variable in collection:
     do things with variable
 ~~~
-{: .python}
+{: .language-python}
 
 We can call the [loop variable](reference.html#loop-variable) anything we
 like, but there must be a colon at the end of the line starting the loop,
@@ -266,7 +266,7 @@ word = ['oxygen', 'lead', 'tin']
 for char in word:
     print(char)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -300,13 +300,13 @@ for vowel in 'aeiou':
     length = length + 1
 print('There are', length, 'vowels')
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
 $ python count_vowels.py
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 There are 5 vowels
@@ -342,7 +342,7 @@ for vowel in 'aeiou':
 print('There are', length, 'vowels')
 print('The last vowel counted was', vowel)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -358,7 +358,7 @@ we can add to the end of our program:
 ~~~
 print(len('aeiou'))
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -388,14 +388,14 @@ so we should always use it when we can.
 > 2
 > 3
 > ~~~
-> {: .python}
+> {: .language-python}
 > 
 > > ## Solution
 > > ~~~
 > > for i in range(1, 4):
 > >    print(i)
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > {: .solution}
 > 
 {: .challenge}
@@ -410,7 +410,7 @@ so we should always use it when we can.
 > ~~~
 > ["h", "e", "l", "l", "o"]
 > ~~~
-> {: .python}
+> {: .language-python}
 > 
 > Hint: You can create an empty list like this:
 >
@@ -419,7 +419,7 @@ so we should always use it when we can.
 > ~~~
 > my_list = []
 > ~~~
-> {: .python}
+> {: .language-python}
 >
 >
 > > ## Solution
@@ -429,7 +429,7 @@ so we should always use it when we can.
 > >     my_list.append(char)
 > > print(my_list)
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > {: .solution}
 >
 {: .challenge}
@@ -445,7 +445,7 @@ so we should always use it when we can.
 > print(5 ** 3)
 > 125
 > ~~~
-> {: .python}
+> {: .language-python}
 >
 > Write a loop that calculates the same result as `5 ** 3` using multiplication (and without exponentiation).
 >
@@ -459,7 +459,7 @@ so we should always use it when we can.
 > >     result = result * value
 > > print(result)
 > > ~~~
-> > {: .python}
+> > {: .language-python}
 > > 
 > > This solution is inefficient in terms of number of variables created and times looped can you improve it?
 > {: .solution}

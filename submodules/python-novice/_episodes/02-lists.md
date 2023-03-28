@@ -48,7 +48,7 @@ odds = [1, 3, 5, 7, 9, 11, 15]
 print('Odds are:', odds)
 
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -75,7 +75,7 @@ We select individual elements from lists by indexing them:
 ~~~
 print('first and last:', odds[0], odds[-1])
 ~~~
-{: .python}
+{: .language-python}
 
 Which will print first and last elements, i.e. value 1 and 15 in this case.
 
@@ -96,7 +96,7 @@ assign directly to it:
 ~~~
 odds[6] = 13
 ~~~
-{: .python}
+{: .language-python}
 
 *See slide [Indexing a List Example II](https://southampton-rsg.github.io/swc-python-novice-websci/motivation/index.html#indexing-a-list-example-ii)*.
 
@@ -109,7 +109,7 @@ The *Slicing* notation looks like array indexing but it is a lot more flexible. 
 ~~~
 odds[2:5]
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -130,7 +130,7 @@ For example:
 ~~~
 odds[5:]
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -144,7 +144,7 @@ is the list from `odds[5]` to the end of the list and
 ~~~
 odds[:5]
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -158,7 +158,7 @@ is the list up to and not including odds[5] and
 ~~~
 odds[:]
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -180,7 +180,7 @@ element = 'oxygen'
 print('first three characters:', element[0:3])
 print('last three characters:', element[3:6])
 ~~~
-{: .python}
+{: .language-python}
 
 *See slide [Slicing a List Example II](https://southampton-rsg.github.io/swc-python-novice-websci/motivation/index.html#slicing-a-list-example-ii)*.
 
@@ -210,7 +210,7 @@ List slicing is more or less the same as string slicing except that we can modif
 ~~~
 odds[0:2]=[17,19]
 ~~~
-{: .python}
+{: .language-python}
 
 has the same effect as
 
@@ -220,7 +220,7 @@ has the same effect as
 odds[0]=17
 odds[1]=19
 ~~~
-{: .python}
+{: .language-python}
 
 **NOTE:**
 
@@ -246,7 +246,7 @@ print('names is originally:', names)
 names[1] = 'Darwin' # correct the name
 print('final value of names:', names)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -261,7 +261,7 @@ works, but:
 name = 'Bell'
 name[0] = 'b'
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 >>> name[0]='b'
@@ -304,7 +304,7 @@ individual elements:
 odds.append(21)
 print('odds after adding a value:', odds)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 odds after adding a value: [17, 19, 5, 7, 9, 11, 13, 15, 21]
@@ -316,7 +316,7 @@ odds after adding a value: [17, 19, 5, 7, 9, 11, 13, 15, 21]
 del odds[0]
 print('odds after removing the first element:', odds)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -329,7 +329,7 @@ odds after removing the first element: [19, 5, 7, 9, 11, 13, 15, 21]
 odds.reverse()
 print('odds after reversing:', odds)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -350,7 +350,7 @@ primes += [2]
 print('primes:', primes)
 print('odds:', odds)
 ~~~
-{: .python}
+{: .language-python}
 
 
 ~~~
@@ -370,7 +370,7 @@ primes += [2]
 print('primes:', primes)
 print('odds:', odds)
 ~~~
-{: .python}
+{: .language-python}
 
 ~~~
 primes: [1, 3, 5, 7, 2]
@@ -397,7 +397,7 @@ myList[1]=1
 myList[2]=1
 ...
 ~~~
-{: .python}
+{: .language-python}
 
 only to discover that this doesn't work because we can't assign to a list element that doesn't already exist.
 
@@ -416,7 +416,7 @@ myList.append(1)
 myList.append(1)
 ...
 ~~~
-{: .python}
+{: .language-python}
 
 This works but it only works if we need to build up the list in this particular order - which most of the time you want to do anyway.
 

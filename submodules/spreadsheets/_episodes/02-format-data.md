@@ -26,11 +26,11 @@ to work with your data throughout your analysis. You should start
 thinking about data organisation before you start collecting data. There's a lot of flexibility, but some of the
 choices you make now will limit your ability to work with the data in the future.
 
+{: .callout}
 > ## Best data formats may differ
 > The best layout for data entry might change dependent on the specific use case. Do not stick to a format just because
 > you have used it previously. Choose the best format on a case-by-case basis. (And if you need to convert between formats,
 > ideally you would automate the conversion with a script in, say, Python or R.
-> {: .callout}
 
 ## Structuring data in spreadsheets
 
@@ -60,9 +60,9 @@ The data could be better organised as:
 
 ![single-info example](fig/single-info.png)
 
+{: .callout}
 > ## Columns for variables and rows for observations
 > The rule of thumb, when setting up data in a table is: columns = variables, rows = observations, cells = data values.
-> {: .callout}
 
 ## <a name="metadata"></a> Including metadata in the spreadsheet
 
@@ -87,9 +87,9 @@ Additionally, file or database level metadata describes how files that make up t
 in; and whether they supersede or are superseded by previous files. A folder-level `README.txt` file is the classic way of accounting for
 all the files and folders in a project.
 
+{: .testimonial}
 > ## Credit: MANTRA
 > The above text on metadata was adapted from the online course Research Data [MANTRA](http://datalib.edina.ac.uk/mantra) by EDINA and Data Library, University of Edinburgh. MANTRA is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
-> {: .testimonial}
 
 ## Keeping track of your analyses
 
@@ -111,11 +111,11 @@ taken.
 
 ![spreadsheet setup](fig/spreadsheet-setup-updated.png)
 
+{: .callout}
 > ## Version controlling your data
 > Although out of scope for this lesson, you can learn about version control in a separate course,
 > which can be used to record the transformation of your data over time, and provides tools to roll back to any
 > previous version of the data.
-> {: .callout}
 
 ## A messy dataset
 
@@ -131,6 +131,7 @@ four tabs,
   will revisit this tab in the episode on quality assurance and control and you will see why it is ‘semi-clean’.
 - Ignore the 'dates' tab for now, as we will come back to this in a later episode.
 
+{: .challenge}
 > ## Exercise
 > If you haven't done so already, first download the [messy survey data](data/messy_survey_data.xlsx).
 > Once you have it downloaded, open it up and have a look around the spreadsheet to see what's there. You will only need
@@ -144,6 +145,7 @@ four tabs,
 > Try to fill it in as much as you can, but feel free to leave some parts empty or make up something reasonable to fill
 > in any blanks.
 >
+> {: .solution}
 > > ## Solution
 > > You should create a metadata file in the same directory as the spread sheet named something like `README.txt` or
 > `METADATA.txt`. It should contain information such as:
@@ -158,6 +160,4 @@ four tabs,
 > > - The date the data was last modified
 > > - A list of changes which been made to the data, and analysis done on the data
 > >
-> > {: .solution}
-> 
-> {: .challenge}
+>
