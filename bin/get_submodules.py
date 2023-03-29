@@ -58,7 +58,7 @@ def check_org_name_and_branch(lesson_name: str, org_name: str, gh_branch: str) -
 
         if r.status_code == 200:
             log.warning(f"Lesson {lesson_name} found in 'Southampton-RSG-Training' using as fallback")
-            org_name = "Southampton-RSG-Training"
+            ret_org_name = "Southampton-RSG-Training"
         else:
             raise ValueError(f"Lesson {lesson_name} does not exist in '{org_name}', or 'Southampton-RSG-Training'")
     else:
@@ -77,7 +77,7 @@ def check_org_name_and_branch(lesson_name: str, org_name: str, gh_branch: str) -
 
             if r.status_code == 200:
                 log.warning(f'Branch {gh_branch} found in {org_name}/{lesson_name} using as fallback')
-                gh_branch = "gh-pages"
+                ret_gh_branch = "gh-pages"
             else:
                 raise ValueError(f"Branch '{gh_branch}' or 'gh-pages' does not exist in '{org_name}/{lesson_name}', or 'Southampton-RSG-Training'")
 
