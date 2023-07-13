@@ -240,9 +240,9 @@ def main():
 
     # create generic schedule layout for lessons
 
-    all_schedule_times = ["09:15", "9:30", "11:00", "11:15", "12:45", "13:00"]
+    all_schedule_times = ["9:30", "11:00", "11:15", "12:45", "13:00"]
     schedule_sessions = [
-        "Registration, questions, and technical help", "Teaching", "Break", "Teaching", "Wrap Up", "Finish"
+        "Registration and Teaching", "Break", "Teaching", "Wrap Up", "Finish"
     ]
 
     # Try to parse the start and end date for the workshop, to check that lessons
