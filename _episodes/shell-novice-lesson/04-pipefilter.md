@@ -4,7 +4,7 @@ lesson_schedule_slug: shell-novice-schedule
 title: Pipes and Filters
 slug: shell-novice-pipes-and-filters
 teaching: 15
-exercises: 5
+exercises: 10
 questions:
 - "How can I combine existing commands to do new things?"
 objectives:

@@ -245,8 +245,9 @@ valid numbers, they will be included in calculations which will lead to incorrec
 interpreted will depend on the software you use to analyse your data.
 
 It is essential to use a clearly defined and consistent null indicator. Although open to ambiguity, blanks are still
-used by a number of applications, but options like and 'NA' (for R) and 'NaN' (for Python) are good choices. For more
-information, see White et al.
+used by a number of applications, but options like and 'NA' (for R) and 'NaN' (for Python) are good choices. However,
+in our example dataset, we have a value os 'NA' to represent a species of mammal. So we wouldn't want to use NA as our
+null value in this case! For more information about null values, see White et al.
 [Nine simple ways to make it easier to (re)use your data](http://doi.org/10.4033/iee.2013.6b.6.f).
 
 ## <a name="units"></a> Placing comments or units in cells

@@ -4,7 +4,7 @@ lesson_schedule_slug: shell-novice-schedule
 title: Loops
 slug: shell-novice-loops
 teaching: 15
-exercises: 5
+exercises: 10
 questions:
 - "How can I perform the same actions on many different files?"
 objectives:

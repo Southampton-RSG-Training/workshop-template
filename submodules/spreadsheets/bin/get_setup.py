@@ -1,13 +1,12 @@
 import logging
 import os
-from glob import glob
 from pathlib import Path
 from yaml import load
 try:
     from yaml import CLoader as Loader
 except ImportError:
     from yaml import Loader
-from shutil import copy2 as copy, rmtree
+from shutil import copy2 as copy
 
 from distutils.dir_util import copy_tree
 
@@ -52,12 +51,4 @@ if site_kind == 'lesson':
             copy(f"{file}", f"{dest}/{file.split('/')[-1]}")
             log.info(f"Copied {file} to {dest}")
         except:
-            log.error(f"Cannot find or move submodules/{lesson_name}/{file}, but carrying on anyway")
-
-    if site_type == 'episode_r':
-        try:
-            for file in glob("_episodes_rmd/fig/*"):
-                copy(f"{file}", f"fig/")
-        except:
-            log.error("Unable to move figures")
-
+            log.error(f"Cannot find or move {file}, but carrying on anyway")
