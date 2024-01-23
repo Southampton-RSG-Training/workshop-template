@@ -239,9 +239,9 @@ def main():
 
     # create generic schedule layout for lessons
 
-    all_schedule_times = ["09:15", "9:30", "11:00", "11:15", "12:45", "13:00"]
+    all_schedule_times = ["9:30", "11:00", "11:15", "12:45", "13:00"]
     schedule_sessions = [
-        "Registration, questions, and technical help", "Teaching", "Break", "Teaching", "Wrap Up", "Finish"
+        "Registration and Teaching", "Break", "Teaching", "Wrap Up", "Finish"
     ]
 
 
@@ -342,9 +342,9 @@ def main():
                     # each original entry, and add the schedule table to the html template
 
                     if len(lesson_dates) > 1:
-                        title = f"Day {i + 1}: '{lesson_title}'"
+                        title = f"{lesson_title}: Part {i + 1}"
                     else:
-                        title = f"'{lesson_title}'"
+                        title = f"{lesson_title}"
 
                     table = f"""
                     <div class="col">
@@ -362,7 +362,7 @@ def main():
                     </div>
                     """
 
-                    lesson_schedules.append({"order_on": lesson_dates[i], "schedule": table})
+                    lesson_schedules.append({"order_on": date, "schedule": table})
 
                 start_time = get_time_object(lesson_start_times[0])
                 start_time_minutes = start_time.hour * 60 + start_time.minute
