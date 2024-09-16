@@ -18,7 +18,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev
-          sudo apt-get install -y pandoc
 
       - name: Setup Git
         if: ${{ !env.ACT }}
@@ -38,10 +37,7 @@ jobs:
 
       - name: Get the submodules using python then run the build scripts
         run: |
-          python bin/get_submodules.py
-          python bin/make_favicons.py
-          python bin/get_schedules.py
-          python bin/get_setup.py
+          bash bin/build_me.sh
 
       - name: Deploy the website to gh-pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
