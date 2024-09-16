@@ -46,6 +46,55 @@ allocated additional time you may log in to your session and continue working.
 
 # Best Practices in Data Organisation Using Spreadsheets
 
+## Data for Spreadsheets Lesson
+
+The data used in this lesson comes from a project observing a small mammal community in southern
+Arizona, US. This is part of a project studying the effects of rodents and ants on the plant
+community that has been running for almost 40 years. The rodents are sampled on a series of 24 plots,
+with different experimental manipulations controlling which rodents are allowed to access which plots.
+This is a real dataset that has been used in over 100 publications. It is published at [Ecological Archives](http://esapubs.org/archive/ecol/E090/118/) and can be found on [Portal Project Database](https://github.com/weecology/PortalData). This data is open and free to use for research purposes.
+
+For the purposes of training, this data has been simplified a bit (you can still download the full dataset and work with it using exactly the same tools we will learn here). This simplified version of data is available from the [Portal Project Teaching Dataset](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459). In this lesson, you will need to download the following five files from the [Portal Project Teaching Dataset](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459):
+-  [messy_survey_data.xls](data/messy_survey_data.xlsx) - this is the main file we will work with. It includes messy survey data
+(in Excel's `.xlsx` format) that you will clean during the lesson and use to learn some best practices in
+data organisation.
+
+
+## Install Microsoft Excel
+
+Microsoft Excel is commonly provided by most institutions with the Microsoft Office suite via an instututional licence. 
+On Windows and MacOS, Microsoft Excel can be downloaded using the Microsoft Store and the App Store respectively. 
+On Linux, you may use Microsoft Excel in a web browser. This is not reccomended and we suggest you use an alterntive such as LibreOffice
+instead. If you do not have access to a Microsoft Office licence, please use an alternative such as LibreOffice.
+
+
+## Install LibreOffice 
+
+In the lesson, Microsoft Excel is used as the spreadsheet software of choice. An alternative spreadsheet software to Microsoft Excel
+is LibreOffice Calc. There will be some commands and formatting options which differ between Calc and Excel, but the general workflow 
+and ideas for thinking about data organisation in spreadsheets are the same.
+
+### Windows
+
+- Download the Installer
+  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Windows should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
+- Once the installer is downloaded, double click on it and an installer for LibreOffice will launch. The default options are fine.
+
+### MacOS
+
+- Download the Installer
+  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for MacOS should automatically be selected, however you may need to switch to the Apple Silicon version. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
+- Once the installer is downloaded, double click on it and drag LibreOffice.app into the Applications folder.
+
+### Linux
+
+- Download the Installer
+  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Linux should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
+- Install LibreOffice using the file you downloaded.
+
+
+# Data Cleaning with OpenRefine
+
 ## Introduction to the Data for this Lesson ##
 The data used in this lesson comes from a project observing a small mammal community in southern
 Arizona, US. This is part of a project studying the effects of rodents and ants on the plant
@@ -53,77 +102,6 @@ community that has been running for almost 40 years. The rodents are sampled on 
 with different experimental manipulations controlling which rodents are allowed to access which plots.
 This is a real dataset that has been used in over 100 publications. It is published at [Ecological Archives](http://esapubs.org/archive/ecol/E090/118/) and can be found on [Portal Project Database](https://github.com/weecology/PortalData). This data is open and free to use for research purposes.
 
-> ## For Interest Only: Portal Project Teaching Dataset
-> [The Portal Project Teaching Database](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459) is a simplified version of the
-> [Portal Project Database](https://github.com/weecology/PortalData) designed for teaching. It provides a real world example of life-history, population, and ecological data, with sufficient complexity to teach many aspects of data analysis and management, but with many complexities removed to allow students to focus on the core ideas and skills being taught. The database is currently available in csv, json, and sqlite formats.
->
-> The Portal Project Teaching Database's GitHub repository can be found at: [https://github.com/weecology/portal-teachingdb](https://github.com/weecology/portal-teachingdb),
-> where suggested changes or additions to this dataset can be requested or contributed.
-> This database is not designed for research as it intentionally removes some of the real-world complexities. The Python code used for converting the original database to this teaching version can be found in [create_portal_teach_dataset.py](https://github.com/weecology/portal-teachingdb/blob/master/create_portal_teaching_dataset.py).
->
-> **CITATION:** Ernest, Morgan; Brown, James; Valone, Thomas; White, Ethan P. (2017): Portal Project Teaching Database. Figshare. [https://doi.org/10.6084/m9.figshare.1314459.v6](https://doi.org/10.6084/m9.figshare.1314459.v6)
-{: .testimonial}
-
-
-## Download Data for Spreadsheets Lesson ##
-
-For the purposes of training, this data has been simplified a bit (you can still download the full dataset and work with it using exactly the same tools we will learn here). This simplified version of data is available from the [Portal Project Teaching Dataset](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459). In this lesson, you will need to download the following five files from the [Portal Project Teaching Dataset](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459):
--  [messy_survey_data.xls](data/messy_survey_data.xlsx) - this is the main file we will work with. It includes messy survey data
-(in Excel's `.xlsx` format) that you will clean during the lesson and use to learn some best practices in
-data organisation.
-- [surveys.csv](https://ndownloader.figshare.com/files/2292172) - the cleaned survey data
-    Fields: `record_id`, `month`, `day`, `year`, `plot_id`, `species_id`, `sex`, `hindfoot_length`, `weight`
-- [plots.csv](https://ndownloader.figshare.com/files/3299474) - clean information on plot number and type
-    Fields: `plot_id`, `plot_type`
-- [species.csv](https://ndownloader.figshare.com/files/3299483) - clean information on species codes and scientific names
-    Fields: `species_id`, `genus`, `species`, `taxa`
-- [combined.csv](https://ndownloader.figshare.com/files/10717186) - clean data from surveys, plots and species data
-files combined into one clean file (a good example of what a clean data file should look like)
-Fields: `record_id`, `month`, `day`, `year`, `plot_id`, `species_id`, `sex`, `hindfoot_length`, `weight`, `genus`,
-`species`, `taxa`, `plot_type`
-
-
-## Install Excel ##
-
-Excel is commonly provided by most institutions via the Microsoft Office suite via an instututional licence. 
-On Windows and Mac Excel can be downloaded using Microsoft Store or the App Store. 
-On Linux systems you can use Excel in a browser (not reccomended) or use an alterntive such as LibreOffice.
-If you do not have acess to a Microsoft offive licence then please see the LibreOffice installation instructions.
-
-
-## Install LibreOffice ##
-
-To interact with spreadsheets, you can use various software - for example Microsoft Excel,
-LibreOffice, Gnumeric, OpenOffice.org, Google Spreadsheets. Commands may differ a bit between programs,
-but the general ideas for thinking about spreadsheets are the same.
-
-For this lesson, if you do not have a spreadsheet program already, you can use a free and open source tool
-[LibreOffice](https://www.libreoffice.org/download/libreoffice-fresh/)
-as it can open Excel spreadsheets, which is the format of the data we will work with during the lesson
-(also all examples used refer to Excel).
-
-### Windows
-
-- Download the Installer
-  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Windows should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
-- Install LibreOffice
-- Once the installer is downloaded, double click on it and LibreOffice should install.
-
-### Mac OS X
-
-- Download the Installer
-  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Mac should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
-- Install LibreOffice
-- Once the installer is downloaded, double click on it and LibreOffice should install.
-
-### Linux
-
-- Download the Installer
-  - Install LibreOffice by going to [the installation page](https://www.libreoffice.org/download/libreoffice-fresh/). The version for Linux should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you do not need to make one. Your download should begin automatically.
-- Install LibreOffice
-- Once the installer is downloaded, double click on it and LibreOffice should install.
-
-# Data Cleaning with OpenRefine
 
 ## Download Data for OpenRefine Lesson ##
 
@@ -210,7 +188,13 @@ If not, [follow the detailed instructions here](https://code.visualstudio.com/do
 
 For this lesson, first you need to be able to open a terminal:
 
-- **On Windows:** run "Git Bash", to install git bash go here [https://gitforwindows.org/](https://gitforwindows.org/) click download and select 'Git-X.XX.X-64-bit.exe' from the assets list.
+- **On Windows:** We'll be using Git Bash. If you've already installed Git Bash then go to the next section. Otherwise, go to [git for windows](https://gitforwindows.org/) and click **Download**, then install it. 
+Most of the options can be left on default, but be sure you check these:
+  - **Choosing the default editor used by Git:** Make sure **Nano** is selected from the drop-down. If you're comfortable with other editors, feel free to change it, but we recommend Nano - we use it as it's present on Windows, Mac *and* Linux. If you change it, you might not quite match what we're doing on-screen.
+  - **Adjusting your PATH environment:** Make sure **Git from the command line and also from 3rd-party software** is selected.
+  - **Choosing HTTPS transport backend:** Make sure **Use the native Windows Secure Channel Library** is selected.
+  - **Configuring the terminal emulator to use with Git Bash:** Make sure **Use Windows' default console window** is selected.
+
 - **On Mac OS X:** accessed by opening the “Terminal” application, which can be found in the “Utilities” folder which is in your “Applications” folder.
 - **On Linux:** this will depend on the Linux distribution you are running, but you should be able to find a "Terminal" application in your desktop's application menu.
 
@@ -219,13 +203,12 @@ For this lesson, first you need to be able to open a terminal:
 ## Git Setup ##
 
 ### Windows
-We'll be using Git Bash for both git and a shell to run it in. If you've already installed Git Bash then go to the next section. Otherwise, go to [git for windows](https://gitforwindows.org/) and click **Download**, then install it. 
+We'll be using Git Bash for both git and a shell to run it in. If you've already installed Git Bash then go to the next section. Otherwise, go to [git for windows](https://gitforwindows.org/) and click **Download**, then install it.
 Most of the options can be left on default, but be sure you check these:
-
-- **Choosing the default editor used by Git:** Make sure **Nano** is selected from the drop-down. If you're comfortable with other editors, feel free to change it, but we recommend Nano - we use it as it's present on Windows, Mac *and* Linux. If you change it, you might not quite match what we're doing on-screen.
-- **Adjusting your PATH environment:** Make sure **Git from the command line and also from 3rd-party software** is selected.
-- **Choosing HTTPS transport backend:** Make sure **Use the native Windows Secure Channel Library** is selected.
-- **Configuring the terminal emulator to use with Git Bash:** Make sure **Use Windows' default console window** is selected.
+  - **Choosing the default editor used by Git:** Make sure **Nano** is selected from the drop-down. If you're comfortable with other editors, feel free to change it, but we recommend Nano - we use it as it's present on Windows, Mac *and* Linux. If you change it, you might not quite match what we're doing on-screen.
+  - **Adjusting your PATH environment:** Make sure **Git from the command line and also from 3rd-party software** is selected.
+  - **Choosing HTTPS transport backend:** Make sure **Use the native Windows Secure Channel Library** is selected.
+  - **Configuring the terminal emulator to use with Git Bash:** Make sure **Use Windows' default console window** is selected.
 
 #### Mac OS
 To use Git you must install the Apple Command Line Tools, this may take a few minutes.  
@@ -252,7 +235,7 @@ your distribution.
 
 ## Download Data for Shell Lesson ##
 
-Type the following into the prompt that appears (pressing enter/return after each line):
+Open a terminal and type the following into the prompt that appears (pressing enter/return after each line):
 
 ~~~
 $ cd
@@ -261,14 +244,6 @@ $ git clone https://github.com/Southampton-RSG-Training/shell-novice.git
 {: .language-bash}
 
 `cd` will move to your home directory, and `git clone` will download a copy of the materials.
-
-Alternatively, if you have SSH authentication with GitHub enabled (if you don't know what this means don't worry, it is covered in the Git SWC course if you want to know more!) you can use the following:
-
-~~~
-$ cd
-$ git clone git@github.com:Southampton-RSG-Training/shell-novice.git
-~~~
-{: .language-bash}
 
 This should download all the content for the lesson to a new directory.
 Please let the instructors know if you run into any problems.
@@ -281,9 +256,7 @@ Please let the instructors know if you run into any problems.
 
 ## Python Setup ##
 
-IDEs: PyCharm, Spyder, VS Code
-
-We use Python 3*. The “Anaconda3” package provides everything Python-related you will need for the workshop. 
+The “Anaconda3” package provides everything Python-related you will need for the workshop. 
 To install [Anaconda](https://www.anaconda.com/products/individual), follow the instructions below.
 
 Some old research projects may be in Python 2 but Python 2 has been retired and new projects should be in Python 3.
@@ -325,10 +298,12 @@ In this case close and reopen git bash and issue the following commands:
 {: .bash}
 ~~~
 cd ~
-echo 'alias python="winpty python.exe"' >> .bashrc
-source .bashrc
+echo 'alias python="winpty python.exe"' >> ~/.bash_profile
+source .bash_profile
 python
 ~~~
+
+Note that for older versions of git bash you will need to use `.bashrc` rather than `.bash_profile`
 
 
 ### Mac OS X

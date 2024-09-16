@@ -3,16 +3,15 @@ lesson_title: 'Best Practices in Data Organisation Using Spreadsheets'
 lesson_schedule_slug: spreadsheets-schedule
 title: "Quality assurance and control"
 slug: spreadsheets-quality-assurance-and-control
-teaching: 10
-exercises: 15
+teaching: 15
+exercises: 5
 questions:
-  - "How can we carry out basic quality control and quality assurance in spreadsheets?"
+  - "How can we carry out basic quality control in spreadsheets?"
 objectives:
-  - "Apply quality control techniques to identify errors in spreadsheets and limit incorrect data entry."
+  - "Apply quality validation techniques to identify errors in spreadsheets and limit incorrect data entry."
 keypoints:
   - "Always copy your original spreadsheet file and work with a copy so you do not affect the raw data."
   - "Use data validation to prevent accidentally entering invalid data."
-  - "Use sorting to check for invalid data."
 ---
 
 When you have a well-structured data table, you can use several simple
@@ -157,7 +156,7 @@ Using a table in this way makes the data entry process more flexible.
 If you add or remove contents from the table, then these are immediately reflected in any new cell entries based on this source.
 You can also have different cells refer to the same table of acceptable inputs.
 
-## Quality control - identifying outliers
+<!-- ## Quality control - identifying outliers
 
 {: .callout}
 
@@ -232,4 +231,4 @@ If your dataset is well-structured and does not contain formulas, sorting should
 > It is nice to be able to do these scans for outliers in spreadsheets (such as using sorting or conditional formatting),
 > but we can also do these
 > checks in a programming languages like R, Python and SQL, or using OpenRefine - which may be even more suitable if you have
-> larger datasets with, e.g., with 10K+ or 100K+ rows which are difficult to scroll down to the bottom of to spot outliers.
+> larger datasets with, e.g., with 10K+ or 100K+ rows which are difficult to scroll down to the bottom of to spot outliers. -->

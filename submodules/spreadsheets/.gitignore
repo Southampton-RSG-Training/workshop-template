@@ -21,3 +21,5 @@ venv/
 .venv/
 assets/favicons/temp/
 _includes/
+submodules/
+.gitmodules

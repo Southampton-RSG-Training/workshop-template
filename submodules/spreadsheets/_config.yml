@@ -79,7 +79,6 @@ cc_by_human: "https://creativecommons.org/licenses/by/4.0/"
 
 # order is critical
 setup_docs:
-  - intro_to_mammal_data.md
   - download_spreadsheets_data.md
   - install_excel.md
   - install_libreoffice.md

@@ -32,6 +32,17 @@ version) is not a good idea. Here are some reasons why:
   accept Excel format (because of the reasons listed above). Instead, these data repositories require files to be
    deposited in one of the formats discussed below.
 
+> ## A note on Python/R and Excel's `.xls`/`.xlxs` formats
+>
+> There are Python and R packages that can read `.xls`/`.xlxs` files.
+> It is even possible to access different
+> worksheets in the Excel spreadsheet documents. However, because these
+> packages parse data tables from proprietary and non-static
+> software, there is no guarantee that they will continue to
+> work on new versions of Excel. Exporting your data to CSV or TSV
+> format is much safer and more reproducible.
+{: .callout}
+
 The above points also apply to other formats such as open data formats used by LibreOffice and Open Office. These
 formats are not static and do not get parsed the same way by different software packages.
 
@@ -53,6 +64,13 @@ tied to a specific version of a specific (potentially expensive) program when we
 it is a good format to work with for maximum portability and endurance. Most spreadsheet programs can save to delimited
 text formats, although they may give you a warning during the file export.
 
+> ## Note on backwards compatibility
+> You can open CSV files in Excel (or LibreOffice)!
+{: .callout}
+
+
+## How to export to CSV
+
 To save a file you have opened in Excel in CSV format:
 
 1. From the top menu select `File` then `Save as`.
@@ -66,22 +84,6 @@ you need to save multiple tabs, you must save each one as its own CSV file.
 
     ![Saving active sheet warning](fig/excel-to-csv-active-sheet.png)
 
-{: .callout}
-> ## Note on backwards compatibility
-> You can open CSV files in Excel (or LibreOffice)!
-
-{: .callout}
-> ## A note on Python/R and Excel's `.xls`/`.xlxs` formats
->
-> There are Python and R packages that can read `.xls`/`.xlxs` files.
-> It is even possible to access different
-> worksheets in the Excel spreadsheet documents. However, because these
-> packages parse data tables from proprietary and non-static
-> software, there is no guarantee that they will continue to
-> work on new versions of Excel. Exporting your data to CSV or TSV
-> format is much safer and more reproducible.
-
-{: .callout}
 > ## Note: when data contains commas
 >
 > In some datasets, the data values themselves may include commas (,). In that
@@ -94,3 +96,4 @@ you need to save multiple tabs, you must save each one as its own CSV file.
 > enclosed with double quotes. This should occur automatically when you export from a spreadsheet program.
 > However, it is always a good idea to double check your CSV after it is saved by opening it in a spreadsheet program
 > and reviewing the columns to ensure that no new ones have been added.
+{: .callout}

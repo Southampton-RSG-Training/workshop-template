@@ -9,14 +9,16 @@ and creates a detailed 00-schedule.md file for each lesson.
 """
 
 import datetime
+import yaml
 import math
+import pandas
 import glob
 import textwrap
+from bs4 import BeautifulSoup as bs
 from pathlib import Path
 import string
-from bs4 import BeautifulSoup as bs
-import yaml
-from dateutil.parser import parse
+from enum import Enum
+import dateutil
 
 
 def get_yaml_config():
@@ -60,7 +62,7 @@ def get_date_object(date_string):
     if date_string.lower() == "tbc":
         return date_string.upper()
     else:
-        return parse(date_string).date()
+        return dateutil.parser.parse(date_string).date()
 
 def get_time_object(time_string):
     """Convert a string into a datetime object.
@@ -232,11 +234,8 @@ def main():
     a detailed syllabus.
     """
     website_config = get_yaml_config()
-    website_kind = website_config.get('kind', None)
-    website_delivery = website_config.get('delivery', None)  # None is fine for lessons, but will raise exception for workshops
-
-    if website_kind is None:
-        raise KeyError("website_kind type has not been specified in _config.yml")
+    website_kind = website_config.get('kind')
+    website_delivery = website_config.get('delivery')
 
     # create generic schedule layout for lessons
 
@@ -244,6 +243,7 @@ def main():
     schedule_sessions = [
         "Registration and Teaching", "Break", "Teaching", "Wrap Up", "Finish"
     ]
+
 
     # Try to parse the start and end date for the workshop, to check that lessons
     # are in the correct time frame. If the date is not a valid date, i.e. if it
@@ -255,10 +255,10 @@ def main():
     # Iterate over each lesson, to add their schedule to the html_schedules string
 
     lessons = website_config.get("lessons", None)
-    if not lessons:
-        raise ValueError("No lessons found in the workshop configuration file (_config.yml)")
     if website_kind == 'lesson':
         lessons = [website_config]  # This is a hack
+    elif not lessons:
+        raise ValueError("No lessons found in the workshop configuration file (_config.yml)")
     lesson_schedules = []
 
     for lesson in lessons:
@@ -269,16 +269,6 @@ def main():
         lesson_start_times = lesson.get("start-time", None)      # can be a list
         lesson_order = lesson.get("order", None)
 
-        # check that the inputs are correct to avoid ambiguous errors later
-        if website_kind not in ['workshop', 'lesson']:
-            raise ValueError(f'website_kind of "{website_kind}" is an unknown kind. Known: workshop, lesson')
-        if website_kind == 'workshop' and website_delivery not in ['dated', 'static']:
-            raise ValueError(
-                f'website_delivery of "{website_delivery}" is an unknown delivery option for workshops. Known: dated, static'
-            )
-
-        # the next two blocks are used to check that all the required options
-        # are provided in the configuration yaml
         if website_kind == 'workshop':
             if website_delivery == 'dated':
                 assrt_opts = (lesson_name, lesson_dates, lesson_title, lesson_start_times)
@@ -295,6 +285,7 @@ def main():
                     raise ValueError(f"gh-name, title, and order are required for a static workshop")
             if website_kind == 'lesson':
                 raise ValueError(f"title and start-time are required for lesson")
+
 
         # Since we allow multiple dates and start times per lesson, we need to be
         # able to iterate over even single values so turn into list. When done,
@@ -351,9 +342,9 @@ def main():
                     # each original entry, and add the schedule table to the html template
 
                     if len(lesson_dates) > 1:
-                        title = f"Day {i + 1}: '{lesson_title}'"
+                        title = f"{lesson_title}: Part {i + 1}"
                     else:
-                        title = f"'{lesson_title}'"
+                        title = f"{lesson_title}"
 
                     table = f"""
                     <div class="col">
@@ -376,7 +367,7 @@ def main():
                 start_time = get_time_object(lesson_start_times[0])
                 start_time_minutes = start_time.hour * 60 + start_time.minute
                 create_detailed_lesson_schedules(lesson_name, lesson_type, start_time_minutes, lesson_title, website_kind)
-            else:
+            elif website_delivery == 'static':
                 path = Path(f"_includes/rsg/{lesson_name}-lesson/blurb.html")
 
                 if path.is_file():
@@ -395,11 +386,11 @@ def main():
                 lesson_schedules.append({"order_on": lesson_order, "schedule": table})
 
                 create_detailed_lesson_schedules(lesson_name, lesson_type, 0, lesson_title,website_kind)
-        else:
+                # make some untimed schedules
+        elif website_kind == 'lesson':
             start_time = get_time_object(lesson_start_times)
             start_time_minutes = start_time.hour * 60 + start_time.minute
             create_detailed_lesson_schedules('', lesson_type, start_time_minutes, lesson_title, website_kind)
-
     if website_kind != 'lesson':
         create_index_schedules(lesson_schedules)
 
