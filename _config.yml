@@ -98,19 +98,19 @@ lessons:
       - 10:00 am
     order: 6
 
-#  - title: Data Analysis and Visualization in R
-#    gh-name: r-novice
-#    type: episode
-#    branch: main
-#    date:
-#      - 15 January 2022
-#      - 16 January 2022
-#      - 17 January 2022
-#    start-time:
-#      - 15:00
-#      - 15:00
-#      - 15:00
-#    order: 7
+  - title: Data Analysis and Visualization in R
+    gh-name: r-novice
+    type: episode
+    branch: main
+    date:
+      - 9 October 2024
+      - 10 October 2024
+      - 11 October 2024
+    start-time:
+      - 09:30
+      - 09:30
+      - 09:30
+    order: 7
 
 ###
 # It is unlikely you need to modify the values below this line

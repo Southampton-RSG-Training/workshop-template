@@ -594,5 +594,3 @@ files before you operate on them!
 > {: .solution}
 >
 {: .challenge}
-
-{% include links.md %}

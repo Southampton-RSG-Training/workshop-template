@@ -473,4 +473,3 @@ We have the following output:
 >
 {: .challenge}
 
-{% include links.md %}

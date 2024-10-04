@@ -218,4 +218,3 @@ wildcard
     the wildcard `*` matches zero or more characters,
     so that `*.txt` matches all files whose names end in `.txt`.
 
-{% include links.md %}

@@ -616,4 +616,3 @@ about them."
 >
 {: .challenge}
 
-{% include links.md %}
